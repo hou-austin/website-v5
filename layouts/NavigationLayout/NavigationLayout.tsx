@@ -2,6 +2,7 @@ import React from "react";
 
 import NavigationBar from "../../components/NavigationBar";
 import cx from "classnames";
+import Footer from "../../components/Footer";
 
 type Props = {
   children?: React.ReactNode;
@@ -9,16 +10,11 @@ type Props = {
 
 const NavigationLayout: React.FC<Props> = ({ children }) => {
   return (
-    <div>
+    <div className={cx("text-black", "dark:text-white")}>
       <NavigationBar />
       <div>
         <div className={cx("max-w-7xl mx-auto px-4")}>{children}</div>
-        <div className={cx("relative")}>
-          <picture className={cx("absolute top-0 flex")}>
-            <source srcSet={`./images/light_streak_180.png`} />
-            <img src={`./images/light_streak_180.png`} />
-          </picture>
-        </div>
+        <Footer />
       </div>
     </div>
   );

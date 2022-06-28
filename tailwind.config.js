@@ -13,7 +13,11 @@ module.exports = {
     fontFamily: {
       sans: ["Montserrat", ...defaultTheme["fontFamily"]["sans"]],
     },
-    extend: {},
+    extend: {
+      gridTemplateColumns: {
+        footer: "auto 1fr",
+      },
+    },
   },
   plugins: [],
   darkMode: "class",

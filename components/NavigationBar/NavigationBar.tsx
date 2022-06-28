@@ -24,7 +24,7 @@ const NavigationBar: React.FC = () => {
         { fixed: true },
         { sticky: false },
         "border-slate-100/10",
-        "dark:border-slate-900/10",
+        "dark:border-slate-700/30",
         { "bg-white/20": scrollPosition === 0 },
         { "dark:bg-black/20": scrollPosition === 0 },
         { "bg-white/60": scrollPosition > 0 },
@@ -33,9 +33,7 @@ const NavigationBar: React.FC = () => {
     >
       <nav
         className={cx(
-          "flex items-center justify-between max-w-7xl mx-auto py-3 px-4 border-slate-900",
-          "text-black",
-          "dark:text-white"
+          "flex items-center justify-between max-w-7xl mx-auto py-3 px-4 border-slate-900"
         )}
       >
         <ul>
@@ -48,7 +46,7 @@ const NavigationBar: React.FC = () => {
         <ul>
           <li>
             <Link href="https://www.github.com/PhoenixFieryn" passHref={true}>
-              <a>Github</a>
+              <a target="_blank">Github</a>
             </Link>
           </li>
         </ul>

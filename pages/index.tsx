@@ -7,18 +7,26 @@ import cx from "classnames";
 const Home: NextPageWithLayout = () => {
   return (
     <div>
-      <div className={cx("-mt-28 z-10 absolute")}>
+      <div className={cx("top-52 z-10 absolute")}>
         <div
           className={cx(
             "drop-shadow-xl text-6xl font-black",
-            "text-black",
+            "text-bold",
             "dark:text-white"
           )}
         >
-          Welcome
+          Hi, I'm a...
         </div>
       </div>
-      <div className={cx("")}></div>
+      <div className={cx("mt-16")}>
+        <div className={cx("font-bold text-5xl")}>Full-Stack Developer</div>
+        <div className={cx("mt-4")}>
+          <div className={cx("text-lg text-center")}>
+            <span></span>
+          </div>
+          <div></div>
+        </div>
+      </div>
     </div>
   );
 };
