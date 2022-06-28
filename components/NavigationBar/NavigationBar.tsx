@@ -20,7 +20,7 @@ const NavigationBar: React.FC = () => {
   return (
     <div
       className={cx(
-        "w-full top-0 border-b duration-500 backdrop-blur-md",
+        "w-full top-0 border-b duration-500 backdrop-blur-md z-50",
         { fixed: true },
         { sticky: false },
         "border-slate-100/10",

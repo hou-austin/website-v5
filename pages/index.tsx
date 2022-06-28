@@ -2,25 +2,35 @@ import React from "react";
 import { NextPageWithLayout } from "./_app";
 import NavigationLayout from "../layouts/NavigationLayout";
 import GradientAnimation from "../components/GradientAnimation";
-import LookingGlassContainer from "../components/LookingGlassContainer";
 import cx from "classnames";
 
 const Home: NextPageWithLayout = () => {
   return (
-      <div>
-
-        <GradientAnimation/>
-        <div className={cx("max-w-7xl mx-auto")}>
-
-          <div className={cx("-mt-20 z-10")}></div>
-          <LookingGlassContainer>Welcome</LookingGlassContainer>
+    <div>
+      <div className={cx("-mt-28 z-10 absolute")}>
+        <div
+          className={cx(
+            "drop-shadow-xl text-6xl font-black",
+            "text-black",
+            "dark:text-white"
+          )}
+        >
+          Welcome
         </div>
       </div>
+      <div className={cx("")}></div>
+    </div>
   );
 };
 
-Home.getLayout = function getLayout (page: React.ReactElement) {
-  return <NavigationLayout>{page}</NavigationLayout>;
+Home.getLayout = function getLayout(page: React.ReactElement) {
+  return (
+    <div>
+      <GradientAnimation />
+
+      <NavigationLayout>{page}</NavigationLayout>
+    </div>
+  );
 };
 
 export default Home;
