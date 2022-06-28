@@ -3,7 +3,7 @@ import cx from "classnames";
 
 const Footer: React.FC = () => {
   return (
-    <footer className={cx("relative h-96")}>
+    <footer className={cx("relative h-96 w-full mt-20")}>
       <div className={cx("absolute bottom-0")}>
         <picture>
           <source srcSet={`./images/light_streak_180_crop.png`} />
@@ -13,13 +13,14 @@ const Footer: React.FC = () => {
 
       <div
         className={cx(
-          "absolute left-0 right-0 bottom-10 mx-auto max-w-7xl mx-auto"
+          "absolute left-0 right-0 bottom-10 max-w-7xl mx-auto px-4"
         )}
       >
         <div
           className={cx(
-            "mx-4 px-4 w-full p-4 border backdrop-blur-md rounded-lg flex flex-col",
-            "dark:bg-black/60 dark:border-slate-700/30"
+            "px-4 w-full p-4 border backdrop-blur rounded-lg flex flex-col shadow-xl",
+            "bg-slate-50/20 border-slate-400/20",
+            "dark:bg-black/20 dark:border-slate-50/20"
           )}
         >
           <div className="grid grid-cols-footer">

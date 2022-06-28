@@ -13,7 +13,7 @@ const NavigationLayout: React.FC<Props> = ({ children }) => {
     <div className={cx("text-black", "dark:text-white")}>
       <NavigationBar />
       <div>
-        <div className={cx("max-w-7xl mx-auto px-4")}>{children}</div>
+        <div className={cx("")}>{children}</div>
         <Footer />
       </div>
     </div>

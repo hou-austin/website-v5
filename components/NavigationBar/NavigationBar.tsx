@@ -24,7 +24,7 @@ const NavigationBar: React.FC = () => {
         { fixed: true },
         { sticky: false },
         "border-slate-100/10",
-        "dark:border-slate-700/30",
+        "dark:border-slate-50/20",
         { "bg-white/20": scrollPosition === 0 },
         { "dark:bg-black/20": scrollPosition === 0 },
         { "bg-white/60": scrollPosition > 0 },

@@ -9,12 +9,12 @@ const LookingGlassContainer: React.FC<Props> = ({ children }) => {
   return (
     <div
       className={cx(
-        "rounded-xl p-8 border w-full",
-        "bg-slate-100 border-slate-100/10",
-        "dark:bg-zinc-900 dark:border-slate-900/10"
+        "px-4 w-full p-4 border rounded-lg flex flex-col shadow-xl backdrop-blur-lg",
+        "bg-slate-50/20 border-slate-400/20",
+        "dark:bg-black/20 dark:border-slate-50/20"
       )}
     >
-      <div className={cx("rounded-sm p-8 bg-gray-900")}>{children}</div>
+      {children}
     </div>
   );
 };
