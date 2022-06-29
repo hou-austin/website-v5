@@ -15,7 +15,7 @@ export type LookingGlassContainerProps = {
 
 type Props = {
   children?: React.ReactNode;
-  lookingGlassContainerProps: LookingGlassContainerProps;
+  lookingGlassContainerProps?: LookingGlassContainerProps;
 };
 
 const LookingGlassContainer: React.FC<Props> = ({
@@ -51,7 +51,7 @@ const LookingGlassContainer: React.FC<Props> = ({
           <div
             key={`bottom-tab-${index}`}
             className={cx(
-              "pt-6 pb-2 px-4 text-sm rounded-lg box-content flex items-end",
+              "pt-6 pb-2 px-4 text-sm rounded-lg flex items-end m-px",
               getColoredGlassStyles({ color: color, types: ["text"] })
             )}
           >
@@ -79,7 +79,7 @@ const LookingGlassContainer: React.FC<Props> = ({
       >
         {children}
       </div>
-      <div className={cx("absolute -bottom-8 ml-4")}>
+      <div className={cx("absolute -bottom-[2.2rem] ml-4")}>
         <div className={cx("flex gap-2 relative")}>
           {propagateBottomTabLabels()}
         </div>

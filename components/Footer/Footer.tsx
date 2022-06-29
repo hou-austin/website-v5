@@ -15,7 +15,7 @@ const Footer: React.FC = () => {
 
       <div
         className={cx(
-          "absolute left-0 right-0 bottom-10 max-w-7xl mx-auto px-4"
+          "absolute left-0 right-0 bottom-0 max-w-7xl mx-auto px-4"
         )}
       >
         <LookingGlassContainer>

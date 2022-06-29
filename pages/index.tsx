@@ -58,11 +58,16 @@ const Home: NextPageWithLayout = () => {
                     color: "purple",
                     href: "https://github.com/PhoenixFieryn/react-ecommerce",
                   },
+                  {
+                    label: "View Demo",
+                    color: "sky",
+                    href: "https://google.com",
+                  },
                 ],
               }}
             >
               <div>
-                <div className="pb-2">
+                <div className="pb-4">
                   <div className={cx("font-semibold text-xl pb-2")}>
                     React eCommerce Shop
                   </div>
@@ -83,15 +88,16 @@ const Home: NextPageWithLayout = () => {
                   </div>
                 </div>
                 <div
-                  className={cx("border-t pt-2", "dark:border-slate-700/30")}
+                  className={cx(
+                    "border-t pt-4",
+                    "dark:border-slate-700/30 flex flex-row gap-2"
+                  )}
                 >
-                  <div
-                    className={cx(
-                      "rounded-full py-1 px-3 text-xs bg-sky-400/10 border border-sky-400/10 w-fit text-sky-400 font-semibold"
-                    )}
-                  >
-                    React
-                  </div>
+                  <TextPill color="sky">React</TextPill>
+                  <TextPill color="red">Firebase</TextPill>
+                  <TextPill color="purple">Strapi</TextPill>
+                  <TextPill>HTML</TextPill>
+                  <TextPill>SCSS</TextPill>
                 </div>
               </div>
             </DetailedImageShowcase>
