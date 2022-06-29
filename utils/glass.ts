@@ -25,6 +25,11 @@ const glassColorLookup: { [key in GlassColors]: { [color: string]: string } } =
       border: `border-purple-400/10`,
       text: `text-purple-400`,
     },
+    green: {
+      bg: `bg-green-400/10`,
+      border: `border-green-400/10`,
+      text: `text-green-400`,
+    },
     auto: {
       bg: `bg-black/10 dark:bg-white/10`,
       border: `border-black/10 dark:border-white/10`,

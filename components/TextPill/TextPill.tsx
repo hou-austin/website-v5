@@ -2,12 +2,12 @@ import React from "react";
 import cx from "classnames";
 import { getColoredGlassStyles } from "../../utils/glass";
 
-type Props = {
-  children?: React.ReactNode;
+export type TextPillProps = {
+  label?: React.ReactNode;
   color?: GlassColors;
 };
 
-const TextPill: React.FC<Props> = ({ children, color }) => {
+const TextPill: React.FC<TextPillProps> = ({ label, color }) => {
   return (
     <div
       className={cx(
@@ -15,7 +15,7 @@ const TextPill: React.FC<Props> = ({ children, color }) => {
         getColoredGlassStyles({ color, types: ["bg", "border", "text"] })
       )}
     >
-      {children}
+      {label}
     </div>
   );
 };

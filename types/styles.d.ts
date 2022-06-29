@@ -1,1 +1,8 @@
-type GlassColors = "white" | "black" | "sky" | "red" | "purple" | "auto";
+type GlassColors =
+  | "white"
+  | "black"
+  | "sky"
+  | "red"
+  | "purple"
+  | "green"
+  | "auto";

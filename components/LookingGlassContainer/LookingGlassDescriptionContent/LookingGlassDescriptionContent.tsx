@@ -1,0 +1,44 @@
+import React from "react";
+import cx from "classnames";
+import TextPill from "../../TextPill";
+import { TextPillProps } from "../../TextPill/TextPill";
+
+type Props = {
+  title: string;
+  children?: React.ReactNode;
+  pillNodes?: TextPillProps[];
+};
+
+const LookingGlassDescriptionContent: React.FC<Props> = (props) => {
+  const title = props.title;
+  const children = props.children;
+  const pillNodes = props.pillNodes;
+
+  const propagatePillNodes = () => {
+    if (pillNodes) {
+      return pillNodes.map((pillNode, index) => {
+        const { label, color } = pillNode;
+        return <TextPill key={`pill-${index}`} color={color} label={label} />;
+      });
+    }
+  };
+
+  return (
+    <div>
+      <div className="pb-4">
+        <div className={cx("font-semibold text-xl pb-2")}>{title}</div>
+        <div className={cx("text-sm ", "dark:text-zinc-300")}>{children}</div>
+      </div>
+      <div
+        className={cx(
+          "border-t pt-4 flex flex-row flex-wrap",
+          "dark:border-slate-700/30 flex flex-row gap-2"
+        )}
+      >
+        {propagatePillNodes()}
+      </div>
+    </div>
+  );
+};
+
+export default LookingGlassDescriptionContent;

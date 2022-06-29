@@ -1,12 +1,175 @@
 import React from "react";
-import Image from "next/image";
 import { NextPageWithLayout } from "./_app";
 import NavigationLayout from "../layouts/NavigationLayout";
 import GradientAnimation from "../components/GradientAnimation";
 import cx from "classnames";
 
 import DetailedImageShowcase from "../components/DetailedImageShowcase";
-import TextPill from "../components/TextPill";
+import LookingGlassDescriptionContent from "../components/LookingGlassContainer/LookingGlassDescriptionContent";
+import PrimarySection from "../components/PrimarySection";
+
+const fullStackDeveloperSection = (
+  <PrimarySection
+    title="Full-Stack Developer"
+    subtitle="I build scalable and maintainable applications, unapologetically
+                modern, yet never abandoning the fundamentals."
+    backgroundImage={"/images/light_streak_3_30_180.png"}
+  >
+    <DetailedImageShowcase
+      imageURL={"/images/spacewaves.png"}
+      lookingGlassContainerProps={{
+        bottomTabs: [
+          {
+            label: "View on Github",
+            color: "purple",
+            href: "https://github.com/PhoenixFieryn/react-ecommerce",
+          },
+          {
+            label: "View Demo",
+            color: "sky",
+            href: "https://google.com",
+          },
+        ],
+      }}
+    >
+      <LookingGlassDescriptionContent
+        title="React eCommerce Shop"
+        pillNodes={[
+          { color: "sky", label: "React" },
+          { color: "sky", label: "SCSS" },
+          { color: "red", label: "Node" },
+          { color: "red", label: "ExpressJS" },
+          { color: "purple", label: "MongoDB" },
+          { color: "green", label: "Javascript" },
+          { label: "HTML" },
+        ]}
+      >
+        <p>
+          Customers can add items to their card, mutate the number of items, and
+          checkout using Stripe. Customers can add items to their card, mutate
+          the number of items, and checkout using Stripe.
+        </p>
+      </LookingGlassDescriptionContent>
+    </DetailedImageShowcase>
+    <DetailedImageShowcase
+      imageURL={"/images/spacewaves.png"}
+      lookingGlassContainerProps={{
+        bottomTabs: [
+          {
+            label: "View on Github",
+            color: "purple",
+            href: "https://github.com/PhoenixFieryn/react-ecommerce",
+          },
+          {
+            label: "View Demo",
+            color: "sky",
+            href: "https://google.com",
+          },
+        ],
+      }}
+    >
+      <LookingGlassDescriptionContent
+        title="React eCommerce Shop"
+        pillNodes={[
+          { color: "sky", label: "React" },
+          { color: "sky", label: "SCSS" },
+          { color: "red", label: "Node" },
+          { color: "red", label: "ExpressJS" },
+          { color: "purple", label: "MongoDB" },
+          { color: "green", label: "Javascript" },
+          { label: "HTML" },
+        ]}
+      >
+        <p>
+          Customers can add items to their card, mutate the number of items, and
+          checkout using Stripe. Customers can add items to their card, mutate
+          the number of items, and checkout using Stripe.
+        </p>
+      </LookingGlassDescriptionContent>
+    </DetailedImageShowcase>
+  </PrimarySection>
+);
+
+const designerSection = (
+  <PrimarySection
+    title="UI/UX Designer and Engineer, Artist"
+    subtitle="Beyond designing the UI/UX, I tackle the user experience with an engineering perspective - building a solution that's not only appealing, but solves an issue."
+    backgroundImage={"/images/light_streak_4_30.png"}
+  >
+    <DetailedImageShowcase
+      imageURL={"/images/spacewaves.png"}
+      lookingGlassContainerProps={{
+        bottomTabs: [
+          {
+            label: "View on Github",
+            color: "purple",
+            href: "https://github.com/PhoenixFieryn/react-ecommerce",
+          },
+          {
+            label: "View Demo",
+            color: "sky",
+            href: "https://google.com",
+          },
+        ],
+      }}
+    >
+      <LookingGlassDescriptionContent
+        title="React eCommerce Shop"
+        pillNodes={[
+          { color: "sky", label: "React" },
+          { color: "sky", label: "SCSS" },
+          { color: "red", label: "Node" },
+          { color: "red", label: "ExpressJS" },
+          { color: "purple", label: "MongoDB" },
+          { color: "green", label: "Javascript" },
+          { label: "HTML" },
+        ]}
+      >
+        <p>
+          Customers can add items to their card, mutate the number of items, and
+          checkout using Stripe. Customers can add items to their card, mutate
+          the number of items, and checkout using Stripe.
+        </p>
+      </LookingGlassDescriptionContent>
+    </DetailedImageShowcase>
+    <DetailedImageShowcase
+      imageURL={"/images/spacewaves.png"}
+      lookingGlassContainerProps={{
+        bottomTabs: [
+          {
+            label: "View on Github",
+            color: "purple",
+            href: "https://github.com/PhoenixFieryn/react-ecommerce",
+          },
+          {
+            label: "View Demo",
+            color: "sky",
+            href: "https://google.com",
+          },
+        ],
+      }}
+    >
+      <LookingGlassDescriptionContent
+        title="React eCommerce Shop"
+        pillNodes={[
+          { color: "sky", label: "React" },
+          { color: "sky", label: "SCSS" },
+          { color: "red", label: "Node" },
+          { color: "red", label: "ExpressJS" },
+          { color: "purple", label: "MongoDB" },
+          { color: "green", label: "Javascript" },
+          { label: "HTML" },
+        ]}
+      >
+        <p>
+          Customers can add items to their card, mutate the number of items, and
+          checkout using Stripe. Customers can add items to their card, mutate
+          the number of items, and checkout using Stripe.
+        </p>
+      </LookingGlassDescriptionContent>
+    </DetailedImageShowcase>
+  </PrimarySection>
+);
 
 const Home: NextPageWithLayout = () => {
   return (
@@ -24,132 +187,9 @@ const Home: NextPageWithLayout = () => {
           </div>
         </div>
       </div>
-      <div className={cx("mt-14")}>
-        <div className={cx("max-w-7xl mx-auto px-4")}>
-          <div className={cx("font-bold text-5xl")}>Full-Stack Developer</div>
-          <div className={cx("mt-5")}>
-            <div className={cx("text-lg")}>
-              <span>
-                I build scalable and maintainable applications, unapologetically
-                modern, yet never abandoning the fundamentals.
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <div className="mt-10 relative py-8 border-t border-slate-50/20">
-          <div className={cx("absolute w-full top-0")}>
-            <picture>
-              <source srcSet={`./images/light_streak_3_30_180.png`} />
-              <img src={`./images/light_streak_3_30_180.png`} />
-            </picture>
-          </div>
-          <div
-            className={cx(
-              "max-w-7xl px-4 mx-auto relative flex flex-col gap-8"
-            )}
-          >
-            <DetailedImageShowcase
-              imageURL={"/images/spacewaves.png"}
-              lookingGlassContainerProps={{
-                bottomTabs: [
-                  {
-                    label: "View on Github",
-                    color: "purple",
-                    href: "https://github.com/PhoenixFieryn/react-ecommerce",
-                  },
-                  {
-                    label: "View Demo",
-                    color: "sky",
-                    href: "https://google.com",
-                  },
-                ],
-              }}
-            >
-              <div>
-                <div className="pb-4">
-                  <div className={cx("font-semibold text-xl pb-2")}>
-                    React eCommerce Shop
-                  </div>
-                  <div className={cx("text-sm ", "dark:text-zinc-300")}>
-                    <ul className={cx("list-disc pl-6 flex gap-1 flex-col")}>
-                      <li>
-                        Built with React, GraphQL, ExpressJs, and MongoDB.
-                      </li>
-                      <li>
-                        Customers can add items to their card, mutate the number
-                        of items, and checkout using Stripe.
-                      </li>
-                      <li>
-                        Shop owners can add items and change product
-                        information, images, and availability.
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <div
-                  className={cx(
-                    "border-t pt-4",
-                    "dark:border-slate-700/30 flex flex-row gap-2"
-                  )}
-                >
-                  <TextPill color="sky">React</TextPill>
-                  <TextPill color="red">Firebase</TextPill>
-                  <TextPill color="purple">Strapi</TextPill>
-                  <TextPill>HTML</TextPill>
-                  <TextPill>SCSS</TextPill>
-                </div>
-              </div>
-            </DetailedImageShowcase>
-            <DetailedImageShowcase
-              imageURL={"/images/spacewaves.png"}
-              lookingGlassContainerProps={{
-                bottomTabs: [
-                  {
-                    label: "View on Github",
-                    color: "purple",
-                    href: "https://github.com/PhoenixFieryn/react-ecommerce",
-                  },
-                ],
-              }}
-            >
-              <div>
-                <div className="pb-4">
-                  <div className={cx("font-semibold text-xl pb-2")}>
-                    React eCommerce Shop
-                  </div>
-                  <div className={cx("text-sm ", "dark:text-zinc-300")}>
-                    <ul className={cx("list-disc pl-6 flex gap-1 flex-col")}>
-                      <li>
-                        Built with React, GraphQL, ExpressJs, and MongoDB.
-                      </li>
-                      <li>
-                        Customers can add items to their card, mutate the number
-                        of items, and checkout using Stripe.
-                      </li>
-                      <li>
-                        Shop owners can add items and change product
-                        information, images, and availability.
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <div
-                  className={cx(
-                    "border-t pt-4",
-                    "dark:border-slate-700/30 flex flex-row gap-2"
-                  )}
-                >
-                  <TextPill color="sky">React</TextPill>
-                  <TextPill color="red">Firebase</TextPill>
-                  <TextPill color="purple">Strapi</TextPill>
-                  <TextPill>HTML</TextPill>
-                  <TextPill>SCSS</TextPill>
-                </div>
-              </div>
-            </DetailedImageShowcase>
-          </div>
-        </div>
+      <div className={cx("mt-14 flex flex-col gap-32")}>
+        {fullStackDeveloperSection}
+        {designerSection}
       </div>
     </div>
   );

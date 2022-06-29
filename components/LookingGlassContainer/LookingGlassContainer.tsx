@@ -27,7 +27,7 @@ const LookingGlassContainer: React.FC<Props> = ({
   const propagateBottomTabs = () => {
     if (bottomTabs) {
       return bottomTabs.map((tab, index) => {
-        const { label, color, href } = tab;
+        const { label, color } = tab;
         return (
           <div
             key={`bottom-tab-${index}`}
@@ -69,10 +69,10 @@ const LookingGlassContainer: React.FC<Props> = ({
   };
 
   return (
-    <div className="relative my-8">
+    <div className="relative my-8 w-full">
       <div
         className={cx(
-          "px-4 w-full p-4 border rounded-lg flex flex-col shadow-xl backdrop-blur-lg backdrop-saturate-200 relative",
+          "px-4 p-4 border rounded-lg flex flex-col shadow-xl backdrop-blur-lg backdrop-saturate-200 relative",
           "bg-slate-50/20 border-slate-400/20",
           "dark:bg-black/20 dark:border-slate-50/20"
         )}
