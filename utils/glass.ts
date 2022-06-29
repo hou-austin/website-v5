@@ -43,7 +43,7 @@ type GetColoredGlassStylesProps = {
 };
 
 export const getColoredGlassStyles = (
-  props: GetColoredGlassStylesProps
+  props: GetColoredGlassStylesProps = {}
 ): string => {
   const color = props?.color ?? "auto";
   const types = props?.types ?? ["bg", "border", "text"];

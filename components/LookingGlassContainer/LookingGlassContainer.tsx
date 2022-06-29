@@ -50,7 +50,7 @@ const LookingGlassContainer: React.FC<Props> = ({
   };
 
   return (
-    <div className="my-8 w-full grid grid-cols-1">
+    <div className={cx("w-full grid grid-cols-1", { "my-8": !bottomTabs })}>
       <div
         className={cx(
           "px-4 p-4 border rounded-lg col-start-1 row-start-1 flex flex-col shadow-xl backdrop-blur-lg backdrop-saturate-200 relative z-10",
@@ -59,9 +59,11 @@ const LookingGlassContainer: React.FC<Props> = ({
       >
         {children}
       </div>
-      <div className={cx("top-0 h-full row-start-1 col-start-1")}>
-        <div className={cx("flex gap-2 h-full")}>{propagateBottomTabs()}</div>
-      </div>
+      {bottomTabs && (
+        <div className={cx("top-0 h-full row-start-1 col-start-1")}>
+          <div className={cx("flex gap-2 h-full")}>{propagateBottomTabs()}</div>
+        </div>
+      )}
     </div>
   );
 };

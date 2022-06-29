@@ -100,29 +100,53 @@ const designerSection = (
     subtitle="Beyond designing the UI/UX, I tackle the user experience with an engineering perspective - building solutions that are not only appealing, but solves practical issues."
     backgroundImage={"/images/light_streak_4_30.png"}
   >
-    <div className={"grid grid-cols-3 w-full py-8"}>
-      <Image
-        src={"/images/spacewaves.png"}
-        className={"drop-shadow-xl rotate3d-right rounded-lg"}
-      />
-      <Image
-        src={"/images/spacewaves.png"}
-        className={"drop-shadow-2xl z-10 rounded-lg"}
-      />
-      <Image
-        src={"/images/spacewaves.png"}
-        className={"drop-shadow-xl rotate3d-left rounded-lg"}
-      />
+    <div></div>
+    <div className={"grid grid-cols-3 w-full"}>
+      <div className="py-4">
+        <Image
+          src={"https://picsum.photos/300/200?random"}
+          className={"drop-shadow-xl rotate3d-right rounded-lg w-full"}
+        />
+      </div>
+
+      <div className="py-4  z-10 ">
+        <Image
+          src={"https://picsum.photos/300/200?random"}
+          className={"drop-shadow-2xl rounded-lg w-full"}
+        />
+      </div>
+
+      <div className="py-4">
+        <Image
+          src={"https://picsum.photos/300/200?random"}
+          className={"drop-shadow-xl rotate3d-left rounded-lg w-full"}
+        />
+      </div>
     </div>
     <div
       className={cx(
-        getColoredGlassStyles({ color: "white" }),
-        "px-6 py-2 rounded-full border-2 w-fit mx-auto flex flex-row gap-2 items-center cursor-pointer"
+        getColoredGlassStyles(),
+        "px-6 py-2 rounded-full border-2 w-fit my-4 mx-auto flex flex-row gap-2 items-center cursor-pointer"
       )}
     >
       Gallery <HiChevronRight />
     </div>
-    <LookingGlassContainer>Text</LookingGlassContainer>
+    <LookingGlassContainer>
+      <LookingGlassDescriptionContent
+        title="Tools and Equipment Used"
+        pillNodes={[
+          { label: "Photoshop", color: "sky" },
+          { label: "Illustrator", color: "sky" },
+          { label: "After Effects", color: "red" },
+          { label: "Red Giant TRAPCODE", color: "red" },
+          { label: "Cinema4D", color: "green" },
+          { label: "Octane Render", color: "green" },
+          { label: "Pixel Sort" },
+          { label: "Wacom Intuos Pro" },
+          { label: "Sony α6300" },
+        ]}
+      ></LookingGlassDescriptionContent>
+    </LookingGlassContainer>
   </PrimarySection>
 );
 
@@ -149,24 +173,6 @@ const Home: NextPageWithLayout = () => {
     </div>
   );
 };
-
-// const moreDetails = `<div className={cx("w-full absolute -bottom-8 px-4 -z-10")}>
-//                 <div
-//                   className={cx(
-//                     "mx-auto max-w-xs px-4 pt-1 pb-1 rounded-lg flex justify-center shadow-lg",
-//                     "bg-blue-600"
-//                   )}
-//                 >
-//                   <span
-//                     className={cx(
-//                       "text-xs font-semibold uppercase",
-//                       "text-white"
-//                     )}
-//                   >
-//                     More Details
-//                   </span>
-//                 </div>
-//               </div>`;
 
 Home.getLayout = function getLayout(page: React.ReactElement) {
   return (

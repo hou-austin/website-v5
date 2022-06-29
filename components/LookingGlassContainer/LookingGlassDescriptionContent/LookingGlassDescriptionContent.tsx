@@ -27,13 +27,15 @@ const LookingGlassDescriptionContent: React.FC<Props> = (props) => {
   return (
     <div>
       <div className="pb-4">
-        <div className={cx("font-semibold text-xl pb-2")}>{title}</div>
+        <div className={cx("font-semibold text-xl", { "pb-2": !!children })}>
+          {title}
+        </div>
         <div className={cx("text-sm ", "dark:text-zinc-300")}>{children}</div>
       </div>
       <div
         className={cx(
-          "border-t pt-4 flex flex-row flex-wrap",
-          "flex flex-row gap-2",
+          "flex flex-row flex-wrap gap-2",
+          { "border-t pt-4": !!children },
           getMonoGlassStyles({ types: ["border"] })
         )}
       >
