@@ -54,3 +54,47 @@ export const getColoredGlassStyles = (
     return `${acc} ${styles[type]}`;
   }, "");
 };
+
+const glassMonoLookup: {
+  [key in GlassMono]: { [color: string]: string };
+} = {
+  white: {
+    bg: `bg-zinc-50/50`,
+    border: `border-zinc-400/20`,
+  },
+  black: {
+    bg: `dark:bg-zinc-800/30`,
+    border: `dark:border-slate-50/20`,
+  },
+};
+
+type GetMonoGlassStylesProps = {
+  mono?: GlassMono;
+  types?: ("bg" | "border")[];
+};
+
+export const getMonoGlassStyles = (
+  props: GetMonoGlassStylesProps = {}
+): string => {
+  const mono = props?.mono;
+  const types = props?.types ?? ["bg", "border"];
+
+  if (!mono) {
+    const result = [];
+    for (const [, styles] of Object.entries(glassMonoLookup)) {
+      result.push(
+        types.reduce((acc, type) => {
+          return `${acc} ${styles[type]}`;
+        }, "")
+      );
+    }
+
+    return result.join(" ");
+  }
+
+  const styles = glassMonoLookup[mono];
+
+  return types.reduce((acc, type) => {
+    return `${acc} ${styles[type]}`;
+  }, "");
+};

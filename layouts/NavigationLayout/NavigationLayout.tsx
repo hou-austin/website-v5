@@ -12,7 +12,7 @@ const NavigationLayout: React.FC<Props> = ({ children }) => {
   return (
     <div className={cx("text-black", "dark:text-white")}>
       <NavigationBar />
-      <div>
+      <div className="overflow-hidden">
         <div className={cx("")}>{children}</div>
         <Footer />
       </div>

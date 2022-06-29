@@ -6,3 +6,5 @@ type GlassColors =
   | "purple"
   | "green"
   | "auto";
+
+type GlassMono = "white" | "black";

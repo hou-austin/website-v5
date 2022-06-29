@@ -6,6 +6,9 @@ const nextConfig = {
       allowFutureImage: true,
     },
   },
+  images: {
+    domains: ["picsum.photos"],
+  },
 };
 
 module.exports = nextConfig;

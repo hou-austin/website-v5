@@ -33,3 +33,19 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.rotate3d-right {
+  transform: perspective(500px) rotate3d(0, 1, 0, 15deg) translateX(10%);
+}
+
+.rotate3d-left {
+  transform: perspective(500px) rotate3d(0, 1, 0, -15deg) translateX(-10%);
+}
+
+.hover-move-down:hover {
+  transform: translateY(0.2rem);
+}
+
+.hover-move-down:active {
+  transform: translateY(0.2rem) rotate3d(1, 0, 0, -15deg) perspective(500px);
+}

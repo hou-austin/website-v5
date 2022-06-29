@@ -2,6 +2,7 @@ import React from "react";
 import cx from "classnames";
 import TextPill from "../../TextPill";
 import { TextPillProps } from "../../TextPill/TextPill";
+import { getMonoGlassStyles } from "../../../utils/glass";
 
 type Props = {
   title: string;
@@ -32,7 +33,8 @@ const LookingGlassDescriptionContent: React.FC<Props> = (props) => {
       <div
         className={cx(
           "border-t pt-4 flex flex-row flex-wrap",
-          "dark:border-slate-700/30 flex flex-row gap-2"
+          "flex flex-row gap-2",
+          getMonoGlassStyles({ types: ["border"] })
         )}
       >
         {propagatePillNodes()}

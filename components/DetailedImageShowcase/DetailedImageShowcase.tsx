@@ -18,7 +18,7 @@ const DetailedImageShowcase: React.FC<Props> = ({
 }) => {
   return (
     <div className={cx("grid grid-cols-12 gap-8")}>
-      <div className={cx("col-span-7")}>
+      <div className={cx("col-start-1 col-span-8 row-start-1")}>
         <div className="flex items-center h-full relative">
           <LookingGlassContainer
             lookingGlassContainerProps={lookingGlassContainerProps}
@@ -27,8 +27,13 @@ const DetailedImageShowcase: React.FC<Props> = ({
           </LookingGlassContainer>
         </div>
       </div>
-      <div className={cx("col-span-5 flex items-center")}>
-        <Image src={imageURL} className="rounded-lg shadow-xl" />
+      <div
+        className={cx("col-start-8 col-end-13 row-start-1 flex items-center")}
+      >
+        <Image
+          src={imageURL}
+          className="rounded-lg shadow-xl w-full rotate3d-left-sm -z-10"
+        />
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import cx from "classnames";
+import { getMonoGlassStyles } from "../../utils/glass";
 
 const NavigationBar: React.FC = () => {
   const [scrollPosition, setScrollPosition] = React.useState(0);
@@ -23,8 +24,7 @@ const NavigationBar: React.FC = () => {
         "w-full top-0 border-b duration-500 backdrop-blur-md z-50",
         { fixed: true },
         { sticky: false },
-        "border-slate-100/10",
-        "dark:border-slate-50/20",
+        getMonoGlassStyles({ types: ["border"] }),
         { "bg-white/20": scrollPosition === 0 },
         { "dark:bg-black/20": scrollPosition === 0 },
         { "bg-white/60": scrollPosition > 0 },

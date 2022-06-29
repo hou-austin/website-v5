@@ -1,23 +1,17 @@
 import React from "react";
-import Image from "next/image";
+import Image from "next/future/image";
 import cx from "classnames";
 import LookingGlassContainer from "../LookingGlassContainer";
 
 const Footer: React.FC = () => {
   return (
-    <footer className={cx("relative h-96 w-full mt-20")}>
-      <div className={cx("absolute bottom-0")}>
-        <picture>
-          <source srcSet={`./images/light_streak_180_crop.png`} />
-          <img src={`./images/light_streak_180_crop.png`} />
-        </picture>
-      </div>
-
-      <div
-        className={cx(
-          "absolute left-0 right-0 bottom-0 max-w-7xl mx-auto px-4"
-        )}
-      >
+    <footer className={cx("relative w-full mt-96 pb-4")}>
+      <Image
+        src={`/images/light_streak_180_crop.png`}
+        className={cx("absolute bottom-0 -z-10")}
+        alt=""
+      />
+      <div className={cx("max-w-7xl mx-auto px-4")}>
         <LookingGlassContainer>
           <div className="grid grid-cols-footer">
             <div

@@ -19,7 +19,10 @@ const PrimarySection: React.FC<Props> = (props) => {
         <div className={cx("mt-5 text-lg")}>{subtitle}</div>
       </div>
       <div className="mt-10 relative py-8 border-t border-slate-50/20">
-        <Image src={backgroundImage} className={cx("absolute w-full top-0")} />
+        <Image
+          src={backgroundImage}
+          className={cx("absolute w-full top-0 -z-10")}
+        />
         <div
           className={cx("max-w-7xl px-4 mx-auto relative flex flex-col gap-8")}
         >

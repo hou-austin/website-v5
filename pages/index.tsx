@@ -3,10 +3,14 @@ import { NextPageWithLayout } from "./_app";
 import NavigationLayout from "../layouts/NavigationLayout";
 import GradientAnimation from "../components/GradientAnimation";
 import cx from "classnames";
+import Image from "next/future/image";
+import { HiChevronRight } from "react-icons/hi";
 
 import DetailedImageShowcase from "../components/DetailedImageShowcase";
 import LookingGlassDescriptionContent from "../components/LookingGlassContainer/LookingGlassDescriptionContent";
 import PrimarySection from "../components/PrimarySection";
+import LookingGlassContainer from "../components/LookingGlassContainer";
+import { getColoredGlassStyles } from "../utils/glass";
 
 const fullStackDeveloperSection = (
   <PrimarySection
@@ -52,7 +56,7 @@ const fullStackDeveloperSection = (
       </LookingGlassDescriptionContent>
     </DetailedImageShowcase>
     <DetailedImageShowcase
-      imageURL={"/images/spacewaves.png"}
+      imageURL={"https://picsum.photos/300/200?random"}
       lookingGlassContainerProps={{
         bottomTabs: [
           {
@@ -93,81 +97,32 @@ const fullStackDeveloperSection = (
 const designerSection = (
   <PrimarySection
     title="UI/UX Designer and Engineer, Artist"
-    subtitle="Beyond designing the UI/UX, I tackle the user experience with an engineering perspective - building a solution that's not only appealing, but solves an issue."
+    subtitle="Beyond designing the UI/UX, I tackle the user experience with an engineering perspective - building solutions that are not only appealing, but solves practical issues."
     backgroundImage={"/images/light_streak_4_30.png"}
   >
-    <DetailedImageShowcase
-      imageURL={"/images/spacewaves.png"}
-      lookingGlassContainerProps={{
-        bottomTabs: [
-          {
-            label: "View on Github",
-            color: "purple",
-            href: "https://github.com/PhoenixFieryn/react-ecommerce",
-          },
-          {
-            label: "View Demo",
-            color: "sky",
-            href: "https://google.com",
-          },
-        ],
-      }}
+    <div className={"grid grid-cols-3 w-full py-8"}>
+      <Image
+        src={"/images/spacewaves.png"}
+        className={"drop-shadow-xl rotate3d-right rounded-lg"}
+      />
+      <Image
+        src={"/images/spacewaves.png"}
+        className={"drop-shadow-2xl z-10 rounded-lg"}
+      />
+      <Image
+        src={"/images/spacewaves.png"}
+        className={"drop-shadow-xl rotate3d-left rounded-lg"}
+      />
+    </div>
+    <div
+      className={cx(
+        getColoredGlassStyles({ color: "white" }),
+        "px-6 py-2 rounded-full border-2 w-fit mx-auto flex flex-row gap-2 items-center cursor-pointer"
+      )}
     >
-      <LookingGlassDescriptionContent
-        title="React eCommerce Shop"
-        pillNodes={[
-          { color: "sky", label: "React" },
-          { color: "sky", label: "SCSS" },
-          { color: "red", label: "Node" },
-          { color: "red", label: "ExpressJS" },
-          { color: "purple", label: "MongoDB" },
-          { color: "green", label: "Javascript" },
-          { label: "HTML" },
-        ]}
-      >
-        <p>
-          Customers can add items to their card, mutate the number of items, and
-          checkout using Stripe. Customers can add items to their card, mutate
-          the number of items, and checkout using Stripe.
-        </p>
-      </LookingGlassDescriptionContent>
-    </DetailedImageShowcase>
-    <DetailedImageShowcase
-      imageURL={"/images/spacewaves.png"}
-      lookingGlassContainerProps={{
-        bottomTabs: [
-          {
-            label: "View on Github",
-            color: "purple",
-            href: "https://github.com/PhoenixFieryn/react-ecommerce",
-          },
-          {
-            label: "View Demo",
-            color: "sky",
-            href: "https://google.com",
-          },
-        ],
-      }}
-    >
-      <LookingGlassDescriptionContent
-        title="React eCommerce Shop"
-        pillNodes={[
-          { color: "sky", label: "React" },
-          { color: "sky", label: "SCSS" },
-          { color: "red", label: "Node" },
-          { color: "red", label: "ExpressJS" },
-          { color: "purple", label: "MongoDB" },
-          { color: "green", label: "Javascript" },
-          { label: "HTML" },
-        ]}
-      >
-        <p>
-          Customers can add items to their card, mutate the number of items, and
-          checkout using Stripe. Customers can add items to their card, mutate
-          the number of items, and checkout using Stripe.
-        </p>
-      </LookingGlassDescriptionContent>
-    </DetailedImageShowcase>
+      Gallery <HiChevronRight />
+    </div>
+    <LookingGlassContainer>Text</LookingGlassContainer>
   </PrimarySection>
 );
 
@@ -187,7 +142,7 @@ const Home: NextPageWithLayout = () => {
           </div>
         </div>
       </div>
-      <div className={cx("mt-14 flex flex-col gap-32")}>
+      <div className={cx("mb-8 flex flex-col gap-32")}>
         {fullStackDeveloperSection}
         {designerSection}
       </div>
