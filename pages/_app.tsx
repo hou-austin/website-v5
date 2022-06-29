@@ -4,7 +4,6 @@ import type { AppProps } from "next/app";
 
 import "../styles/globals.css";
 import { ThemeProvider } from "next-themes";
-import cx from "classnames";
 
 export type NextPageWithLayout = NextPage & {
   getLayout?: (page: ReactElement) => ReactNode;

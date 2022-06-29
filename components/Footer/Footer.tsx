@@ -1,5 +1,7 @@
 import React from "react";
+import Image from "next/image";
 import cx from "classnames";
+import LookingGlassContainer from "../LookingGlassContainer";
 
 const Footer: React.FC = () => {
   return (
@@ -16,13 +18,7 @@ const Footer: React.FC = () => {
           "absolute left-0 right-0 bottom-10 max-w-7xl mx-auto px-4"
         )}
       >
-        <div
-          className={cx(
-            "px-4 w-full p-4 border backdrop-blur rounded-lg flex flex-col shadow-xl",
-            "bg-slate-50/20 border-slate-400/20",
-            "dark:bg-black/20 dark:border-slate-50/20"
-          )}
-        >
+        <LookingGlassContainer>
           <div className="grid grid-cols-footer">
             <div
               className={cx(
@@ -53,7 +49,7 @@ const Footer: React.FC = () => {
           >
             Made with ❤️ by Austin Hou, 2022
           </div>
-        </div>
+        </LookingGlassContainer>
       </div>
     </footer>
   );

@@ -8,6 +8,7 @@ module.exports = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
+    "./utils/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     fontFamily: {
@@ -16,6 +17,12 @@ module.exports = {
     extend: {
       gridTemplateColumns: {
         footer: "auto 1fr",
+      },
+      dropShadow: {
+        "drop-shadow-lg-white": "0 10px 8px rgb(255, 255, 255 / 0.04)",
+      },
+      pointerEvents: {
+        "pointer-events-all": "all",
       },
     },
   },
