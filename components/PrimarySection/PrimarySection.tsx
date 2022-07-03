@@ -21,10 +21,13 @@ const PrimarySection: React.FC<Props> = (props) => {
       <div className="mt-10 relative py-8 border-t border-slate-50/20">
         <Image
           src={backgroundImage}
-          className={cx("absolute w-full top-0 -z-10")}
+          className={cx("absolute w-full top-0")}
+          alt=""
         />
         <div
-          className={cx("max-w-7xl px-4 mx-auto relative flex flex-col gap-8")}
+          className={cx(
+            "max-w-7xl px-4 mx-auto relative flex flex-col gap-8 max-h-screen overflow-hidden"
+          )}
         >
           {children}
         </div>
