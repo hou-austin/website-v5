@@ -1,8 +1,9 @@
-@import "fonts.css";
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import "fonts.css";
+@import "glass.css";
 
 /*#gradient-canvas {*/
 /*  --gradient-color-1: #6ec3f4;*/

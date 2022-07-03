@@ -25,10 +25,10 @@ const NavigationBar: React.FC = () => {
         { fixed: true },
         { sticky: false },
         getMonoGlassStyles({ types: ["border"] }),
-        { "bg-white/20": scrollPosition === 0 },
-        { "dark:bg-black/20": scrollPosition === 0 },
-        { "bg-white/60": scrollPosition > 0 },
-        { "dark:bg-black/60": scrollPosition > 0 }
+        { "glass-nav-white-bg-1": scrollPosition === 0 },
+        { "glass-nav-dark-bg-1": scrollPosition === 0 },
+        { "glass-nav-white-bg-2": scrollPosition > 0 },
+        { "glass-nav-dark-bg-2": scrollPosition > 0 }
       )}
     >
       <nav

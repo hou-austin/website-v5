@@ -1,0 +1,45 @@
+@tailwind utilities;
+
+@layer utilities {
+  .glass-white-bg {
+    @apply bg-zinc-50/50;
+  }
+
+  .glass-black-bg {
+    @apply bg-zinc-800/30;
+  }
+
+  .glass-nav-white-bg-1 {
+    @apply bg-white/20;
+  }
+
+  .glass-nav-white-bg-2 {
+    @apply bg-white/60;
+  }
+
+  .glass-nav-dark-bg-1 {
+    @apply dark:bg-black/20;
+  }
+
+  .glass-nav-dark-bg-2 {
+    @apply dark:bg-black/60;
+  }
+
+  @supports not (backdrop-filter: blur(1px)) {
+    .glass-black-bg {
+      @apply dark:bg-zinc-800/90;
+    }
+
+    .glass-white-bg {
+      @apply bg-zinc-50/90;
+    }
+
+    .glass-nav-white-bg-2 {
+      @apply bg-white;
+    }
+
+    .glass-nav-dark-bg-2 {
+      @apply dark:bg-black;
+    }
+  }
+}

@@ -59,11 +59,11 @@ const glassMonoLookup: {
   [key in GlassMono]: { [color: string]: string };
 } = {
   white: {
-    bg: `bg-zinc-50/50`,
+    bg: `glass-white-bg`,
     border: `border-zinc-400/20`,
   },
   black: {
-    bg: `dark:bg-zinc-800/30`,
+    bg: `glass-black-bg`,
     border: `dark:border-slate-50/20`,
   },
 };
