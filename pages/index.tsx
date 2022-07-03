@@ -11,6 +11,7 @@ import LookingGlassDescriptionContent from "../components/LookingGlassContainer/
 import PrimarySection from "../components/PrimarySection";
 import LookingGlassContainer from "../components/LookingGlassContainer";
 import { getColoredGlassStyles } from "../utils/glass";
+import Button from "../components/Button";
 
 const fullStackDeveloperSection = (
   <PrimarySection
@@ -39,13 +40,13 @@ const fullStackDeveloperSection = (
       <LookingGlassDescriptionContent
         title="React eCommerce Shop"
         pillNodes={[
-          { color: "sky", label: "React" },
-          { color: "sky", label: "SCSS" },
-          { color: "red", label: "Node" },
-          { color: "red", label: "ExpressJS" },
-          { color: "purple", label: "MongoDB" },
-          { color: "green", label: "Javascript" },
-          { label: "HTML" },
+          { color: "sky", children: "React" },
+          { color: "sky", children: "SCSS" },
+          { color: "red", children: "Node" },
+          { color: "red", children: "ExpressJS" },
+          { color: "purple", children: "MongoDB" },
+          { color: "green", children: "Javascript" },
+          { children: "HTML" },
         ]}
       >
         <p>
@@ -75,13 +76,13 @@ const fullStackDeveloperSection = (
       <LookingGlassDescriptionContent
         title="React eCommerce Shop"
         pillNodes={[
-          { color: "sky", label: "React" },
-          { color: "sky", label: "SCSS" },
-          { color: "red", label: "Node" },
-          { color: "red", label: "ExpressJS" },
-          { color: "purple", label: "MongoDB" },
-          { color: "green", label: "Javascript" },
-          { label: "HTML" },
+          { color: "sky", children: "React" },
+          { color: "sky", children: "SCSS" },
+          { color: "red", children: "Node" },
+          { color: "red", children: "ExpressJS" },
+          { color: "purple", children: "MongoDB" },
+          { color: "green", children: "Javascript" },
+          { children: "HTML" },
         ]}
       >
         <p>
@@ -111,13 +112,13 @@ const fullStackDeveloperSection = (
       <LookingGlassDescriptionContent
         title="React eCommerce Shop"
         pillNodes={[
-          { color: "sky", label: "React" },
-          { color: "sky", label: "SCSS" },
-          { color: "red", label: "Node" },
-          { color: "red", label: "ExpressJS" },
-          { color: "purple", label: "MongoDB" },
-          { color: "green", label: "Javascript" },
-          { label: "HTML" },
+          { color: "sky", children: "React" },
+          { color: "sky", children: "SCSS" },
+          { color: "red", children: "Node" },
+          { color: "red", children: "ExpressJS" },
+          { color: "purple", children: "MongoDB" },
+          { color: "green", children: "Javascript" },
+          { children: "HTML" },
         ]}
       >
         <p>
@@ -162,27 +163,25 @@ const designerSection = (
         />
       </div>
     </div>
-    <div
-      className={cx(
-        getColoredGlassStyles(),
-        "px-6 py-2 rounded-full border-2 w-fit my-4 mx-auto flex flex-row gap-2 items-center cursor-pointer"
-      )}
-    >
-      Gallery <HiChevronRight />
+    <div className="mx-auto">
+      <Button size="md" href="/gallery">
+        Gallery <HiChevronRight />
+      </Button>
     </div>
+
     <LookingGlassContainer>
       <LookingGlassDescriptionContent
         title="Tools and Equipment Used"
         pillNodes={[
-          { label: "Photoshop", color: "sky" },
-          { label: "Illustrator", color: "sky" },
-          { label: "After Effects", color: "red" },
-          { label: "Red Giant TRAPCODE", color: "red" },
-          { label: "Cinema4D", color: "green" },
-          { label: "Octane Render", color: "green" },
-          { label: "Pixel Sort" },
-          { label: "Wacom Intuos Pro" },
-          { label: "Sony α6300" },
+          { children: "Photoshop", color: "sky" },
+          { children: "Illustrator", color: "sky" },
+          { children: "After Effects", color: "red" },
+          { children: "Red Giant TRAPCODE", color: "red" },
+          { children: "Cinema4D", color: "green" },
+          { children: "Octane Render", color: "green" },
+          { children: "Pixel Sort" },
+          { children: "Wacom Intuos Pro" },
+          { children: "Sony α6300" },
         ]}
       ></LookingGlassDescriptionContent>
     </LookingGlassContainer>

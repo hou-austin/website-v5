@@ -1,13 +1,13 @@
 import React from "react";
 import cx from "classnames";
-import TextPill from "../../TextPill";
-import { TextPillProps } from "../../TextPill/TextPill";
+import Button from "../../Button";
+import { ButtonProps } from "../../Button/Button";
 import { getMonoGlassStyles } from "../../../utils/glass";
 
 type Props = {
   title?: string;
   children?: React.ReactNode;
-  pillNodes?: TextPillProps[];
+  pillNodes?: ButtonProps[];
   footerLabel?: string;
 };
 
@@ -20,8 +20,12 @@ const LookingGlassDescriptionContent: React.FC<Props> = (props) => {
   const propagatePillNodes = () => {
     if (pillNodes) {
       return pillNodes.map((pillNode, index) => {
-        const { label, color } = pillNode;
-        return <TextPill key={`pill-${index}`} color={color} label={label} />;
+        const { children, color } = pillNode;
+        return (
+          <Button key={`pill-${index}`} color={color}>
+            {children}
+          </Button>
+        );
       });
     }
   };

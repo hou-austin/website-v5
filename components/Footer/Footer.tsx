@@ -18,15 +18,15 @@ const Footer: React.FC = () => {
         <LookingGlassContainer>
           <LookingGlassDescriptionContent
             pillNodes={[
-              { label: "React/Next.JS", color: "sky" },
-              { label: "TailwindCSS", color: "sky" },
-              { label: "Photoshop", color: "sky" },
-              { label: "Node", color: "red" },
-              { label: "TypeScript", color: "green" },
-              { label: "Javascript", color: "green" },
-              { label: "HTML" },
-              { label: "CSS" },
-              { label: "Made with ❤️ by Austin Hou - 2022" },
+              { children: "React/Next.JS", color: "sky" },
+              { children: "TailwindCSS", color: "sky" },
+              { children: "Photoshop", color: "sky" },
+              { children: "Node", color: "red" },
+              { children: "TypeScript", color: "green" },
+              { children: "Javascript", color: "green" },
+              { children: "HTML" },
+              { children: "CSS" },
+              { children: "Made with ❤️ by Austin Hou - 2022" },
             ]}
           >
             <div className="grid grid-cols-footer">

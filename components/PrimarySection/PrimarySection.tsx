@@ -26,7 +26,7 @@ const PrimarySection: React.FC<Props> = (props) => {
         />
         <div
           className={cx(
-            "max-w-7xl px-4 mx-auto relative flex flex-col gap-8 max-h-screen overflow-hidden"
+            "max-w-7xl px-4 mx-auto relative flex flex-col gap-8 max-h-screen"
           )}
         >
           {children}
