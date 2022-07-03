@@ -32,7 +32,7 @@ const LookingGlassContainer: React.FC<Props> = ({
           <div
             key={`bottom-tab-${index}`}
             className={cx(
-              "h-full pt-[1.6rem] pb-2 px-4 text-sm rounded-lg border backdrop-blur-xl backdrop-saturate-200 box-content flex items-end hover-move-down duration-500 sm:w-fit justify-center",
+              "h-full pt-[1.6rem] pb-2 px-4 text-sm rounded-lg border box-content flex items-end hover-move-down duration-500 sm:w-fit justify-center",
               "w-full",
               getColoredGlassStyles({ color })
             )}
@@ -58,7 +58,7 @@ const LookingGlassContainer: React.FC<Props> = ({
     >
       <div
         className={cx(
-          "px-4 p-4 border rounded-lg col-start-1 row-start-1 flex flex-col shadow-xl backdrop-blur-lg relative z-10",
+          "px-4 p-4 border rounded-lg col-start-1 row-start-1 flex flex-col shadow-xl  backdrop-blur-lg relative z-10",
           getMonoGlassStyles()
         )}
       >

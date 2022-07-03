@@ -1,5 +1,5 @@
 import React from "react";
-import Image from "next/image";
+import Image from "next/future/image";
 import cx from "classnames";
 
 type Props = {
@@ -7,10 +7,17 @@ type Props = {
   subtitle?: string;
   backgroundImage: string;
   children?: React.ReactNode;
+  priority?: boolean;
 };
 
 const PrimarySection: React.FC<Props> = (props) => {
-  const { title, subtitle, backgroundImage, children } = props;
+  const {
+    title,
+    subtitle,
+    backgroundImage,
+    children,
+    priority = false,
+  } = props;
 
   return (
     <div className={cx("mt-14")}>
@@ -18,17 +25,20 @@ const PrimarySection: React.FC<Props> = (props) => {
         <div className={cx("font-bold text-5xl break-words")}>{title}</div>
         <div className={cx("mt-5 text-lg break-words")}>{subtitle}</div>
       </div>
-      <div className="mt-10 relative py-8 border-t border-slate-50/20">
+      <div className="mt-10 py-8 border-t border-slate-50/20 relative">
         <Image
           src={backgroundImage}
           alt=""
-          width={2560}
-          height={1440}
-          layout="fill"
+          width={1920}
+          height={1080}
+          {...(priority && { priority: true })}
+          className={
+            "absolute top-0 max-w-7xl left-0 right-0 mx-auto overflow-hidden"
+          }
         />
         <div
           className={cx(
-            "max-w-7xl px-4 mx-auto relative flex flex-col sm:gap-8 gap-4"
+            "top-0 max-w-7xl px-4 mx-auto flex flex-col sm:gap-8 gap-4"
           )}
         >
           {children}

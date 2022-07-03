@@ -3,7 +3,7 @@ import { NextPageWithLayout } from "./_app";
 import NavigationLayout from "../layouts/NavigationLayout";
 import GradientAnimation from "../components/GradientAnimation";
 import cx from "classnames";
-import Image from "next/image";
+import Image from "next/future/image";
 import { HiChevronRight } from "react-icons/hi";
 
 import DetailedImageShowcase from "../components/DetailedImageShowcase";
@@ -18,10 +18,11 @@ const fullStackDeveloperSection = (
     title="Full-Stack Developer"
     subtitle="I build scalable and maintainable applications, unapologetically
                 modern, yet never abandoning the fundamentals."
-    backgroundImage={"/images/light_streak_3_30_180.png"}
+    backgroundImage={"/images/light_streak_5_small.png"}
+    priority
   >
     <DetailedImageShowcase
-      imageURL={"/images/spacewaves.png"}
+      imageURL={"/images/spacewaves.jpg"}
       lookingGlassContainerProps={{
         bottomTabs: [
           {
@@ -138,7 +139,7 @@ const designerSection = (
   <PrimarySection
     title="UI/UX Designer and Artist"
     subtitle="Beyond designing the UI/UX, I tackle the user experience with an engineering perspective - building solutions that are not only appealing, but solves practical issues."
-    backgroundImage={"/images/light_streak_4_30.png"}
+    backgroundImage={"/images/light_streak_1_fade_small.png"}
   >
     <div
       className={
@@ -202,6 +203,10 @@ const Home: NextPageWithLayout = () => {
     <div>
       <Head>
         <title>Austin Hou - Home</title>
+        <meta
+          name="description"
+          content="Full stack software engineer, UI/UX designer, artist, and perhaps with too many hobbies."
+        />
       </Head>
       <div className={cx("max-w-7xl mx-auto px-4")}>
         <div className={cx("top-52 z-10 absolute")}>

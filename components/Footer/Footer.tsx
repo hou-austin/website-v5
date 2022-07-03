@@ -2,19 +2,22 @@ import React from "react";
 import Image from "next/future/image";
 import cx from "classnames";
 import LookingGlassContainer from "../LookingGlassContainer";
-import FooterImage from "../../public/images/light_streak_180_crop.png";
+import FooterImage from "../../public/images/light_streak_180_fade_crop.png";
 import LookingGlassDescriptionContent from "../LookingGlassContainer/LookingGlassDescriptionContent";
 import { getMonoGlassStyles } from "../../utils/glass";
 
 const Footer: React.FC = () => {
   return (
-    <footer className={cx("relative w-full pb-4 mt-12", "sm:mt-96")}>
+    <footer className={cx("relative w-full mt-12", "sm:mt-40")}>
       <Image
         src={FooterImage}
-        className={cx("absolute bottom-0 -z-10")}
         alt=""
+        width={1920}
+        height={1080}
+        className="absolute -bottom-4 -z-10 max-w-7xl left-0 right-0 mx-auto"
       />
-      <div className={cx("max-w-7xl mx-auto px-4")}>
+
+      <div className={cx("max-w-7xl mx-auto px-4 mb-4")}>
         <LookingGlassContainer>
           <LookingGlassDescriptionContent
             pillNodes={[
