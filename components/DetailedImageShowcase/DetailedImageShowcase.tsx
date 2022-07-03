@@ -1,5 +1,5 @@
 import React from "react";
-import Image from "next/future/image";
+import Image from "next/image";
 
 import LookingGlassContainer from "../LookingGlassContainer";
 import cx from "classnames";
@@ -17,8 +17,34 @@ const DetailedImageShowcase: React.FC<Props> = ({
   lookingGlassContainerProps,
 }) => {
   return (
-    <div className={"grid grid-cols-12 gap-8"}>
-      <div className={"col-start-1 col-span-8 row-start-1"}>
+    <div
+      className={cx(
+        "sm:grid sm:gap-8 sm:grid-cols-12",
+        "flex flex-col relative"
+      )}
+    >
+      <div
+        className={cx(
+          "flex items-center px-2 w-full h-full shadow-xl rounded-image",
+          "lg:col-start-8 lg:col-end-13 lg:row-start-1",
+          "md:col-start-7 md:col-end-13 md:row-start-1",
+          "sm:col-start-6 sm:col-end-13 sm:row-start-1"
+        )}
+      >
+        <Image
+          src={imageURL}
+          alt="showcase image"
+          width={800}
+          height={450}
+          layout="intrinsic"
+          sizes="(max-width: 500px) 40vw, 25vw"
+        />
+      </div>
+      <div
+        className={
+          "sm:col-start-1 sm:col-span-8 sm:row-start-1 sm:top-0 -top-8 relative"
+        }
+      >
         <div className="flex items-center h-full relative">
           <LookingGlassContainer
             lookingGlassContainerProps={lookingGlassContainerProps}
@@ -26,13 +52,6 @@ const DetailedImageShowcase: React.FC<Props> = ({
             {children}
           </LookingGlassContainer>
         </div>
-      </div>
-      <div className={"col-start-8 col-end-13 row-start-1 flex items-center"}>
-        <Image
-          src={imageURL}
-          className="rounded-lg shadow-xl w-full rotate3d-left-sm"
-          alt="showcase image"
-        />
       </div>
     </div>
   );

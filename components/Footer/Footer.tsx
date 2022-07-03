@@ -8,7 +8,7 @@ import { getMonoGlassStyles } from "../../utils/glass";
 
 const Footer: React.FC = () => {
   return (
-    <footer className={cx("relative w-full mt-96 pb-4")}>
+    <footer className={cx("relative w-full pb-4 mt-12", "sm:mt-96")}>
       <Image
         src={FooterImage}
         className={cx("absolute bottom-0 -z-10")}

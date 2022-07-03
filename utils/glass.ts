@@ -1,12 +1,12 @@
 const glassColorLookup: { [key in GlassColors]: { [color: string]: string } } =
   {
     white: {
-      bg: `bg-white/10`,
+      bg: `bg-zinc-400/10`,
       border: `border-white/10`,
       text: `text-white`,
     },
     black: {
-      bg: `bg-black/10`,
+      bg: `bg-zinc-400/10`,
       border: `border-black/10`,
       text: `text-black`,
     },
@@ -31,9 +31,9 @@ const glassColorLookup: { [key in GlassColors]: { [color: string]: string } } =
       text: `text-green-400`,
     },
     auto: {
-      bg: `bg-black/10 dark:bg-white/10`,
-      border: `border-black/10 dark:border-white/10`,
-      text: `text-black dark:text-white`,
+      bg: `bg-zinc-400/10 dark:bg-zinc-400/10`,
+      border: `border-zinc-400/10 dark:border-zinc-400/10`,
+      text: `text-zinc-800 dark:text-zinc-200`,
     },
   };
 

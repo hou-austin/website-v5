@@ -34,6 +34,10 @@ a {
   box-sizing: border-box;
 }
 
+.safari-transform-fix {
+  transform: translateZ(0);
+}
+
 .rotate3d-right {
   transform: perspective(500px) rotate3d(0, 1, 0, 15deg) translateX(10%);
 }
@@ -48,4 +52,12 @@ a {
 
 .hover-move-down:active {
   transform: translateY(0.2rem) rotate3d(1, 0, 0, -15deg) perspective(500px);
+}
+
+.rounded-image img {
+  @apply rounded-lg;
+}
+
+.drop-shadow-image-lg img {
+  @apply drop-shadow-2xl;
 }

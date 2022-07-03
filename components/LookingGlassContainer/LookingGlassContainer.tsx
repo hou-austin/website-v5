@@ -22,7 +22,7 @@ const LookingGlassContainer: React.FC<Props> = ({
   children,
   lookingGlassContainerProps,
 }) => {
-  const bottomTabs = lookingGlassContainerProps?.bottomTabs ?? [];
+  const bottomTabs = lookingGlassContainerProps?.bottomTabs;
 
   const propagateBottomTabs = () => {
     if (bottomTabs) {
@@ -32,7 +32,8 @@ const LookingGlassContainer: React.FC<Props> = ({
           <div
             key={`bottom-tab-${index}`}
             className={cx(
-              "h-full pt-[1.6rem] pb-2 px-4 text-sm rounded-lg border backdrop-blur-xl backdrop-saturate-200 box-content flex items-end hover-move-down duration-500",
+              "h-full pt-[1.6rem] pb-2 px-4 text-sm rounded-lg border backdrop-blur-xl backdrop-saturate-200 box-content flex items-end hover-move-down duration-500 sm:w-fit justify-center",
+              "w-full",
               getColoredGlassStyles({ color })
             )}
           >
@@ -50,10 +51,14 @@ const LookingGlassContainer: React.FC<Props> = ({
   };
 
   return (
-    <div className={cx("w-full grid grid-cols-1", { "my-8": !bottomTabs })}>
+    <div
+      className={cx("w-full grid grid-cols-1 safari-transform-fix", {
+        "my-4": !!bottomTabs,
+      })}
+    >
       <div
         className={cx(
-          "px-4 p-4 border rounded-lg col-start-1 row-start-1 flex flex-col shadow-xl backdrop-blur-lg backdrop-saturate-200 relative z-10",
+          "px-4 p-4 border rounded-lg col-start-1 row-start-1 flex flex-col shadow-xl backdrop-blur-lg relative z-10",
           getMonoGlassStyles()
         )}
       >

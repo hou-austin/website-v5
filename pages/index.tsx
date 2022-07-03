@@ -3,15 +3,15 @@ import { NextPageWithLayout } from "./_app";
 import NavigationLayout from "../layouts/NavigationLayout";
 import GradientAnimation from "../components/GradientAnimation";
 import cx from "classnames";
-import Image from "next/future/image";
+import Image from "next/image";
 import { HiChevronRight } from "react-icons/hi";
 
 import DetailedImageShowcase from "../components/DetailedImageShowcase";
 import LookingGlassDescriptionContent from "../components/LookingGlassContainer/LookingGlassDescriptionContent";
 import PrimarySection from "../components/PrimarySection";
 import LookingGlassContainer from "../components/LookingGlassContainer";
-import { getColoredGlassStyles } from "../utils/glass";
 import Button from "../components/Button";
+import Head from "next/head";
 
 const fullStackDeveloperSection = (
   <PrimarySection
@@ -52,12 +52,15 @@ const fullStackDeveloperSection = (
         <p>
           Customers can add items to their card, mutate the number of items, and
           checkout using Stripe. Customers can add items to their card, mutate
-          the number of items, and checkout using Stripe.
+          the number of items, and checkout using Stripe. Customers can add
+          items to their card, mutate the number of items, and checkout using
+          Stripe. Customers can add items to their card, mutate the number of
+          items, and checkout using Stripe.
         </p>
       </LookingGlassDescriptionContent>
     </DetailedImageShowcase>
     <DetailedImageShowcase
-      imageURL={"https://picsum.photos/300/200?random"}
+      imageURL={"https://picsum.photos/800/450?random"}
       lookingGlassContainerProps={{
         bottomTabs: [
           {
@@ -93,7 +96,7 @@ const fullStackDeveloperSection = (
       </LookingGlassDescriptionContent>
     </DetailedImageShowcase>
     <DetailedImageShowcase
-      imageURL={"https://picsum.photos/300/200?random"}
+      imageURL={"https://picsum.photos/800/450?random"}
       lookingGlassContainerProps={{
         bottomTabs: [
           {
@@ -137,29 +140,35 @@ const designerSection = (
     subtitle="Beyond designing the UI/UX, I tackle the user experience with an engineering perspective - building solutions that are not only appealing, but solves practical issues."
     backgroundImage={"/images/light_streak_4_30.png"}
   >
-    <div></div>
-    <div className={"grid grid-cols-3 w-full"}>
+    <div
+      className={
+        "grid grid-cols-3 w-full safari-transform-fix rounded-image drop-shadow-image-lg"
+      }
+    >
       <div className="py-4 rotate3d-right">
         <Image
-          src={"https://picsum.photos/300/200?random"}
-          className={"drop-shadow-xl rounded-lg w-full"}
+          src={"https://picsum.photos/800/450?random"}
           alt="gallery showcase image"
+          width={800}
+          height={450}
         />
       </div>
 
       <div className="py-4 z-10">
         <Image
-          src={"https://picsum.photos/300/200?random"}
-          className={"drop-shadow-2xl rounded-lg w-full"}
+          src={"https://picsum.photos/800/450?random"}
           alt="gallery showcase image"
+          width={800}
+          height={450}
         />
       </div>
 
       <div className="py-4 rotate3d-left">
         <Image
-          src={"https://picsum.photos/300/200?random"}
-          className={"drop-shadow-xl rounded-lg w-full"}
+          src={"https://picsum.photos/800/450?random"}
           alt="gallery showcase image"
+          width={800}
+          height={450}
         />
       </div>
     </div>
@@ -191,6 +200,9 @@ const designerSection = (
 const Home: NextPageWithLayout = () => {
   return (
     <div>
+      <Head>
+        <title>Austin Hou - Home</title>
+      </Head>
       <div className={cx("max-w-7xl mx-auto px-4")}>
         <div className={cx("top-52 z-10 absolute")}>
           <div
@@ -204,7 +216,7 @@ const Home: NextPageWithLayout = () => {
           </div>
         </div>
       </div>
-      <div className={cx("mb-8 flex flex-col gap-32")}>
+      <div className={cx("mb-8 flex flex-col sm:gap-32")}>
         {fullStackDeveloperSection}
         {designerSection}
       </div>

@@ -40,7 +40,11 @@ const Button: React.FC<ButtonProps> = ({
   );
 
   if (href) {
-    return <Link href={href}>{button}</Link>;
+    return (
+      <Link href={href}>
+        <a>{button}</a>
+      </Link>
+    );
   }
 
   return button;
