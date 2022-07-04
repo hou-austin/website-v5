@@ -6,7 +6,7 @@
   }
 
   .glass-black-bg {
-    @apply bg-zinc-900/40;
+    @apply dark:bg-zinc-900/40;
   }
 
   .glass-nav-white-bg-1 {

@@ -190,7 +190,7 @@ const designerSection = (
           { children: "Cinema4D", color: "green" },
           { children: "Octane Render", color: "green" },
           { children: "Pixel Sort" },
-          { children: "Wacom Intuos Pro" },
+          { children: "Wacom Tablet" },
           { children: "Sony α6300" },
         ]}
       ></LookingGlassDescriptionContent>
