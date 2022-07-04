@@ -2,6 +2,9 @@
   "name": "website-v5",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=16"
+  },
   "scripts": {
     "preinstall": "npx only-allow yarn",
     "dev": "next dev",
