@@ -33,12 +33,12 @@ const PrimarySection: React.FC<Props> = (props) => {
           height={1080}
           {...(priority && { priority: true })}
           className={
-            "absolute top-0 max-w-7xl left-0 right-0 mx-auto overflow-hidden"
+            "absolute top-0 max-w-7xl left-0 right-0 mx-auto overflow-hidden -z-10"
           }
         />
         <div
           className={cx(
-            "top-0 max-w-7xl px-4 mx-auto flex flex-col sm:gap-8 gap-4"
+            "top-0 max-w-7xl px-4 mx-auto flex flex-col sm:gap-8 gap-4 z-10"
           )}
         >
           {children}

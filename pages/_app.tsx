@@ -19,7 +19,7 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   return (
     <ThemeProvider
       storageKey="theme"
-      defaultTheme="dark"
+      defaultTheme="system"
       themes={["light", "dark"]}
       attribute="class"
     >

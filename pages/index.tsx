@@ -198,6 +198,85 @@ const designerSection = (
   </PrimarySection>
 );
 
+const hobbySection = (
+  <PrimarySection
+    title="Full-Time Hobbyist"
+    subtitle=""
+    backgroundImage={"/images/light_streak_7.png"}
+  >
+    <LookingGlassContainer>
+      <LookingGlassDescriptionContent
+        title="Speaker Projects"
+        pillNodes={[
+          { children: "Audio Engineering", color: "red" },
+          { children: "OnShape CAD", color: "red" },
+          { children: "Carpentry" },
+        ]}
+      >
+        I design and build high quality speaker systems for my personal use.
+      </LookingGlassDescriptionContent>
+    </LookingGlassContainer>
+    <LookingGlassContainer>
+      <LookingGlassDescriptionContent
+        title="Building Tools and Guides for Communities"
+        pillNodes={[
+          { children: "Javascript", color: "green" },
+          { children: "JQuery", color: "green" },
+          { children: "HTML" },
+          { children: "CSS" },
+          { children: "Data-mining" },
+        ]}
+      >
+        In the past, I&apos;ve created tools and guides for gaming communities
+        to use. It was incredibly rewarding to share my knowledge with the
+        community, learn from other knowledgeable individuals, as well as taking
+        feedback and acting on it.
+      </LookingGlassDescriptionContent>
+    </LookingGlassContainer>
+    <LookingGlassContainer>
+      <LookingGlassDescriptionContent
+        title="Leading Teams for Hackathons and Non-Profits"
+        pillNodes={[
+          { children: "React", color: "sky" },
+          { children: "Storybook", color: "sky" },
+          { children: "Photoshop", color: "sky" },
+          { children: "Illustrator", color: "sky" },
+          { children: "Node.JS", color: "red" },
+          { children: "ExpressJS", color: "red" },
+          { children: "EJS", color: "red" },
+          { children: "Heroku", color: "red" },
+          { children: "Firebase", color: "red" },
+          { children: "Javascript", color: "green" },
+          { children: "HTML" },
+          { children: "CSS" },
+          { children: "Teaching" },
+          { children: "Project Management" },
+        ]}
+      >
+        I&apos;ve spearheaded teams for hackathons and non-profits to create an
+        impact on communities as well as my peers. In these projects, I&apos;ve
+        taken president, project manager, as well as mentor roles.
+      </LookingGlassDescriptionContent>
+    </LookingGlassContainer>
+    <LookingGlassContainer>
+      <LookingGlassDescriptionContent
+        title="Bird Watching"
+        pillNodes={[{ children: "Sony α6300" }]}
+      >
+        I enjoy taking a break from work and technology to observe, feed, and
+        house birds in my backyard. It&apos;s extremely rewarding to gain their
+        trust where they will comfortably flitter around me.
+      </LookingGlassDescriptionContent>
+    </LookingGlassContainer>
+    <LookingGlassContainer>
+      <LookingGlassDescriptionContent title="Livestreaming">
+        In the past, I have been a live streamer on Twitch. It was a wonderful
+        opportunity to make friends and build a closely-knit community.
+      </LookingGlassDescriptionContent>
+    </LookingGlassContainer>
+  </PrimarySection>
+);
+
 const Home: NextPageWithLayout = () => {
   return (
     <div>
@@ -224,6 +303,7 @@ const Home: NextPageWithLayout = () => {
       <div className={cx("mb-8 flex flex-col sm:gap-32")}>
         {fullStackDeveloperSection}
         {designerSection}
+        {hobbySection}
       </div>
     </div>
   );
