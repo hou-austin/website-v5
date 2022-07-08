@@ -21,9 +21,6 @@ module.exports = {
       dropShadow: {
         "drop-shadow-lg-white": "0 10px 8px rgb(255, 255, 255 / 0.04)",
       },
-      pointerEvents: {
-        "pointer-events-all": "all",
-      },
     },
   },
   plugins: [],
