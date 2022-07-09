@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import cx from "classnames";
-import { getMonoGlassStyles } from "../../utils/glass";
+import { getAccentColor } from "../../utils/styles/color";
 
 const NavigationBar: React.FC = () => {
   const [scrollPosition, setScrollPosition] = React.useState(0);
@@ -24,7 +24,7 @@ const NavigationBar: React.FC = () => {
         "w-full top-0 border-b duration-500 backdrop-blur-md z-50",
         { fixed: true },
         { sticky: false },
-        getMonoGlassStyles({ types: ["border"] }),
+        getAccentColor({ color: "autoS400O10", types: ["border"] }),
         { "glass-nav-white-bg-1": scrollPosition === 0 },
         { "glass-nav-dark-bg-1": scrollPosition === 0 },
         { "glass-nav-white-bg-2": scrollPosition > 0 },

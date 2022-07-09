@@ -1,11 +1,11 @@
 import React from "react";
 import cx from "classnames";
-import { getColoredGlassStyles, getMonoGlassStyles } from "../../utils/glass";
+import { getAccentColor, getThemeColor } from "../../utils/styles/color";
 import Link from "next/link";
 
 type BottomTabProps = {
   label: string;
-  color: GlassColors;
+  color: AccentColorStyles;
   href?: string;
 };
 
@@ -34,7 +34,7 @@ const LookingGlassContainer: React.FC<Props> = ({
             className={cx(
               "h-full pt-[1.6rem] pb-2 px-4 text-sm rounded-lg border box-content flex items-end hover-move-down duration-500 sm:w-fit justify-center",
               "w-full",
-              getColoredGlassStyles({ color })
+              getAccentColor({ color })
             )}
           >
             {href ? (
@@ -58,8 +58,8 @@ const LookingGlassContainer: React.FC<Props> = ({
     >
       <div
         className={cx(
-          "px-4 p-4 border rounded-lg col-start-1 row-start-1 flex flex-col shadow-xl  backdrop-blur-lg relative z-10",
-          getMonoGlassStyles()
+          "px-4 p-4 border rounded-lg col-start-1 row-start-1 flex flex-col shadow-xl backdrop-blur-lg relative z-10",
+          getThemeColor({ color: "autoTransparent" })
         )}
       >
         {children}

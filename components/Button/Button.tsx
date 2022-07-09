@@ -1,53 +1,127 @@
 import React from "react";
-import cx from "classnames";
-import { getColoredGlassStyles } from "../../utils/glass";
 import Link from "next/link";
+import cx from "classnames";
+import { getAccentColor, GetAccentColorProps } from "../../utils/styles/color";
+
+const GAP_CLASSES = {
+  sm: "gap-2",
+  md: "gap-4",
+};
+
+const PADDING_CLASSES = {
+  sm: "px-3 py-1",
+  md: "px-4 py-2",
+};
+
+const BORDER_CLASSES = {
+  sm: "border",
+  md: "border-2",
+};
+
+const RADIUS_CLASSES = {
+  sm: "rounded-sm",
+  md: "rounded",
+  full: "rounded-full",
+};
+
+const FONT_SIZE_CLASSES = {
+  sm: "text-xs",
+  md: "text-sm",
+};
+
+const FONT_WEIGHTS_CLASSES = {
+  sm: "font-medium",
+  md: "font-semibold",
+};
+
+type Sizes = "sm" | "md";
+
+type optionalSizes = string | Sizes;
+
+type ButtonOptionalStyles = {
+  gapStyle?: optionalSizes;
+  paddingStyle?: optionalSizes;
+  borderStyle?: optionalSizes;
+  radiusStyle: optionalSizes | "full";
+  fontSize?: optionalSizes;
+  fontWeight?: optionalSizes;
+  textTransform?: "uppercase" | "lowercase" | "capitalize";
+};
 
 export type ButtonProps = {
   children?: React.ReactNode;
-  color?: GlassColors;
-  href?: string;
-  size?: "sm" | "md";
+  colorStyle: GetAccentColorProps;
+  buttonStyles?: ButtonOptionalStyles;
+  className?: string;
+  action?: string | (() => void);
 };
 
 const Button: React.FC<ButtonProps> = ({
   children,
-  color,
-  href,
-  size = "sm",
+  colorStyle,
+  buttonStyles,
+  className = "",
+  action,
 }) => {
-  const getSizeClasses = () => {
-    switch (size) {
-      case "sm":
-        return "py-1 px-3 text-xs border";
-      case "md":
-        return "py-2 px-4 text-sm border-2";
-      default:
-        return "";
-    }
+  const {
+    gapStyle = "sm",
+    paddingStyle = "sm",
+    borderStyle = "sm",
+    radiusStyle,
+    fontSize = "sm",
+    fontWeight = "sm",
+    textTransform: textTransformClass,
+  } = buttonStyles || {};
+
+  const getClass = (lookup: { [key: string]: string }, propStyle: string) => {
+    return Object.values(lookup).includes(propStyle)
+      ? lookup[propStyle as keyof typeof lookup]
+      : propStyle;
   };
 
-  const button = (
-    <div
-      className={cx(
-        "rounded-full font-semibold flex flex-row items-center gap-1 w-fit",
-        getSizeClasses(),
-        getColoredGlassStyles({ color, types: ["bg", "border", "text"] })
-      )}
-    >
-      {children}
-    </div>
+  const defaultClass = "flex items-center justify-center w-fit";
+  const gapClass = getClass(GAP_CLASSES, gapStyle);
+  const colorClass = getAccentColor(colorStyle);
+  const paddingClass = getClass(PADDING_CLASSES, paddingStyle);
+  const borderClass = getClass(BORDER_CLASSES, borderStyle);
+  const radiusClass = radiusStyle ? getClass(RADIUS_CLASSES, radiusStyle) : "";
+  const fontSizeClass = getClass(FONT_SIZE_CLASSES, fontSize);
+  const fontWeightClass = getClass(FONT_WEIGHTS_CLASSES, fontWeight);
+
+  const generatedClasses = [
+    defaultClass,
+    gapClass,
+    colorClass,
+    paddingClass,
+    borderClass,
+    radiusClass,
+    fontSizeClass,
+    fontWeightClass,
+    textTransformClass,
+  ];
+  const composedClasses = cx(
+    className,
+    ...(!buttonStyles ? generatedClasses : [])
   );
 
-  if (href) {
+  const button = (
+    <button
+      className={composedClasses}
+      {...(action && typeof action !== "string" && { onClick: action })}
+    >
+      {children}
+    </button>
+  );
+
+  if (action && typeof action === "string") {
     return (
-      <Link href={href}>
+      <Link href={action}>
         <a>{button}</a>
       </Link>
     );
+  } else {
+    return button;
   }
-
-  return button;
 };
 
 export default Button;

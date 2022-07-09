@@ -27,12 +27,12 @@ const fullStackDeveloperSection = (
         bottomTabs: [
           {
             label: "View on Github",
-            color: "purple",
+            color: "purpleS400O10",
             href: "https://github.com/PhoenixFieryn/react-ecommerce",
           },
           {
             label: "View Demo",
-            color: "sky",
+            color: "skyS400O10",
             href: "https://google.com",
           },
         ],
@@ -40,15 +40,15 @@ const fullStackDeveloperSection = (
     >
       <LookingGlassDescriptionContent
         title="React eCommerce Shop"
-        pillNodes={[
-          { color: "sky", children: "React" },
-          { color: "sky", children: "SCSS" },
-          { color: "red", children: "Node" },
-          { color: "red", children: "ExpressJS" },
-          { color: "purple", children: "MongoDB" },
-          { color: "green", children: "Javascript" },
-          { children: "HTML" },
-        ]}
+        // pillNodes={[
+        //   { color: "skyTransparentLg", children: "React" },
+        //   { color: "skyTransparentLg", children: "SCSS" },
+        //   { color: "redTransparentLg", children: "Node" },
+        //   { color: "redTransparentLg", children: "ExpressJS" },
+        //   { color: "purpleTransparentLg", children: "MongoDB" },
+        //   { color: "greenTransparentLg", children: "Javascript" },
+        //   { children: "HTML" },
+        // ]}
       >
         <p>
           Customers can add items to their card, mutate the number of items, and
@@ -66,12 +66,12 @@ const fullStackDeveloperSection = (
         bottomTabs: [
           {
             label: "View on Github",
-            color: "purple",
+            color: "purpleS400O10",
             href: "https://github.com/PhoenixFieryn/react-ecommerce",
           },
           {
             label: "View Demo",
-            color: "sky",
+            color: "skyS400O10",
             href: "https://google.com",
           },
         ],
@@ -79,15 +79,15 @@ const fullStackDeveloperSection = (
     >
       <LookingGlassDescriptionContent
         title="React eCommerce Shop"
-        pillNodes={[
-          { color: "sky", children: "React" },
-          { color: "sky", children: "SCSS" },
-          { color: "red", children: "Node" },
-          { color: "red", children: "ExpressJS" },
-          { color: "purple", children: "MongoDB" },
-          { color: "green", children: "Javascript" },
-          { children: "HTML" },
-        ]}
+        // pillNodes={[
+        //   { color: "skyTransparentLg", children: "React" },
+        //   { color: "skyTransparentLg", children: "SCSS" },
+        //   { color: "redTransparentLg", children: "Node" },
+        //   { color: "redTransparentLg", children: "ExpressJS" },
+        //   { color: "purpleTransparentLg", children: "MongoDB" },
+        //   { color: "greenTransparentLg", children: "Javascript" },
+        //   { children: "HTML" },
+        // ]}
       >
         <p>
           Customers can add items to their card, mutate the number of items, and
@@ -102,12 +102,12 @@ const fullStackDeveloperSection = (
         bottomTabs: [
           {
             label: "View on Github",
-            color: "purple",
+            color: "purpleS400O10",
             href: "https://github.com/PhoenixFieryn/react-ecommerce",
           },
           {
             label: "View Demo",
-            color: "sky",
+            color: "skyS400O10",
             href: "https://google.com",
           },
         ],
@@ -115,15 +115,15 @@ const fullStackDeveloperSection = (
     >
       <LookingGlassDescriptionContent
         title="React eCommerce Shop"
-        pillNodes={[
-          { color: "sky", children: "React" },
-          { color: "sky", children: "SCSS" },
-          { color: "red", children: "Node" },
-          { color: "red", children: "ExpressJS" },
-          { color: "purple", children: "MongoDB" },
-          { color: "green", children: "Javascript" },
-          { children: "HTML" },
-        ]}
+        // pillNodes={[
+        //   { color: "skyTransparentLg", children: "React" },
+        //   { color: "skyTransparentLg", children: "SCSS" },
+        //   { color: "redTransparentLg", children: "Node" },
+        //   { color: "redTransparentLg", children: "ExpressJS" },
+        //   { color: "purpleTransparentLg", children: "MongoDB" },
+        //   { color: "greenTransparentLg", children: "Javascript" },
+        //   { children: "HTML" },
+        // ]}
       >
         <p>
           Customers can add items to their card, mutate the number of items, and
@@ -174,25 +174,25 @@ const designerSection = (
       </div>
     </div>
     <div className="mx-auto">
-      <Button size="md" href="/gallery">
-        Gallery <HiChevronRight />
-      </Button>
+      {/*<Button size="md" href="/gallery">*/}
+      {/*  Gallery <HiChevronRight />*/}
+      {/*</Button>*/}
     </div>
 
     <LookingGlassContainer>
       <LookingGlassDescriptionContent
         title="Tools and Equipment Used"
-        pillNodes={[
-          { children: "Photoshop", color: "sky" },
-          { children: "Illustrator", color: "sky" },
-          { children: "After Effects", color: "red" },
-          { children: "Red Giant TRAPCODE", color: "red" },
-          { children: "Cinema4D", color: "green" },
-          { children: "Octane Render", color: "green" },
-          { children: "Pixel Sort" },
-          { children: "Wacom Tablet" },
-          { children: "Sony α6300" },
-        ]}
+        // pillNodes={[
+        //   { children: "Photoshop", color: "skyTransparentLg" },
+        //   { children: "Illustrator", color: "skyTransparentLg" },
+        //   { children: "After Effects", color: "redTransparentLg" },
+        //   { children: "Red Giant TRAPCODE", color: "redTransparentLg" },
+        //   { children: "Cinema4D", color: "greenTransparentLg" },
+        //   { children: "Octane Render", color: "greenTransparentLg" },
+        //   { children: "Pixel Sort" },
+        //   { children: "Wacom Tablet" },
+        //   { children: "Sony α6300" },
+        // ]}
       ></LookingGlassDescriptionContent>
     </LookingGlassContainer>
   </PrimarySection>
@@ -207,11 +207,11 @@ const hobbySection = (
     <LookingGlassContainer>
       <LookingGlassDescriptionContent
         title="Speaker Projects"
-        pillNodes={[
-          { children: "Audio Engineering", color: "red" },
-          { children: "OnShape CAD", color: "red" },
-          { children: "Carpentry" },
-        ]}
+        // pillNodes={[
+        //   { children: "Audio Engineering", color: "redTransparentLg" },
+        //   { children: "OnShape CAD", color: "redTransparentLg" },
+        //   { children: "Carpentry" },
+        // ]}
       >
         I design and build high quality speaker systems for my personal use.
       </LookingGlassDescriptionContent>
@@ -219,13 +219,13 @@ const hobbySection = (
     <LookingGlassContainer>
       <LookingGlassDescriptionContent
         title="Building Tools and Guides for Communities"
-        pillNodes={[
-          { children: "Javascript", color: "green" },
-          { children: "JQuery", color: "green" },
-          { children: "HTML" },
-          { children: "CSS" },
-          { children: "Data-mining" },
-        ]}
+        // pillNodes={[
+        //   { children: "Javascript", color: "greenTransparentLg" },
+        //   { children: "JQuery", color: "greenTransparentLg" },
+        //   { children: "HTML" },
+        //   { children: "CSS" },
+        //   { children: "Data-mining" },
+        // ]}
       >
         In the past, I&apos;ve created tools and guides for gaming communities
         to use. It was incredibly rewarding to share my knowledge with the
@@ -236,22 +236,22 @@ const hobbySection = (
     <LookingGlassContainer>
       <LookingGlassDescriptionContent
         title="Leading Teams for Hackathons and Non-Profits"
-        pillNodes={[
-          { children: "React", color: "sky" },
-          { children: "Storybook", color: "sky" },
-          { children: "Photoshop", color: "sky" },
-          { children: "Illustrator", color: "sky" },
-          { children: "Node.JS", color: "red" },
-          { children: "ExpressJS", color: "red" },
-          { children: "EJS", color: "red" },
-          { children: "Heroku", color: "red" },
-          { children: "Firebase", color: "red" },
-          { children: "Javascript", color: "green" },
-          { children: "HTML" },
-          { children: "CSS" },
-          { children: "Teaching" },
-          { children: "Project Management" },
-        ]}
+        // pillNodes={[
+        //   { children: "React", color: "skyTransparentLg" },
+        //   { children: "Storybook", color: "skyTransparentLg" },
+        //   { children: "Photoshop", color: "skyTransparentLg" },
+        //   { children: "Illustrator", color: "skyTransparentLg" },
+        //   { children: "Node.JS", color: "redTransparentLg" },
+        //   { children: "ExpressJS", color: "redTransparentLg" },
+        //   { children: "EJS", color: "redTransparentLg" },
+        //   { children: "Heroku", color: "redTransparentLg" },
+        //   { children: "Firebase", color: "redTransparentLg" },
+        //   { children: "Javascript", color: "greenTransparentLg" },
+        //   { children: "HTML" },
+        //   { children: "CSS" },
+        //   { children: "Teaching" },
+        //   { children: "Project Management" },
+        // ]}
       >
         I&apos;ve spearheaded teams for hackathons and non-profits to create an
         impact on communities as well as my peers. In these projects, I&apos;ve
@@ -261,7 +261,7 @@ const hobbySection = (
     <LookingGlassContainer>
       <LookingGlassDescriptionContent
         title="Bird Watching"
-        pillNodes={[{ children: "Sony α6300" }]}
+        // pillNodes={[{ children: "Sony α6300" }]}
       >
         I enjoy taking a break from work and technology to observe, feed, and
         house birds in my backyard. It&apos;s extremely rewarding to gain their

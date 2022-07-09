@@ -1,8 +1,7 @@
 import React from "react";
 import cx from "classnames";
-import Button from "../../Button";
 import { ButtonProps } from "../../Button/Button";
-import { getMonoGlassStyles } from "../../../utils/glass";
+import { getAccentColor } from "../../../utils/styles/color";
 
 type Props = {
   title?: string;
@@ -20,11 +19,12 @@ const LookingGlassDescriptionContent: React.FC<Props> = (props) => {
   const propagatePillNodes = () => {
     if (pillNodes) {
       return pillNodes.map((pillNode, index) => {
-        const { children, color } = pillNode;
+        const { children } = pillNode;
         return (
-          <Button key={`pill-${index}`} color={color}>
-            {children}
-          </Button>
+          // <Button key={`pill-${index}`} color={color}>
+          //   {children}
+          // </Button>
+          <div key={index}>{children}</div>
         );
       });
     }
@@ -46,7 +46,7 @@ const LookingGlassDescriptionContent: React.FC<Props> = (props) => {
         className={cx(
           "flex flex-row flex-wrap gap-2 items-center",
           { "border-t pt-4": !!children },
-          getMonoGlassStyles({ types: ["border"] })
+          getAccentColor({ color: "autoS400O10", types: ["border"] })
         )}
       >
         {propagatePillNodes()}
