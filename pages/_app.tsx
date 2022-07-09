@@ -7,7 +7,7 @@ import "../styles/globals.css";
 import { ThemeProvider } from "next-themes";
 
 const client = new ApolloClient({
-  uri: process.env.STRAPI_GRAPHQL_ENDPOINT,
+  uri: process.env.NEXT_PUBLIC_STRAPI_GRAPHQL_ENDPOINT,
   cache: new InMemoryCache(),
 });
 
@@ -23,16 +23,16 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   const getLayout = Component.getLayout ?? ((page) => page);
 
   return (
-    <ApolloProvider client={client}>
-      <ThemeProvider
-        storageKey="theme"
-        defaultTheme="system"
-        themes={["light", "dark"]}
-        attribute="class"
-      >
+    <ThemeProvider
+      storageKey="theme"
+      defaultTheme="system"
+      themes={["light", "dark"]}
+      attribute="class"
+    >
+      <ApolloProvider client={client}>
         {getLayout(<Component {...pageProps} />)}
-      </ThemeProvider>
-    </ApolloProvider>
+      </ApolloProvider>
+    </ThemeProvider>
   );
 }
 
