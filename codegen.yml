@@ -1,0 +1,12 @@
+overwrite: true
+schema: ${STRAPI_GRAPHQL_ENDPOINT}
+documents: "**/*.{gql,graphql}"
+generates:
+  ./graphql/generated/schema.ts:
+    plugins:
+      - "typescript"
+      - "typescript-operations"
+      - "typescript-react-apollo"
+  ./graphql/generated/schema.json:
+    plugins:
+      - "introspection"

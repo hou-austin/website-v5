@@ -1,0 +1,15 @@
+query GetNavigation {
+    global {
+        data {
+            attributes {
+                navigation {
+                    link {
+                        label,
+                        target,
+                        href
+                    }
+                }
+            }
+        }
+    }
+}
