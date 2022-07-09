@@ -1,0 +1,3 @@
+type StrapiSliceImage = {
+  url: string;
+};

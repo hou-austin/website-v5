@@ -1,7 +1,10 @@
 import React from "react";
 import Link from "next/link";
 import cx from "classnames";
-import { getAccentColor, GetAccentColorProps } from "../../utils/styles/color";
+import {
+  getAccentColor,
+  GetAccentColorProps,
+} from "../../../utils/styles/color";
 
 const GAP_CLASSES = {
   sm: "gap-2",

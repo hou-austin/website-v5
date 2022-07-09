@@ -14,6 +14,7 @@ export type Scalars = {
   Int: number;
   Float: number;
   DateTime: any;
+  HeroSectionSlicesDynamicZoneInput: any;
   JSON: any;
   Upload: any;
 };
@@ -41,22 +42,25 @@ export type BooleanFilterInput = {
   startsWith?: InputMaybe<Scalars['Boolean']>;
 };
 
-export type ComponentGlobalNavigation = {
-  __typename?: 'ComponentGlobalNavigation';
+export type ComponentSharedButton = {
+  __typename?: 'ComponentSharedButton';
+  color?: Maybe<Enum_Componentsharedbutton_Color>;
+  icon?: Maybe<Enum_Componentsharedbutton_Icon>;
   id: Scalars['ID'];
-  link?: Maybe<Array<Maybe<ComponentSharedLink>>>;
+  label?: Maybe<Scalars['String']>;
+  link?: Maybe<ComponentSharedLink>;
+  size: Enum_Componentsharedbutton_Size;
 };
 
-
-export type ComponentGlobalNavigationLinkArgs = {
-  filters?: InputMaybe<ComponentSharedLinkFiltersInput>;
-  pagination?: InputMaybe<PaginationArg>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type ComponentGlobalNavigationInput = {
-  id?: InputMaybe<Scalars['ID']>;
-  link?: InputMaybe<Array<InputMaybe<ComponentSharedLinkInput>>>;
+export type ComponentSharedButtonFiltersInput = {
+  and?: InputMaybe<Array<InputMaybe<ComponentSharedButtonFiltersInput>>>;
+  color?: InputMaybe<StringFilterInput>;
+  icon?: InputMaybe<StringFilterInput>;
+  label?: InputMaybe<StringFilterInput>;
+  link?: InputMaybe<ComponentSharedLinkFiltersInput>;
+  not?: InputMaybe<ComponentSharedButtonFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<ComponentSharedButtonFiltersInput>>>;
+  size?: InputMaybe<StringFilterInput>;
 };
 
 export type ComponentSharedLink = {
@@ -76,11 +80,98 @@ export type ComponentSharedLinkFiltersInput = {
   target?: InputMaybe<StringFilterInput>;
 };
 
-export type ComponentSharedLinkInput = {
-  href?: InputMaybe<Scalars['String']>;
+export type ComponentSlicesHero = {
+  __typename?: 'ComponentSlicesHero';
+  description?: Maybe<Scalars['String']>;
+  id: Scalars['ID'];
+  title: Scalars['String'];
+};
+
+export type ComponentSlicesHeroFiltersInput = {
+  and?: InputMaybe<Array<InputMaybe<ComponentSlicesHeroFiltersInput>>>;
+  description?: InputMaybe<StringFilterInput>;
+  not?: InputMaybe<ComponentSlicesHeroFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<ComponentSlicesHeroFiltersInput>>>;
+  title?: InputMaybe<StringFilterInput>;
+};
+
+export type ComponentSlicesHeroInput = {
+  description?: InputMaybe<Scalars['String']>;
   id?: InputMaybe<Scalars['ID']>;
-  label?: InputMaybe<Scalars['String']>;
-  target?: InputMaybe<Enum_Componentsharedlink_Target>;
+  title?: InputMaybe<Scalars['String']>;
+};
+
+export type ComponentSlicesHoloImage = {
+  __typename?: 'ComponentSlicesHoloImage';
+  id: Scalars['ID'];
+  image: UploadFileEntityResponse;
+};
+
+export type ComponentSlicesHoloImageFiltersInput = {
+  and?: InputMaybe<Array<InputMaybe<ComponentSlicesHoloImageFiltersInput>>>;
+  not?: InputMaybe<ComponentSlicesHoloImageFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<ComponentSlicesHoloImageFiltersInput>>>;
+};
+
+export type ComponentSlicesHoloImageInput = {
+  id?: InputMaybe<Scalars['ID']>;
+  image?: InputMaybe<Scalars['ID']>;
+};
+
+export type ComponentSlicesImage = {
+  __typename?: 'ComponentSlicesImage';
+  id: Scalars['ID'];
+  image: UploadFileEntityResponse;
+};
+
+export type ComponentSlicesImageFiltersInput = {
+  and?: InputMaybe<Array<InputMaybe<ComponentSlicesImageFiltersInput>>>;
+  not?: InputMaybe<ComponentSlicesImageFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<ComponentSlicesImageFiltersInput>>>;
+};
+
+export type ComponentSlicesLookingGlass = {
+  __typename?: 'ComponentSlicesLookingGlass';
+  buttons?: Maybe<Array<Maybe<ComponentSharedButton>>>;
+  description?: Maybe<Scalars['String']>;
+  floatingLinks?: Maybe<Array<Maybe<ComponentSharedLink>>>;
+  id: Scalars['ID'];
+  title?: Maybe<Scalars['String']>;
+};
+
+
+export type ComponentSlicesLookingGlassButtonsArgs = {
+  filters?: InputMaybe<ComponentSharedButtonFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+
+export type ComponentSlicesLookingGlassFloatingLinksArgs = {
+  filters?: InputMaybe<ComponentSharedLinkFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type ComponentSlicesLookingGlassWithPicture = {
+  __typename?: 'ComponentSlicesLookingGlassWithPicture';
+  id: Scalars['ID'];
+  image: UploadFileEntityResponse;
+  imagePosition: Enum_Componentsliceslookingglasswithpicture_Imageposition;
+  lookingGlass?: Maybe<ComponentSlicesLookingGlass>;
+};
+
+export type ComponentSlicesMultiImageDisplay = {
+  __typename?: 'ComponentSlicesMultiImageDisplay';
+  id: Scalars['ID'];
+  images: Array<Maybe<ComponentSlicesImage>>;
+};
+
+
+export type ComponentSlicesMultiImageDisplayImagesArgs = {
+  filters?: InputMaybe<ComponentSlicesImageFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
 };
 
 export type DateTimeFilterInput = {
@@ -106,9 +197,39 @@ export type DateTimeFilterInput = {
   startsWith?: InputMaybe<Scalars['DateTime']>;
 };
 
+export enum Enum_Componentsharedbutton_Color {
+  Black = 'black',
+  Green = 'green',
+  Purple = 'purple',
+  Red = 'red',
+  Sky = 'sky',
+  White = 'white'
+}
+
+export enum Enum_Componentsharedbutton_Icon {
+  Next = 'next',
+  Previous = 'previous'
+}
+
+export enum Enum_Componentsharedbutton_Size {
+  Large = 'large',
+  Medium = 'medium'
+}
+
 export enum Enum_Componentsharedlink_Target {
   Blank = 'blank'
 }
+
+export enum Enum_Componentsliceslookingglasswithpicture_Imageposition {
+  Left = 'left',
+  Right = 'right'
+}
+
+export type Error = {
+  __typename?: 'Error';
+  code: Scalars['String'];
+  message?: Maybe<Scalars['String']>;
+};
 
 export type FileInfoInput = {
   alternativeText?: InputMaybe<Scalars['String']>;
@@ -139,29 +260,90 @@ export type FloatFilterInput = {
   startsWith?: InputMaybe<Scalars['Float']>;
 };
 
-export type GenericMorph = ComponentGlobalNavigation | ComponentSharedLink | Global | I18NLocale | UploadFile | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser;
+export type GenericMorph = ComponentSharedButton | ComponentSharedLink | ComponentSlicesHero | ComponentSlicesHoloImage | ComponentSlicesImage | ComponentSlicesLookingGlass | ComponentSlicesLookingGlassWithPicture | ComponentSlicesMultiImageDisplay | HeroSection | HomePage | I18NLocale | UploadFile | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser;
 
-export type Global = {
-  __typename?: 'Global';
+export type HeroSection = {
+  __typename?: 'HeroSection';
   createdAt?: Maybe<Scalars['DateTime']>;
-  navigation?: Maybe<ComponentGlobalNavigation>;
+  hero: ComponentSlicesHero;
+  holoImage?: Maybe<ComponentSlicesHoloImage>;
+  publishedAt?: Maybe<Scalars['DateTime']>;
+  slices?: Maybe<Array<Maybe<HeroSectionSlicesDynamicZone>>>;
+  updatedAt?: Maybe<Scalars['DateTime']>;
+};
+
+export type HeroSectionEntity = {
+  __typename?: 'HeroSectionEntity';
+  attributes?: Maybe<HeroSection>;
+  id?: Maybe<Scalars['ID']>;
+};
+
+export type HeroSectionEntityResponse = {
+  __typename?: 'HeroSectionEntityResponse';
+  data?: Maybe<HeroSectionEntity>;
+};
+
+export type HeroSectionEntityResponseCollection = {
+  __typename?: 'HeroSectionEntityResponseCollection';
+  data: Array<HeroSectionEntity>;
+  meta: ResponseCollectionMeta;
+};
+
+export type HeroSectionFiltersInput = {
+  and?: InputMaybe<Array<InputMaybe<HeroSectionFiltersInput>>>;
+  createdAt?: InputMaybe<DateTimeFilterInput>;
+  hero?: InputMaybe<ComponentSlicesHeroFiltersInput>;
+  holoImage?: InputMaybe<ComponentSlicesHoloImageFiltersInput>;
+  id?: InputMaybe<IdFilterInput>;
+  not?: InputMaybe<HeroSectionFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<HeroSectionFiltersInput>>>;
+  publishedAt?: InputMaybe<DateTimeFilterInput>;
+  updatedAt?: InputMaybe<DateTimeFilterInput>;
+};
+
+export type HeroSectionInput = {
+  hero?: InputMaybe<ComponentSlicesHeroInput>;
+  holoImage?: InputMaybe<ComponentSlicesHoloImageInput>;
+  publishedAt?: InputMaybe<Scalars['DateTime']>;
+  slices?: InputMaybe<Array<Scalars['HeroSectionSlicesDynamicZoneInput']>>;
+};
+
+export type HeroSectionRelationResponseCollection = {
+  __typename?: 'HeroSectionRelationResponseCollection';
+  data: Array<HeroSectionEntity>;
+};
+
+export type HeroSectionSlicesDynamicZone = ComponentSlicesLookingGlass | ComponentSlicesLookingGlassWithPicture | ComponentSlicesMultiImageDisplay | Error;
+
+export type HomePage = {
+  __typename?: 'HomePage';
+  createdAt?: Maybe<Scalars['DateTime']>;
+  hero_sections?: Maybe<HeroSectionRelationResponseCollection>;
   publishedAt?: Maybe<Scalars['DateTime']>;
   updatedAt?: Maybe<Scalars['DateTime']>;
 };
 
-export type GlobalEntity = {
-  __typename?: 'GlobalEntity';
-  attributes?: Maybe<Global>;
+
+export type HomePageHero_SectionsArgs = {
+  filters?: InputMaybe<HeroSectionFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  publicationState?: InputMaybe<PublicationState>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type HomePageEntity = {
+  __typename?: 'HomePageEntity';
+  attributes?: Maybe<HomePage>;
   id?: Maybe<Scalars['ID']>;
 };
 
-export type GlobalEntityResponse = {
-  __typename?: 'GlobalEntityResponse';
-  data?: Maybe<GlobalEntity>;
+export type HomePageEntityResponse = {
+  __typename?: 'HomePageEntityResponse';
+  data?: Maybe<HomePageEntity>;
 };
 
-export type GlobalInput = {
-  navigation?: InputMaybe<ComponentGlobalNavigationInput>;
+export type HomePageInput = {
+  hero_sections?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
   publishedAt?: InputMaybe<Scalars['DateTime']>;
 };
 
@@ -272,12 +454,14 @@ export type JsonFilterInput = {
 
 export type Mutation = {
   __typename?: 'Mutation';
+  createHeroSection?: Maybe<HeroSectionEntityResponse>;
   createUploadFile?: Maybe<UploadFileEntityResponse>;
   /** Create a new role */
   createUsersPermissionsRole?: Maybe<UsersPermissionsCreateRolePayload>;
   /** Create a new user */
   createUsersPermissionsUser: UsersPermissionsUserEntityResponse;
-  deleteGlobal?: Maybe<GlobalEntityResponse>;
+  deleteHeroSection?: Maybe<HeroSectionEntityResponse>;
+  deleteHomePage?: Maybe<HomePageEntityResponse>;
   deleteUploadFile?: Maybe<UploadFileEntityResponse>;
   /** Delete an existing role */
   deleteUsersPermissionsRole?: Maybe<UsersPermissionsDeleteRolePayload>;
@@ -295,13 +479,19 @@ export type Mutation = {
   /** Reset user password. Confirm with a code (resetToken from forgotPassword) */
   resetPassword?: Maybe<UsersPermissionsLoginPayload>;
   updateFileInfo: UploadFileEntityResponse;
-  updateGlobal?: Maybe<GlobalEntityResponse>;
+  updateHeroSection?: Maybe<HeroSectionEntityResponse>;
+  updateHomePage?: Maybe<HomePageEntityResponse>;
   updateUploadFile?: Maybe<UploadFileEntityResponse>;
   /** Update an existing role */
   updateUsersPermissionsRole?: Maybe<UsersPermissionsUpdateRolePayload>;
   /** Update an existing user */
   updateUsersPermissionsUser: UsersPermissionsUserEntityResponse;
   upload: UploadFileEntityResponse;
+};
+
+
+export type MutationCreateHeroSectionArgs = {
+  data: HeroSectionInput;
 };
 
 
@@ -317,6 +507,11 @@ export type MutationCreateUsersPermissionsRoleArgs = {
 
 export type MutationCreateUsersPermissionsUserArgs = {
   data: UsersPermissionsUserInput;
+};
+
+
+export type MutationDeleteHeroSectionArgs = {
+  id: Scalars['ID'];
 };
 
 
@@ -381,8 +576,14 @@ export type MutationUpdateFileInfoArgs = {
 };
 
 
-export type MutationUpdateGlobalArgs = {
-  data: GlobalInput;
+export type MutationUpdateHeroSectionArgs = {
+  data: HeroSectionInput;
+  id: Scalars['ID'];
+};
+
+
+export type MutationUpdateHomePageArgs = {
+  data: HomePageInput;
 };
 
 
@@ -434,7 +635,9 @@ export enum PublicationState {
 
 export type Query = {
   __typename?: 'Query';
-  global?: Maybe<GlobalEntityResponse>;
+  heroSection?: Maybe<HeroSectionEntityResponse>;
+  heroSections?: Maybe<HeroSectionEntityResponseCollection>;
+  homePage?: Maybe<HomePageEntityResponse>;
   i18NLocale?: Maybe<I18NLocaleEntityResponse>;
   i18NLocales?: Maybe<I18NLocaleEntityResponseCollection>;
   me?: Maybe<UsersPermissionsMe>;
@@ -447,7 +650,20 @@ export type Query = {
 };
 
 
-export type QueryGlobalArgs = {
+export type QueryHeroSectionArgs = {
+  id?: InputMaybe<Scalars['ID']>;
+};
+
+
+export type QueryHeroSectionsArgs = {
+  filters?: InputMaybe<HeroSectionFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  publicationState?: InputMaybe<PublicationState>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+
+export type QueryHomePageArgs = {
   publicationState?: InputMaybe<PublicationState>;
 };
 
@@ -819,22 +1035,91 @@ export type UsersPermissionsUserRelationResponseCollection = {
   data: Array<UsersPermissionsUserEntity>;
 };
 
-export type GetNavigationQueryVariables = Exact<{ [key: string]: never; }>;
+export type Unnamed_1_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetNavigationQuery = { __typename?: 'Query', global?: { __typename?: 'GlobalEntityResponse', data?: { __typename?: 'GlobalEntity', attributes?: { __typename?: 'Global', navigation?: { __typename?: 'ComponentGlobalNavigation', link?: Array<{ __typename?: 'ComponentSharedLink', label: string, target?: Enum_Componentsharedlink_Target | null, href: string } | null> | null } | null } | null } | null } | null };
+export type Unnamed_1_Query = { __typename?: 'Query', homePage?: { __typename?: 'HomePageEntityResponse', data?: { __typename?: 'HomePageEntity', attributes?: { __typename?: 'HomePage', hero_sections?: { __typename?: 'HeroSectionRelationResponseCollection', data: Array<{ __typename?: 'HeroSectionEntity', attributes?: { __typename?: 'HeroSection', hero: { __typename?: 'ComponentSlicesHero', title: string, description?: string | null }, slices?: Array<{ __typename?: 'ComponentSlicesLookingGlass', title?: string | null, description?: string | null, buttons?: Array<{ __typename?: 'ComponentSharedButton', size: Enum_Componentsharedbutton_Size, label?: string | null, color?: Enum_Componentsharedbutton_Color | null, link?: { __typename?: 'ComponentSharedLink', href: string, label: string, target?: Enum_Componentsharedlink_Target | null } | null } | null> | null, floatingLinks?: Array<{ __typename?: 'ComponentSharedLink', href: string, label: string, target?: Enum_Componentsharedlink_Target | null } | null> | null } | { __typename?: 'ComponentSlicesLookingGlassWithPicture', imagePosition: Enum_Componentsliceslookingglasswithpicture_Imageposition, image: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null } | null }, lookingGlass?: { __typename?: 'ComponentSlicesLookingGlass', title?: string | null, description?: string | null, buttons?: Array<{ __typename?: 'ComponentSharedButton', size: Enum_Componentsharedbutton_Size, label?: string | null, color?: Enum_Componentsharedbutton_Color | null, link?: { __typename?: 'ComponentSharedLink', href: string, label: string, target?: Enum_Componentsharedlink_Target | null } | null } | null> | null, floatingLinks?: Array<{ __typename?: 'ComponentSharedLink', href: string, label: string, target?: Enum_Componentsharedlink_Target | null } | null> | null } | null } | { __typename?: 'ComponentSlicesMultiImageDisplay', images: Array<{ __typename?: 'ComponentSlicesImage', image: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null } | null } } | null> } | { __typename?: 'Error' } | null> | null, holoImage?: { __typename: 'ComponentSlicesHoloImage' } | null } | null }> } | null } | null } | null } | null };
 
 
-export const GetNavigationDocument = gql`
-    query GetNavigation {
-  global {
+export const Document = gql`
+    {
+  homePage {
     data {
       attributes {
-        navigation {
-          link {
-            label
-            target
-            href
+        hero_sections {
+          data {
+            attributes {
+              hero {
+                title
+                description
+              }
+              slices {
+                ... on ComponentSlicesLookingGlass {
+                  title
+                  description
+                  buttons {
+                    size
+                    label
+                    color
+                    link {
+                      href
+                      label
+                      target
+                    }
+                  }
+                  floatingLinks {
+                    href
+                    label
+                    target
+                  }
+                }
+                ... on ComponentSlicesMultiImageDisplay {
+                  images {
+                    image {
+                      data {
+                        attributes {
+                          url
+                        }
+                      }
+                    }
+                  }
+                }
+                ... on ComponentSlicesLookingGlassWithPicture {
+                  image {
+                    data {
+                      attributes {
+                        url
+                      }
+                    }
+                  }
+                  imagePosition
+                  lookingGlass {
+                    title
+                    description
+                    buttons {
+                      size
+                      label
+                      color
+                      link {
+                        href
+                        label
+                        target
+                      }
+                    }
+                    floatingLinks {
+                      href
+                      label
+                      target
+                    }
+                  }
+                }
+              }
+              holoImage {
+                ... {
+                  __typename
+                }
+              }
+            }
           }
         }
       }
@@ -844,28 +1129,28 @@ export const GetNavigationDocument = gql`
     `;
 
 /**
- * __useGetNavigationQuery__
+ * __useQuery__
  *
- * To run a query within a React component, call `useGetNavigationQuery` and pass it any options that fit your needs.
- * When your component renders, `useGetNavigationQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * To run a query within a React component, call `useQuery` and pass it any options that fit your needs.
+ * When your component renders, `useQuery` returns an object from Apollo Client that contains loading, error, and data properties
  * you can use to render your UI.
  *
  * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const { data, loading, error } = useGetNavigationQuery({
+ * const { data, loading, error } = useQuery({
  *   variables: {
  *   },
  * });
  */
-export function useGetNavigationQuery(baseOptions?: Apollo.QueryHookOptions<GetNavigationQuery, GetNavigationQueryVariables>) {
+export function useQuery(baseOptions?: Apollo.QueryHookOptions<Query, QueryVariables>) {
         const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<GetNavigationQuery, GetNavigationQueryVariables>(GetNavigationDocument, options);
+        return Apollo.useQuery<Query, QueryVariables>(Document, options);
       }
-export function useGetNavigationLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetNavigationQuery, GetNavigationQueryVariables>) {
+export function useLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<Query, QueryVariables>) {
           const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<GetNavigationQuery, GetNavigationQueryVariables>(GetNavigationDocument, options);
+          return Apollo.useLazyQuery<Query, QueryVariables>(Document, options);
         }
-export type GetNavigationQueryHookResult = ReturnType<typeof useGetNavigationQuery>;
-export type GetNavigationLazyQueryHookResult = ReturnType<typeof useGetNavigationLazyQuery>;
-export type GetNavigationQueryResult = Apollo.QueryResult<GetNavigationQuery, GetNavigationQueryVariables>;
+export type QueryHookResult = ReturnType<typeof useQuery>;
+export type LazyQueryHookResult = ReturnType<typeof useLazyQuery>;
+export type QueryResult = Apollo.QueryResult<Query, QueryVariables>;

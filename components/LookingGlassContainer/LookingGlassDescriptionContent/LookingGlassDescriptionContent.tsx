@@ -1,6 +1,6 @@
 import React from "react";
 import cx from "classnames";
-import { ButtonProps } from "../../Button/Button";
+import { ButtonProps } from "../../shared/Button/Button";
 import { getAccentColor } from "../../../utils/styles/color";
 
 type Props = {

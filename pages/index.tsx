@@ -4,13 +4,11 @@ import NavigationLayout from "../layouts/NavigationLayout";
 import GradientAnimation from "../components/GradientAnimation";
 import cx from "classnames";
 import Image from "next/future/image";
-import { HiChevronRight } from "react-icons/hi";
 
 import DetailedImageShowcase from "../components/DetailedImageShowcase";
 import LookingGlassDescriptionContent from "../components/LookingGlassContainer/LookingGlassDescriptionContent";
 import PrimarySection from "../components/PrimarySection";
 import LookingGlassContainer from "../components/LookingGlassContainer";
-import Button from "../components/Button";
 import Head from "next/head";
 
 const fullStackDeveloperSection = (

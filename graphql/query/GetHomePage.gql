@@ -1,0 +1,90 @@
+# Write your query or mutation here
+query {
+    homePage {
+        data {
+            attributes {
+                hero_sections {
+                    data {
+                        attributes {
+                            hero {
+                                title
+                                description
+                            }
+                            slices {
+                                ... on ComponentSlicesLookingGlass {
+                                    __typename
+                                    title
+                                    description
+                                    buttons {
+                                        size
+                                        label
+                                        color
+                                        link {
+                                            href
+                                            label
+                                            target
+                                        }
+                                    }
+                                    floatingLinks {
+                                        href
+                                        label
+                                        target
+                                    }
+                                }
+                                ... on ComponentSlicesMultiImageDisplay {
+                                    __typename
+                                    images {
+                                        image {
+                                            data {
+                                                attributes {
+                                                    url
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                ... on ComponentSlicesLookingGlassWithPicture {
+                                    __typename
+                                    image {
+                                        data {
+                                            attributes {
+                                                url
+                                            }
+                                        }
+                                    }
+                                    imagePosition
+                                    lookingGlass {
+                                        title
+                                        description
+                                        buttons {
+                                            size
+                                            label
+                                            color
+                                            link {
+                                                href
+                                                label
+                                                target
+                                            }
+                                        }
+                                        floatingLinks {
+                                            href
+                                            label
+                                            target
+                                        }
+                                    }
+                                }
+                            }
+                            holoImage {
+                                data {
+                                    attributes {
+                                        url
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
