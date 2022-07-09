@@ -840,139 +840,6 @@
       },
       {
         "kind": "OBJECT",
-        "name": "ComponentSlicesHoloImage",
-        "description": null,
-        "fields": [
-          {
-            "name": "id",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "ID",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "image",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "UploadFileEntityResponse",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
-        "inputFields": null,
-        "interfaces": [],
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "INPUT_OBJECT",
-        "name": "ComponentSlicesHoloImageFiltersInput",
-        "description": null,
-        "fields": null,
-        "inputFields": [
-          {
-            "name": "and",
-            "description": null,
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "INPUT_OBJECT",
-                "name": "ComponentSlicesHoloImageFiltersInput",
-                "ofType": null
-              }
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "not",
-            "description": null,
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "ComponentSlicesHoloImageFiltersInput",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "or",
-            "description": null,
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "INPUT_OBJECT",
-                "name": "ComponentSlicesHoloImageFiltersInput",
-                "ofType": null
-              }
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
-        "interfaces": null,
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "INPUT_OBJECT",
-        "name": "ComponentSlicesHoloImageInput",
-        "description": null,
-        "fields": null,
-        "inputFields": [
-          {
-            "name": "id",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "ID",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "image",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "ID",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          }
-        ],
-        "interfaces": null,
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "OBJECT",
         "name": "ComponentSlicesImage",
         "description": null,
         "fields": [
@@ -1059,6 +926,41 @@
                 "name": "ComponentSlicesImageFiltersInput",
                 "ofType": null
               }
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "INPUT_OBJECT",
+        "name": "ComponentSlicesImageInput",
+        "description": null,
+        "fields": null,
+        "inputFields": [
+          {
+            "name": "id",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "ID",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "image",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "ID",
+              "ofType": null
             },
             "defaultValue": null,
             "isDeprecated": false,
@@ -1683,37 +1585,43 @@
         "interfaces": null,
         "enumValues": [
           {
-            "name": "black",
+            "name": "autoS400O10",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
-            "name": "green",
+            "name": "blackS400O10",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
-            "name": "purple",
+            "name": "greenS400O10",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
-            "name": "red",
+            "name": "purpleS400O10",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
-            "name": "sky",
+            "name": "redS400O10",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
-            "name": "white",
+            "name": "skyS400O10",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "whiteS400O10",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
@@ -1753,13 +1661,13 @@
         "interfaces": null,
         "enumValues": [
           {
-            "name": "large",
+            "name": "md",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
           },
           {
-            "name": "medium",
+            "name": "sm",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
@@ -2200,11 +2108,6 @@
           },
           {
             "kind": "OBJECT",
-            "name": "ComponentSlicesHoloImage",
-            "ofType": null
-          },
-          {
-            "kind": "OBJECT",
             "name": "ComponentSlicesImage",
             "ofType": null
           },
@@ -2299,7 +2202,7 @@
             "args": [],
             "type": {
               "kind": "OBJECT",
-              "name": "ComponentSlicesHoloImage",
+              "name": "ComponentSlicesImage",
               "ofType": null
             },
             "isDeprecated": false,
@@ -2511,7 +2414,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "ComponentSlicesHoloImageFiltersInput",
+              "name": "ComponentSlicesImageFiltersInput",
               "ofType": null
             },
             "defaultValue": null,
@@ -2610,7 +2513,7 @@
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
-              "name": "ComponentSlicesHoloImageInput",
+              "name": "ComponentSlicesImageInput",
               "ofType": null
             },
             "defaultValue": null,

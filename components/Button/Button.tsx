@@ -1,10 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import cx from "classnames";
-import {
-  getAccentColor,
-  GetAccentColorProps,
-} from "../../../utils/styles/color";
+import { getAccentColor, GetAccentColorProps } from "../../utils/styles/color";
 
 const GAP_CLASSES = {
   sm: "gap-2",
@@ -53,7 +50,7 @@ type ButtonOptionalStyles = {
 
 export type ButtonProps = {
   children?: React.ReactNode;
-  colorStyle: GetAccentColorProps;
+  colorStyle?: GetAccentColorProps;
   buttonStyles?: ButtonOptionalStyles;
   className?: string;
   action?: string | (() => void);
@@ -61,7 +58,7 @@ export type ButtonProps = {
 
 const Button: React.FC<ButtonProps> = ({
   children,
-  colorStyle,
+  colorStyle = { color: "autoS400O10" },
   buttonStyles,
   className = "",
   action,

@@ -75,9 +75,13 @@ query {
                                 }
                             }
                             holoImage {
-                                data {
-                                    attributes {
-                                        url
+                                __typename,
+                                image {
+                                    __typename,
+                                    data {
+                                        attributes {
+                                            url
+                                        }
                                     }
                                 }
                             }

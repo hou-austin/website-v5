@@ -1,6 +1,6 @@
 type StrapiSharedButton = {
   label?: string;
-  color?: "white" | "black" | "red" | "green" | "sky" | "purple";
+  color: AccentColorStyles;
   icon?: "next" | "previous";
   size: "small" | "medium";
   link?: StrapiSharedLink;

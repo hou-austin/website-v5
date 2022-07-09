@@ -101,23 +101,6 @@ export type ComponentSlicesHeroInput = {
   title?: InputMaybe<Scalars['String']>;
 };
 
-export type ComponentSlicesHoloImage = {
-  __typename?: 'ComponentSlicesHoloImage';
-  id: Scalars['ID'];
-  image: UploadFileEntityResponse;
-};
-
-export type ComponentSlicesHoloImageFiltersInput = {
-  and?: InputMaybe<Array<InputMaybe<ComponentSlicesHoloImageFiltersInput>>>;
-  not?: InputMaybe<ComponentSlicesHoloImageFiltersInput>;
-  or?: InputMaybe<Array<InputMaybe<ComponentSlicesHoloImageFiltersInput>>>;
-};
-
-export type ComponentSlicesHoloImageInput = {
-  id?: InputMaybe<Scalars['ID']>;
-  image?: InputMaybe<Scalars['ID']>;
-};
-
 export type ComponentSlicesImage = {
   __typename?: 'ComponentSlicesImage';
   id: Scalars['ID'];
@@ -128,6 +111,11 @@ export type ComponentSlicesImageFiltersInput = {
   and?: InputMaybe<Array<InputMaybe<ComponentSlicesImageFiltersInput>>>;
   not?: InputMaybe<ComponentSlicesImageFiltersInput>;
   or?: InputMaybe<Array<InputMaybe<ComponentSlicesImageFiltersInput>>>;
+};
+
+export type ComponentSlicesImageInput = {
+  id?: InputMaybe<Scalars['ID']>;
+  image?: InputMaybe<Scalars['ID']>;
 };
 
 export type ComponentSlicesLookingGlass = {
@@ -198,12 +186,13 @@ export type DateTimeFilterInput = {
 };
 
 export enum Enum_Componentsharedbutton_Color {
-  Black = 'black',
-  Green = 'green',
-  Purple = 'purple',
-  Red = 'red',
-  Sky = 'sky',
-  White = 'white'
+  AutoS400O10 = 'autoS400O10',
+  BlackS400O10 = 'blackS400O10',
+  GreenS400O10 = 'greenS400O10',
+  PurpleS400O10 = 'purpleS400O10',
+  RedS400O10 = 'redS400O10',
+  SkyS400O10 = 'skyS400O10',
+  WhiteS400O10 = 'whiteS400O10'
 }
 
 export enum Enum_Componentsharedbutton_Icon {
@@ -212,8 +201,8 @@ export enum Enum_Componentsharedbutton_Icon {
 }
 
 export enum Enum_Componentsharedbutton_Size {
-  Large = 'large',
-  Medium = 'medium'
+  Md = 'md',
+  Sm = 'sm'
 }
 
 export enum Enum_Componentsharedlink_Target {
@@ -260,13 +249,13 @@ export type FloatFilterInput = {
   startsWith?: InputMaybe<Scalars['Float']>;
 };
 
-export type GenericMorph = ComponentSharedButton | ComponentSharedLink | ComponentSlicesHero | ComponentSlicesHoloImage | ComponentSlicesImage | ComponentSlicesLookingGlass | ComponentSlicesLookingGlassWithPicture | ComponentSlicesMultiImageDisplay | HeroSection | HomePage | I18NLocale | UploadFile | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser;
+export type GenericMorph = ComponentSharedButton | ComponentSharedLink | ComponentSlicesHero | ComponentSlicesImage | ComponentSlicesLookingGlass | ComponentSlicesLookingGlassWithPicture | ComponentSlicesMultiImageDisplay | HeroSection | HomePage | I18NLocale | UploadFile | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser;
 
 export type HeroSection = {
   __typename?: 'HeroSection';
   createdAt?: Maybe<Scalars['DateTime']>;
   hero: ComponentSlicesHero;
-  holoImage?: Maybe<ComponentSlicesHoloImage>;
+  holoImage?: Maybe<ComponentSlicesImage>;
   publishedAt?: Maybe<Scalars['DateTime']>;
   slices?: Maybe<Array<Maybe<HeroSectionSlicesDynamicZone>>>;
   updatedAt?: Maybe<Scalars['DateTime']>;
@@ -293,7 +282,7 @@ export type HeroSectionFiltersInput = {
   and?: InputMaybe<Array<InputMaybe<HeroSectionFiltersInput>>>;
   createdAt?: InputMaybe<DateTimeFilterInput>;
   hero?: InputMaybe<ComponentSlicesHeroFiltersInput>;
-  holoImage?: InputMaybe<ComponentSlicesHoloImageFiltersInput>;
+  holoImage?: InputMaybe<ComponentSlicesImageFiltersInput>;
   id?: InputMaybe<IdFilterInput>;
   not?: InputMaybe<HeroSectionFiltersInput>;
   or?: InputMaybe<Array<InputMaybe<HeroSectionFiltersInput>>>;
@@ -303,7 +292,7 @@ export type HeroSectionFiltersInput = {
 
 export type HeroSectionInput = {
   hero?: InputMaybe<ComponentSlicesHeroInput>;
-  holoImage?: InputMaybe<ComponentSlicesHoloImageInput>;
+  holoImage?: InputMaybe<ComponentSlicesImageInput>;
   publishedAt?: InputMaybe<Scalars['DateTime']>;
   slices?: InputMaybe<Array<Scalars['HeroSectionSlicesDynamicZoneInput']>>;
 };
@@ -1038,7 +1027,7 @@ export type UsersPermissionsUserRelationResponseCollection = {
 export type Unnamed_1_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_1_Query = { __typename?: 'Query', homePage?: { __typename?: 'HomePageEntityResponse', data?: { __typename?: 'HomePageEntity', attributes?: { __typename?: 'HomePage', hero_sections?: { __typename?: 'HeroSectionRelationResponseCollection', data: Array<{ __typename?: 'HeroSectionEntity', attributes?: { __typename?: 'HeroSection', hero: { __typename?: 'ComponentSlicesHero', title: string, description?: string | null }, slices?: Array<{ __typename?: 'ComponentSlicesLookingGlass', title?: string | null, description?: string | null, buttons?: Array<{ __typename?: 'ComponentSharedButton', size: Enum_Componentsharedbutton_Size, label?: string | null, color?: Enum_Componentsharedbutton_Color | null, link?: { __typename?: 'ComponentSharedLink', href: string, label: string, target?: Enum_Componentsharedlink_Target | null } | null } | null> | null, floatingLinks?: Array<{ __typename?: 'ComponentSharedLink', href: string, label: string, target?: Enum_Componentsharedlink_Target | null } | null> | null } | { __typename?: 'ComponentSlicesLookingGlassWithPicture', imagePosition: Enum_Componentsliceslookingglasswithpicture_Imageposition, image: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null } | null }, lookingGlass?: { __typename?: 'ComponentSlicesLookingGlass', title?: string | null, description?: string | null, buttons?: Array<{ __typename?: 'ComponentSharedButton', size: Enum_Componentsharedbutton_Size, label?: string | null, color?: Enum_Componentsharedbutton_Color | null, link?: { __typename?: 'ComponentSharedLink', href: string, label: string, target?: Enum_Componentsharedlink_Target | null } | null } | null> | null, floatingLinks?: Array<{ __typename?: 'ComponentSharedLink', href: string, label: string, target?: Enum_Componentsharedlink_Target | null } | null> | null } | null } | { __typename?: 'ComponentSlicesMultiImageDisplay', images: Array<{ __typename?: 'ComponentSlicesImage', image: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null } | null } } | null> } | { __typename?: 'Error' } | null> | null, holoImage?: { __typename: 'ComponentSlicesHoloImage' } | null } | null }> } | null } | null } | null } | null };
+export type Unnamed_1_Query = { __typename?: 'Query', homePage?: { __typename?: 'HomePageEntityResponse', data?: { __typename?: 'HomePageEntity', attributes?: { __typename?: 'HomePage', hero_sections?: { __typename?: 'HeroSectionRelationResponseCollection', data: Array<{ __typename?: 'HeroSectionEntity', attributes?: { __typename?: 'HeroSection', hero: { __typename?: 'ComponentSlicesHero', title: string, description?: string | null }, slices?: Array<{ __typename: 'ComponentSlicesLookingGlass', title?: string | null, description?: string | null, buttons?: Array<{ __typename?: 'ComponentSharedButton', size: Enum_Componentsharedbutton_Size, label?: string | null, color?: Enum_Componentsharedbutton_Color | null, link?: { __typename?: 'ComponentSharedLink', href: string, label: string, target?: Enum_Componentsharedlink_Target | null } | null } | null> | null, floatingLinks?: Array<{ __typename?: 'ComponentSharedLink', href: string, label: string, target?: Enum_Componentsharedlink_Target | null } | null> | null } | { __typename: 'ComponentSlicesLookingGlassWithPicture', imagePosition: Enum_Componentsliceslookingglasswithpicture_Imageposition, image: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null } | null }, lookingGlass?: { __typename?: 'ComponentSlicesLookingGlass', title?: string | null, description?: string | null, buttons?: Array<{ __typename?: 'ComponentSharedButton', size: Enum_Componentsharedbutton_Size, label?: string | null, color?: Enum_Componentsharedbutton_Color | null, link?: { __typename?: 'ComponentSharedLink', href: string, label: string, target?: Enum_Componentsharedlink_Target | null } | null } | null> | null, floatingLinks?: Array<{ __typename?: 'ComponentSharedLink', href: string, label: string, target?: Enum_Componentsharedlink_Target | null } | null> | null } | null } | { __typename: 'ComponentSlicesMultiImageDisplay', images: Array<{ __typename?: 'ComponentSlicesImage', image: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null } | null } } | null> } | { __typename?: 'Error' } | null> | null, holoImage?: { __typename: 'ComponentSlicesImage', image: { __typename: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null } | null } } | null } | null }> } | null } | null } | null } | null };
 
 
 export const Document = gql`
@@ -1055,6 +1044,7 @@ export const Document = gql`
               }
               slices {
                 ... on ComponentSlicesLookingGlass {
+                  __typename
                   title
                   description
                   buttons {
@@ -1074,6 +1064,7 @@ export const Document = gql`
                   }
                 }
                 ... on ComponentSlicesMultiImageDisplay {
+                  __typename
                   images {
                     image {
                       data {
@@ -1085,6 +1076,7 @@ export const Document = gql`
                   }
                 }
                 ... on ComponentSlicesLookingGlassWithPicture {
+                  __typename
                   image {
                     data {
                       attributes {
@@ -1115,8 +1107,14 @@ export const Document = gql`
                 }
               }
               holoImage {
-                ... {
+                __typename
+                image {
                   __typename
+                  data {
+                    attributes {
+                      url
+                    }
+                  }
                 }
               }
             }
