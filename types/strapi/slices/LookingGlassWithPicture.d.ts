@@ -1,5 +1,6 @@
 type StrapiSliceLookingGlassWithPicture = {
+  __typename: "ComponentSlicesLookingGlassWithPicture";
   lookingGlass: StrapiSliceLookingGlass;
-  image: StrapiSliceImage;
+  image: StrapiSharedImage;
   imagePosition: "left" | "right";
 };

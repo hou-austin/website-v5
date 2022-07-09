@@ -1,5 +1,6 @@
 type StrapiCollectionsHeroSection = {
+  __typename: "HeroSectionRelationResponseCollection";
   hero: StrapiSliceHero;
   slices: StrapiSlices[];
-  holoImage: StrapiSliceImage;
+  holoImage: StrapiSharedImage;
 };

@@ -1,12 +1,15 @@
 # Write your query or mutation here
 query {
     homePage {
+        __typename
         data {
             attributes {
                 hero_sections {
+                    __typename
                     data {
                         attributes {
                             hero {
+                                __typename
                                 title
                                 description
                             }
@@ -16,6 +19,7 @@ query {
                                     title
                                     description
                                     buttons {
+                                        __typename
                                         size
                                         label
                                         color
@@ -26,14 +30,20 @@ query {
                                         }
                                     }
                                     floatingLinks {
+                                        __typename
                                         href
                                         label
                                         target
+                                        color
                                     }
                                 }
                                 ... on ComponentSlicesMultiImageDisplay {
                                     __typename
                                     images {
+                                        __typename
+                                        width
+                                        height
+                                        alt
                                         image {
                                             data {
                                                 attributes {
@@ -46,17 +56,25 @@ query {
                                 ... on ComponentSlicesLookingGlassWithPicture {
                                     __typename
                                     image {
-                                        data {
-                                            attributes {
-                                                url
+                                        __typename
+                                        width
+                                        height
+                                        alt
+                                        image {
+                                            data {
+                                                attributes {
+                                                    url
+                                                }
                                             }
                                         }
                                     }
                                     imagePosition
                                     lookingGlass {
+                                        __typename
                                         title
                                         description
                                         buttons {
+                                            __typename
                                             size
                                             label
                                             color
@@ -67,17 +85,22 @@ query {
                                             }
                                         }
                                         floatingLinks {
+                                            __typename
                                             href
                                             label
                                             target
+                                            color
                                         }
                                     }
                                 }
                             }
                             holoImage {
-                                __typename,
+                                __typename
+                                width
+                                height
+                                alt
                                 image {
-                                    __typename,
+                                    __typename
                                     data {
                                         attributes {
                                             url

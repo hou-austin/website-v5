@@ -1,8 +1,8 @@
 import React from "react";
 import cx from "classnames";
 import { getAccentColor, getThemeColor } from "../../../utils/styles/color";
-import Button from "../../Button";
-import Link from "next/link";
+import StrapiButton from "../../shared/StrapiButton";
+import StrapiLink from "../../shared/StrapiLink";
 
 const LookingGlass: React.FC<StrapiSliceLookingGlass> = ({
   title,
@@ -14,25 +14,7 @@ const LookingGlass: React.FC<StrapiSliceLookingGlass> = ({
     if (!buttons) return;
 
     const buttonsMap = buttons.map((button, index) => {
-      const { label, color, icon, size, link } = button;
-
-      return (
-        <Button
-          key={index}
-          colorStyle={{ color }}
-          buttonStyles={{
-            gapStyle: size,
-            paddingStyle: size,
-            borderStyle: size,
-            radiusStyle: "full",
-            fontSize: size,
-            fontWeight: size,
-          }}
-          action={link?.href}
-        >
-          {label}
-        </Button>
-      );
+      return <StrapiButton {...button} key={index} />;
     });
 
     return (
@@ -52,7 +34,7 @@ const LookingGlass: React.FC<StrapiSliceLookingGlass> = ({
     if (!floatingLinks) return;
 
     return floatingLinks.map((floatingLink, index) => {
-      const { label, href, target, color } = floatingLink;
+      const { label, href, color } = floatingLink;
 
       return (
         <div
@@ -64,13 +46,7 @@ const LookingGlass: React.FC<StrapiSliceLookingGlass> = ({
             getAccentColor({ color })
           )}
         >
-          {href ? (
-            <Link href={href}>
-              <a target={target === "blank" ? "_blank" : ""}>{label}</a>
-            </Link>
-          ) : (
-            <span>{label}</span>
-          )}
+          {href ? <StrapiLink {...floatingLink} /> : <span>{label}</span>}
         </div>
       );
     });

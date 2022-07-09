@@ -36,15 +36,13 @@ const FONT_WEIGHTS_CLASSES = {
 
 type Sizes = "sm" | "md";
 
-type optionalSizes = string | Sizes;
-
 type ButtonOptionalStyles = {
-  gapStyle?: optionalSizes;
-  paddingStyle?: optionalSizes;
-  borderStyle?: optionalSizes;
-  radiusStyle: optionalSizes | "full";
-  fontSize?: optionalSizes;
-  fontWeight?: optionalSizes;
+  gapStyle?: Sizes;
+  paddingStyle?: Sizes;
+  borderStyle?: Sizes;
+  radiusStyle: Sizes | "full";
+  fontSize?: Sizes;
+  fontWeight?: Sizes;
   textTransform?: "uppercase" | "lowercase" | "capitalize";
 };
 

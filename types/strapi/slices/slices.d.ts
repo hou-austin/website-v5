@@ -1,4 +1,4 @@
 type StrapiSlices =
   | StrapiSliceHero
   | StrapiSliceLookingGlass
-  | StrapiSliceImage;
+  | StrapiSliceLookingGlassWithPicture;

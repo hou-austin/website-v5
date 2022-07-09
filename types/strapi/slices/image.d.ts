@@ -1,3 +1,0 @@
-type StrapiSliceImage = {
-  url: string;
-};
