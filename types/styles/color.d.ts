@@ -12,4 +12,7 @@ type AccentColorStyles =
 type ThemeColorStyles =
   | "whiteTransparent"
   | "blackTransparent"
-  | "autoTransparent";
+  | "autoTransparent"
+  | "white"
+  | "black"
+  | "auto";

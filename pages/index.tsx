@@ -2,7 +2,6 @@ import React from "react";
 import { NextPageWithLayout } from "./_app";
 import NavigationLayout from "../layouts/NavigationLayout";
 import GradientAnimation from "../components/GradientAnimation";
-import cx from "classnames";
 import Image from "next/future/image";
 
 import DetailedImageShowcase from "../components/DetailedImageShowcase";
@@ -10,13 +9,10 @@ import LookingGlassDescriptionContent from "../components/LookingGlassContainer/
 import PrimarySection from "../components/PrimarySection";
 import LookingGlassContainer from "../components/LookingGlassContainer";
 import Head from "next/head";
-import {
-  GetHomePageDocument,
-  useGetHomePageQuery,
-} from "../graphql/generated/schema";
+import { GetHomePageDocument } from "../graphql/generated/schema";
 import client from "../utils/apollo";
-import { GetStaticProps, GetStaticPropsResult } from "next";
 import Page from "../components/Page";
+import cx from "classnames";
 
 const fullStackDeveloperSection = (
   <PrimarySection
@@ -287,7 +283,26 @@ type Props = NextPageWithLayout & {
 };
 
 const Home: NextPageWithLayout = ({ page }: Props) => {
-  return <Page staticStrapiData={page} />;
+  return (
+    <>
+      <div className={cx("max-w-7xl mx-auto px-4")}>
+        <div className={cx("top-52 z-10 absolute")}>
+          <div
+            className={cx(
+              "text-bold",
+              "drop-shadow-lg-white text-6xl font-black",
+              "dark:drop-shadow-lg dark:text-white"
+            )}
+          >
+            Hi, I&apos;m a...
+          </div>
+        </div>
+      </div>
+      <div className={"mt-8"}>
+        <Page staticStrapiData={page} />
+      </div>
+    </>
+  );
 
   // return (
   //   <div>

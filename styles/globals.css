@@ -58,7 +58,3 @@ a {
 .rounded-image img {
   @apply rounded-lg;
 }
-
-.drop-shadow-image-lg img {
-  @apply drop-shadow-2xl;
-}

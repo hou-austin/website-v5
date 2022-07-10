@@ -30,7 +30,9 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
       attribute="class"
     >
       <ApolloProvider client={client}>
-        {getLayout(<Component {...pageProps} />)}
+        <div className={"bg-white dark:bg-black"}>
+          {getLayout(<Component {...pageProps} />)}
+        </div>
       </ApolloProvider>
     </ThemeProvider>
   );

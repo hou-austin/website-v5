@@ -2,19 +2,28 @@ import React from "react";
 import Hero from "../../slices/Hero";
 import StrapiImage from "../../shared/StrapiImage";
 import SliceManager from "../../SliceManager";
+import { getThemeColor } from "../../../utils/styles/color";
+import cx from "classnames";
 
 const HeroSection: React.FC<StrapiCollectionsHeroSection> = ({
   attributes: { hero, slices, holoImage },
 }) => {
   return (
-    <div>
-      <Hero {...hero} />
-      <div className="mt-10 py-8 border-t border-slate-50/20 relative">
+    <>
+      <div className={"relative z-10 mt-8"}>
+        <Hero {...hero} />
+      </div>
+      <div
+        className={cx(
+          "mt-10 py-8 border-t border-slate-50/20 relative",
+          getThemeColor({ color: "auto", types: ["bg"] })
+        )}
+      >
         {holoImage && (
           <StrapiImage
             {...holoImage}
             className={
-              "absolute top-0 max-w-7xl left-0 right-0 mx-auto overflow-hidden -z-10"
+              "absolute top-0 max-w-7xl left-0 right-0 mx-auto overflow-hidden"
             }
           />
         )}
@@ -26,7 +35,7 @@ const HeroSection: React.FC<StrapiCollectionsHeroSection> = ({
           <SliceManager slices={slices} />
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

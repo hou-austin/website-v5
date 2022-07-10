@@ -38,10 +38,10 @@ const LookingGlassWithPicture: React.FC<StrapiSliceLookingGlassWithPicture> = ({
         "flex flex-col relative"
       )}
     >
-      <div className={imagePositionClasses}>
-        <StrapiImage {...image} />
+      <div className={cx("flex items-center", imagePositionClasses)}>
+        <StrapiImage {...image} className={"rounded-lg drop-shadow-2xl"} />
       </div>
-      <div className={lookingGlassPositionClasses}>
+      <div className={cx("flex items-center", lookingGlassPositionClasses)}>
         <LookingGlass {...lookingGlass} />
       </div>
     </div>

@@ -21,7 +21,7 @@ const LookingGlass: React.FC<StrapiSliceLookingGlass> = ({
       <div
         className={cx(
           "flex flex-row flex-wrap gap-2 items-center",
-          { "border-t pt-4": !description && !title },
+          { "border-t pt-4": description || title },
           getAccentColor({ color: "autoS400O10", types: ["border"] })
         )}
       >
@@ -69,7 +69,7 @@ const LookingGlass: React.FC<StrapiSliceLookingGlass> = ({
     >
       <div
         className={cx(
-          "px-4 p-4 border rounded-lg col-start-1 row-start-1 flex flex-col shadow-xl backdrop-blur-lg relative z-10",
+          "px-4 p-4 border rounded-lg col-start-1 row-start-1 flex flex-col gap-4 shadow-xl backdrop-blur-lg relative z-10",
           getThemeColor({ color: "autoTransparent" })
         )}
       >
