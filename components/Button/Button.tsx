@@ -85,6 +85,7 @@ const Button: React.FC<ButtonProps> = ({
   const radiusClass = radiusStyle ? getClass(RADIUS_CLASSES, radiusStyle) : "";
   const fontSizeClass = getClass(FONT_SIZE_CLASSES, fontSize);
   const fontWeightClass = getClass(FONT_WEIGHTS_CLASSES, fontWeight);
+  const cursor = action ? "cursor-pointer" : "cursor-default";
 
   const generatedClasses = [
     defaultClass,
@@ -96,6 +97,7 @@ const Button: React.FC<ButtonProps> = ({
     fontSizeClass,
     fontWeightClass,
     textTransformClass,
+    cursor,
   ];
   const composedClasses = cx(
     className,
