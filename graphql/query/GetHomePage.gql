@@ -1,13 +1,14 @@
 # Write your query or mutation here
-query {
+query GetHomePage {
     homePage {
-        __typename
         data {
             attributes {
+                __typename
                 hero_sections {
                     __typename
                     data {
                         attributes {
+                            __typename
                             hero {
                                 __typename
                                 title
@@ -45,6 +46,7 @@ query {
                                         height
                                         alt
                                         image {
+                                            __typename
                                             data {
                                                 attributes {
                                                     url
@@ -61,6 +63,7 @@ query {
                                         height
                                         alt
                                         image {
+                                            __typename
                                             data {
                                                 attributes {
                                                     url
@@ -109,6 +112,13 @@ query {
                                 }
                             }
                         }
+                    }
+                }
+                test {
+                    __typename
+                    ... on ComponentSlicesHero {
+                        __typename
+                        title
                     }
                 }
             }

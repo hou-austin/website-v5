@@ -10,6 +10,13 @@ import LookingGlassDescriptionContent from "../components/LookingGlassContainer/
 import PrimarySection from "../components/PrimarySection";
 import LookingGlassContainer from "../components/LookingGlassContainer";
 import Head from "next/head";
+import {
+  GetHomePageDocument,
+  useGetHomePageQuery,
+} from "../graphql/generated/schema";
+import client from "../utils/apollo";
+import { GetStaticProps, GetStaticPropsResult } from "next";
+import Page from "../components/Page";
 
 const fullStackDeveloperSection = (
   <PrimarySection
@@ -275,36 +282,42 @@ const hobbySection = (
   </PrimarySection>
 );
 
-const Home: NextPageWithLayout = () => {
-  return (
-    <div>
-      <Head>
-        <title>Austin Hou - Home</title>
-        <meta
-          name="description"
-          content="Full stack software engineer, UI/UX designer, artist, and perhaps with too many hobbies."
-        />
-      </Head>
-      <div className={cx("max-w-7xl mx-auto px-4")}>
-        <div className={cx("top-52 z-10 absolute")}>
-          <div
-            className={cx(
-              "text-bold",
-              "drop-shadow-lg-white text-6xl font-black",
-              "dark:drop-shadow-lg dark:text-white"
-            )}
-          >
-            Hi, I&apos;m a...
-          </div>
-        </div>
-      </div>
-      <div className={cx("mb-8 flex flex-col sm:gap-32")}>
-        {fullStackDeveloperSection}
-        {designerSection}
-        {hobbySection}
-      </div>
-    </div>
-  );
+type Props = NextPageWithLayout & {
+  page: StrapiPages;
+};
+
+const Home: NextPageWithLayout = ({ page }: Props) => {
+  return <Page staticStrapiData={page} />;
+
+  // return (
+  //   <div>
+  //     <Head>
+  //       <title>Austin Hou - Home</title>
+  //       <meta
+  //         name="description"
+  //         content="Full stack software engineer, UI/UX designer, artist, and perhaps with too many hobbies."
+  //       />
+  //     </Head>
+  //     <div className={cx("max-w-7xl mx-auto px-4")}>
+  //       <div className={cx("top-52 z-10 absolute")}>
+  //         <div
+  //           className={cx(
+  //             "text-bold",
+  //             "drop-shadow-lg-white text-6xl font-black",
+  //             "dark:drop-shadow-lg dark:text-white"
+  //           )}
+  //         >
+  //           Hi, I&apos;m a...
+  //         </div>
+  //       </div>
+  //     </div>
+  //     <div className={cx("mb-8 flex flex-col sm:gap-32")}>
+  //       {fullStackDeveloperSection}
+  //       {designerSection}
+  //       {hobbySection}
+  //     </div>
+  //   </div>
+  // );
 };
 
 Home.getLayout = function getLayout(page: React.ReactElement) {
@@ -315,5 +328,13 @@ Home.getLayout = function getLayout(page: React.ReactElement) {
     </div>
   );
 };
+
+export async function getStaticProps() {
+  const { data } = await client.query({ query: GetHomePageDocument });
+
+  return {
+    props: { page: data.homePage as StrapiPages },
+  };
+}
 
 export default Home;

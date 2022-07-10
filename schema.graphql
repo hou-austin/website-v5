@@ -5,34 +5,110 @@ schema {
     mutation: Mutation
 }
 
-union GenericMorph = ComponentGlobalNavigation | ComponentSharedLink | Global | I18NLocale | UploadFile | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser
+union GenericMorph = ComponentSharedButton | ComponentSharedImage | ComponentSharedLink | ComponentSlicesHero | ComponentSlicesLookingGlass | ComponentSlicesLookingGlassWithPicture | ComponentSlicesMultiImageDisplay | HeroSection | HomePage | I18NLocale | UploadFile | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser
 
-type ComponentGlobalNavigation {
+union HeroSectionSlicesDynamicZone = ComponentSlicesLookingGlass | ComponentSlicesLookingGlassWithPicture | ComponentSlicesMultiImageDisplay | Error
+
+union HomePageTestDynamicZone = ComponentSlicesHero | ComponentSlicesLookingGlass | ComponentSlicesLookingGlassWithPicture | ComponentSlicesMultiImageDisplay | Error
+
+type ComponentSharedButton {
+    color: ENUM_COMPONENTSHAREDBUTTON_COLOR!
+    icon: ENUM_COMPONENTSHAREDBUTTON_ICON
     id: ID!
-    link(filters: ComponentSharedLinkFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentSharedLink]
+    label: String
+    link: ComponentSharedLink
+    size: ENUM_COMPONENTSHAREDBUTTON_SIZE!
+}
+
+type ComponentSharedImage {
+    alt: String
+    height: Int!
+    id: ID!
+    image: UploadFileEntityResponse!
+    width: Int!
 }
 
 type ComponentSharedLink {
+    color: ENUM_COMPONENTSHAREDLINK_COLOR!
     href: String!
     id: ID!
     label: String!
     target: ENUM_COMPONENTSHAREDLINK_TARGET
 }
 
-type Global {
+type ComponentSlicesHero {
+    description: String
+    id: ID!
+    title: String!
+}
+
+type ComponentSlicesLookingGlass {
+    buttons(filters: ComponentSharedButtonFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentSharedButton]
+    description: String
+    floatingLinks(filters: ComponentSharedLinkFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentSharedLink]
+    id: ID!
+    title: String
+}
+
+type ComponentSlicesLookingGlassWithPicture {
+    id: ID!
+    image: ComponentSharedImage!
+    imagePosition: ENUM_COMPONENTSLICESLOOKINGGLASSWITHPICTURE_IMAGEPOSITION!
+    lookingGlass: ComponentSlicesLookingGlass
+}
+
+type ComponentSlicesMultiImageDisplay {
+    id: ID!
+    images(filters: ComponentSharedImageFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): [ComponentSharedImage]!
+}
+
+type Error {
+    code: String!
+    message: String
+}
+
+type HeroSection {
     createdAt: DateTime
-    navigation: ComponentGlobalNavigation
+    hero: ComponentSlicesHero!
+    holoImage: ComponentSharedImage
     publishedAt: DateTime
+    slices: [HeroSectionSlicesDynamicZone]
     updatedAt: DateTime
 }
 
-type GlobalEntity {
-    attributes: Global
+type HeroSectionEntity {
+    attributes: HeroSection
     id: ID
 }
 
-type GlobalEntityResponse {
-    data: GlobalEntity
+type HeroSectionEntityResponse {
+    data: HeroSectionEntity
+}
+
+type HeroSectionEntityResponseCollection {
+    data: [HeroSectionEntity!]!
+    meta: ResponseCollectionMeta!
+}
+
+type HeroSectionRelationResponseCollection {
+    data: [HeroSectionEntity!]!
+}
+
+type HomePage {
+    createdAt: DateTime
+    hero_sections(filters: HeroSectionFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): HeroSectionRelationResponseCollection
+    publishedAt: DateTime
+    test: [HomePageTestDynamicZone]
+    updatedAt: DateTime
+}
+
+type HomePageEntity {
+    attributes: HomePage
+    id: ID
+}
+
+type HomePageEntityResponse {
+    data: HomePageEntity
 }
 
 type I18NLocale {
@@ -57,12 +133,14 @@ type I18NLocaleEntityResponseCollection {
 }
 
 type Mutation {
+    createHeroSection(data: HeroSectionInput!): HeroSectionEntityResponse
     createUploadFile(data: UploadFileInput!): UploadFileEntityResponse
     "Create a new role"
     createUsersPermissionsRole(data: UsersPermissionsRoleInput!): UsersPermissionsCreateRolePayload
     "Create a new user"
     createUsersPermissionsUser(data: UsersPermissionsUserInput!): UsersPermissionsUserEntityResponse!
-    deleteGlobal: GlobalEntityResponse
+    deleteHeroSection(id: ID!): HeroSectionEntityResponse
+    deleteHomePage: HomePageEntityResponse
     deleteUploadFile(id: ID!): UploadFileEntityResponse
     "Delete an existing role"
     deleteUsersPermissionsRole(id: ID!): UsersPermissionsDeleteRolePayload
@@ -80,7 +158,8 @@ type Mutation {
     "Reset user password. Confirm with a code (resetToken from forgotPassword)"
     resetPassword(code: String!, password: String!, passwordConfirmation: String!): UsersPermissionsLoginPayload
     updateFileInfo(id: ID!, info: FileInfoInput): UploadFileEntityResponse!
-    updateGlobal(data: GlobalInput!): GlobalEntityResponse
+    updateHeroSection(data: HeroSectionInput!, id: ID!): HeroSectionEntityResponse
+    updateHomePage(data: HomePageInput!): HomePageEntityResponse
     updateUploadFile(data: UploadFileInput!, id: ID!): UploadFileEntityResponse
     "Update an existing role"
     updateUsersPermissionsRole(data: UsersPermissionsRoleInput!, id: ID!): UsersPermissionsUpdateRolePayload
@@ -97,7 +176,9 @@ type Pagination {
 }
 
 type Query {
-    global(publicationState: PublicationState = LIVE): GlobalEntityResponse
+    heroSection(id: ID): HeroSectionEntityResponse
+    heroSections(filters: HeroSectionFiltersInput, pagination: PaginationArg = {}, publicationState: PublicationState = LIVE, sort: [String] = []): HeroSectionEntityResponseCollection
+    homePage(publicationState: PublicationState = LIVE): HomePageEntityResponse
     i18NLocale(id: ID): I18NLocaleEntityResponse
     i18NLocales(filters: I18NLocaleFiltersInput, pagination: PaginationArg = {}, sort: [String] = []): I18NLocaleEntityResponseCollection
     me: UsersPermissionsMe
@@ -253,8 +334,43 @@ type UsersPermissionsUserRelationResponseCollection {
     data: [UsersPermissionsUserEntity!]!
 }
 
+enum ENUM_COMPONENTSHAREDBUTTON_COLOR {
+    autoS400O10
+    blackS400O10
+    greenS400O10
+    purpleS400O10
+    redS400O10
+    skyS400O10
+    whiteS400O10
+}
+
+enum ENUM_COMPONENTSHAREDBUTTON_ICON {
+    next
+    previous
+}
+
+enum ENUM_COMPONENTSHAREDBUTTON_SIZE {
+    md
+    sm
+}
+
+enum ENUM_COMPONENTSHAREDLINK_COLOR {
+    autoS400O10
+    blackS400O10
+    greenS400O10
+    purpleS400O10
+    redS400O10
+    skyS400O10
+    whiteS400O10
+}
+
 enum ENUM_COMPONENTSHAREDLINK_TARGET {
     blank
+}
+
+enum ENUM_COMPONENTSLICESLOOKINGGLASSWITHPICTURE_IMAGEPOSITION {
+    left
+    right
 }
 
 enum PublicationState {
@@ -264,6 +380,10 @@ enum PublicationState {
 
 "A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the `date-time` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar."
 scalar DateTime
+
+scalar HeroSectionSlicesDynamicZoneInput
+
+scalar HomePageTestDynamicZoneInput
 
 "The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf)."
 scalar JSON
@@ -294,13 +414,37 @@ input BooleanFilterInput {
     startsWith: Boolean
 }
 
-input ComponentGlobalNavigationInput {
+input ComponentSharedButtonFiltersInput {
+    and: [ComponentSharedButtonFiltersInput]
+    color: StringFilterInput
+    icon: StringFilterInput
+    label: StringFilterInput
+    link: ComponentSharedLinkFiltersInput
+    not: ComponentSharedButtonFiltersInput
+    or: [ComponentSharedButtonFiltersInput]
+    size: StringFilterInput
+}
+
+input ComponentSharedImageFiltersInput {
+    alt: StringFilterInput
+    and: [ComponentSharedImageFiltersInput]
+    height: IntFilterInput
+    not: ComponentSharedImageFiltersInput
+    or: [ComponentSharedImageFiltersInput]
+    width: IntFilterInput
+}
+
+input ComponentSharedImageInput {
+    alt: String
+    height: Int
     id: ID
-    link: [ComponentSharedLinkInput]
+    image: ID
+    width: Int
 }
 
 input ComponentSharedLinkFiltersInput {
     and: [ComponentSharedLinkFiltersInput]
+    color: StringFilterInput
     href: StringFilterInput
     label: StringFilterInput
     not: ComponentSharedLinkFiltersInput
@@ -308,11 +452,18 @@ input ComponentSharedLinkFiltersInput {
     target: StringFilterInput
 }
 
-input ComponentSharedLinkInput {
-    href: String
+input ComponentSlicesHeroFiltersInput {
+    and: [ComponentSlicesHeroFiltersInput]
+    description: StringFilterInput
+    not: ComponentSlicesHeroFiltersInput
+    or: [ComponentSlicesHeroFiltersInput]
+    title: StringFilterInput
+}
+
+input ComponentSlicesHeroInput {
+    description: String
     id: ID
-    label: String
-    target: ENUM_COMPONENTSHAREDLINK_TARGET
+    title: String
 }
 
 input DateTimeFilterInput {
@@ -367,9 +518,29 @@ input FloatFilterInput {
     startsWith: Float
 }
 
-input GlobalInput {
-    navigation: ComponentGlobalNavigationInput
+input HeroSectionFiltersInput {
+    and: [HeroSectionFiltersInput]
+    createdAt: DateTimeFilterInput
+    hero: ComponentSlicesHeroFiltersInput
+    holoImage: ComponentSharedImageFiltersInput
+    id: IDFilterInput
+    not: HeroSectionFiltersInput
+    or: [HeroSectionFiltersInput]
+    publishedAt: DateTimeFilterInput
+    updatedAt: DateTimeFilterInput
+}
+
+input HeroSectionInput {
+    hero: ComponentSlicesHeroInput
+    holoImage: ComponentSharedImageInput
     publishedAt: DateTime
+    slices: [HeroSectionSlicesDynamicZoneInput!]
+}
+
+input HomePageInput {
+    hero_sections: [ID]
+    publishedAt: DateTime
+    test: [HomePageTestDynamicZoneInput!]
 }
 
 input I18NLocaleFiltersInput {

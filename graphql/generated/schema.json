@@ -2929,6 +2929,22 @@
             "deprecationReason": null
           },
           {
+            "name": "test",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "UNION",
+                "name": "HomePageTestDynamicZone",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "updatedAt",
             "description": null,
             "args": [],
@@ -3037,8 +3053,74 @@
             "defaultValue": null,
             "isDeprecated": false,
             "deprecationReason": null
+          },
+          {
+            "name": "test",
+            "description": null,
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "HomePageTestDynamicZoneInput",
+                  "ofType": null
+                }
+              }
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
           }
         ],
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "UNION",
+        "name": "HomePageTestDynamicZone",
+        "description": null,
+        "fields": null,
+        "inputFields": null,
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": [
+          {
+            "kind": "OBJECT",
+            "name": "ComponentSlicesHero",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "ComponentSlicesLookingGlass",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "ComponentSlicesLookingGlassWithPicture",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "ComponentSlicesMultiImageDisplay",
+            "ofType": null
+          },
+          {
+            "kind": "OBJECT",
+            "name": "Error",
+            "ofType": null
+          }
+        ]
+      },
+      {
+        "kind": "SCALAR",
+        "name": "HomePageTestDynamicZoneInput",
+        "description": null,
+        "fields": null,
+        "inputFields": null,
         "interfaces": null,
         "enumValues": null,
         "possibleTypes": null

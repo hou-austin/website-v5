@@ -14,7 +14,7 @@ const StrapiImage: React.FC<Props> = ({
 }) => {
   return (
     <Image
-      src={image.url}
+      src={image.data.attributes.url}
       width={width}
       height={height}
       alt={alt}

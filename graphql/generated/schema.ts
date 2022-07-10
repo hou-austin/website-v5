@@ -15,6 +15,7 @@ export type Scalars = {
   Float: number;
   DateTime: any;
   HeroSectionSlicesDynamicZoneInput: any;
+  HomePageTestDynamicZoneInput: any;
   JSON: any;
   Upload: any;
 };
@@ -330,6 +331,7 @@ export type HomePage = {
   createdAt?: Maybe<Scalars['DateTime']>;
   hero_sections?: Maybe<HeroSectionRelationResponseCollection>;
   publishedAt?: Maybe<Scalars['DateTime']>;
+  test?: Maybe<Array<Maybe<HomePageTestDynamicZone>>>;
   updatedAt?: Maybe<Scalars['DateTime']>;
 };
 
@@ -355,7 +357,10 @@ export type HomePageEntityResponse = {
 export type HomePageInput = {
   hero_sections?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
   publishedAt?: InputMaybe<Scalars['DateTime']>;
+  test?: InputMaybe<Array<Scalars['HomePageTestDynamicZoneInput']>>;
 };
+
+export type HomePageTestDynamicZone = ComponentSlicesHero | ComponentSlicesLookingGlass | ComponentSlicesLookingGlassWithPicture | ComponentSlicesMultiImageDisplay | Error;
 
 export type I18NLocale = {
   __typename?: 'I18NLocale';
@@ -1045,22 +1050,23 @@ export type UsersPermissionsUserRelationResponseCollection = {
   data: Array<UsersPermissionsUserEntity>;
 };
 
-export type Unnamed_1_QueryVariables = Exact<{ [key: string]: never; }>;
+export type GetHomePageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_1_Query = { __typename?: 'Query', homePage?: { __typename: 'HomePageEntityResponse', data?: { __typename?: 'HomePageEntity', attributes?: { __typename?: 'HomePage', hero_sections?: { __typename: 'HeroSectionRelationResponseCollection', data: Array<{ __typename?: 'HeroSectionEntity', attributes?: { __typename?: 'HeroSection', hero: { __typename: 'ComponentSlicesHero', title: string, description?: string | null }, slices?: Array<{ __typename: 'ComponentSlicesLookingGlass', title?: string | null, description?: string | null, buttons?: Array<{ __typename: 'ComponentSharedButton', size: Enum_Componentsharedbutton_Size, label?: string | null, color: Enum_Componentsharedbutton_Color, link?: { __typename?: 'ComponentSharedLink', href: string, label: string, target?: Enum_Componentsharedlink_Target | null } | null } | null> | null, floatingLinks?: Array<{ __typename: 'ComponentSharedLink', href: string, label: string, target?: Enum_Componentsharedlink_Target | null, color: Enum_Componentsharedlink_Color } | null> | null } | { __typename: 'ComponentSlicesLookingGlassWithPicture', imagePosition: Enum_Componentsliceslookingglasswithpicture_Imageposition, image: { __typename: 'ComponentSharedImage', width: number, height: number, alt?: string | null, image: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null } | null } }, lookingGlass?: { __typename: 'ComponentSlicesLookingGlass', title?: string | null, description?: string | null, buttons?: Array<{ __typename: 'ComponentSharedButton', size: Enum_Componentsharedbutton_Size, label?: string | null, color: Enum_Componentsharedbutton_Color, link?: { __typename?: 'ComponentSharedLink', href: string, label: string, target?: Enum_Componentsharedlink_Target | null } | null } | null> | null, floatingLinks?: Array<{ __typename: 'ComponentSharedLink', href: string, label: string, target?: Enum_Componentsharedlink_Target | null, color: Enum_Componentsharedlink_Color } | null> | null } | null } | { __typename: 'ComponentSlicesMultiImageDisplay', images: Array<{ __typename: 'ComponentSharedImage', width: number, height: number, alt?: string | null, image: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null } | null } } | null> } | { __typename?: 'Error' } | null> | null, holoImage?: { __typename: 'ComponentSharedImage', width: number, height: number, alt?: string | null, image: { __typename: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null } | null } } | null } | null }> } | null } | null } | null } | null };
+export type GetHomePageQuery = { __typename?: 'Query', homePage?: { __typename?: 'HomePageEntityResponse', data?: { __typename?: 'HomePageEntity', attributes?: { __typename: 'HomePage', hero_sections?: { __typename: 'HeroSectionRelationResponseCollection', data: Array<{ __typename?: 'HeroSectionEntity', attributes?: { __typename: 'HeroSection', hero: { __typename: 'ComponentSlicesHero', title: string, description?: string | null }, slices?: Array<{ __typename: 'ComponentSlicesLookingGlass', title?: string | null, description?: string | null, buttons?: Array<{ __typename: 'ComponentSharedButton', size: Enum_Componentsharedbutton_Size, label?: string | null, color: Enum_Componentsharedbutton_Color, link?: { __typename?: 'ComponentSharedLink', href: string, label: string, target?: Enum_Componentsharedlink_Target | null } | null } | null> | null, floatingLinks?: Array<{ __typename: 'ComponentSharedLink', href: string, label: string, target?: Enum_Componentsharedlink_Target | null, color: Enum_Componentsharedlink_Color } | null> | null } | { __typename: 'ComponentSlicesLookingGlassWithPicture', imagePosition: Enum_Componentsliceslookingglasswithpicture_Imageposition, image: { __typename: 'ComponentSharedImage', width: number, height: number, alt?: string | null, image: { __typename: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null } | null } }, lookingGlass?: { __typename: 'ComponentSlicesLookingGlass', title?: string | null, description?: string | null, buttons?: Array<{ __typename: 'ComponentSharedButton', size: Enum_Componentsharedbutton_Size, label?: string | null, color: Enum_Componentsharedbutton_Color, link?: { __typename?: 'ComponentSharedLink', href: string, label: string, target?: Enum_Componentsharedlink_Target | null } | null } | null> | null, floatingLinks?: Array<{ __typename: 'ComponentSharedLink', href: string, label: string, target?: Enum_Componentsharedlink_Target | null, color: Enum_Componentsharedlink_Color } | null> | null } | null } | { __typename: 'ComponentSlicesMultiImageDisplay', images: Array<{ __typename: 'ComponentSharedImage', width: number, height: number, alt?: string | null, image: { __typename: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null } | null } } | null> } | { __typename?: 'Error' } | null> | null, holoImage?: { __typename: 'ComponentSharedImage', width: number, height: number, alt?: string | null, image: { __typename: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null } | null } } | null } | null }> } | null, test?: Array<{ __typename: 'ComponentSlicesHero', title: string } | { __typename: 'ComponentSlicesLookingGlass' } | { __typename: 'ComponentSlicesLookingGlassWithPicture' } | { __typename: 'ComponentSlicesMultiImageDisplay' } | { __typename: 'Error' } | null> | null } | null } | null } | null };
 
 
-export const Document = gql`
-    {
+export const GetHomePageDocument = gql`
+    query GetHomePage {
   homePage {
-    __typename
     data {
       attributes {
+        __typename
         hero_sections {
           __typename
           data {
             attributes {
+              __typename
               hero {
                 __typename
                 title
@@ -1098,6 +1104,7 @@ export const Document = gql`
                     height
                     alt
                     image {
+                      __typename
                       data {
                         attributes {
                           url
@@ -1114,6 +1121,7 @@ export const Document = gql`
                     height
                     alt
                     image {
+                      __typename
                       data {
                         attributes {
                           url
@@ -1164,6 +1172,13 @@ export const Document = gql`
             }
           }
         }
+        test {
+          __typename
+          ... on ComponentSlicesHero {
+            __typename
+            title
+          }
+        }
       }
     }
   }
@@ -1171,28 +1186,28 @@ export const Document = gql`
     `;
 
 /**
- * __useQuery__
+ * __useGetHomePageQuery__
  *
- * To run a query within a React component, call `useQuery` and pass it any options that fit your needs.
- * When your component renders, `useQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * To run a query within a React component, call `useGetHomePageQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetHomePageQuery` returns an object from Apollo Client that contains loading, error, and data properties
  * you can use to render your UI.
  *
  * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const { data, loading, error } = useQuery({
+ * const { data, loading, error } = useGetHomePageQuery({
  *   variables: {
  *   },
  * });
  */
-export function useQuery(baseOptions?: Apollo.QueryHookOptions<Query, QueryVariables>) {
+export function useGetHomePageQuery(baseOptions?: Apollo.QueryHookOptions<GetHomePageQuery, GetHomePageQueryVariables>) {
         const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<Query, QueryVariables>(Document, options);
+        return Apollo.useQuery<GetHomePageQuery, GetHomePageQueryVariables>(GetHomePageDocument, options);
       }
-export function useLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<Query, QueryVariables>) {
+export function useGetHomePageLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetHomePageQuery, GetHomePageQueryVariables>) {
           const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<Query, QueryVariables>(Document, options);
+          return Apollo.useLazyQuery<GetHomePageQuery, GetHomePageQueryVariables>(GetHomePageDocument, options);
         }
-export type QueryHookResult = ReturnType<typeof useQuery>;
-export type LazyQueryHookResult = ReturnType<typeof useLazyQuery>;
-export type QueryResult = Apollo.QueryResult<Query, QueryVariables>;
+export type GetHomePageQueryHookResult = ReturnType<typeof useGetHomePageQuery>;
+export type GetHomePageLazyQueryHookResult = ReturnType<typeof useGetHomePageLazyQuery>;
+export type GetHomePageQueryResult = Apollo.QueryResult<GetHomePageQuery, GetHomePageQueryVariables>;

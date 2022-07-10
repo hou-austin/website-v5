@@ -30,8 +30,8 @@ const FONT_SIZE_CLASSES = {
 };
 
 const FONT_WEIGHTS_CLASSES = {
-  sm: "font-medium",
-  md: "font-semibold",
+  sm: "font-semibold",
+  md: "font-medium",
 };
 
 type Sizes = "sm" | "md";
@@ -72,7 +72,7 @@ const Button: React.FC<ButtonProps> = ({
   } = buttonStyles || {};
 
   const getClass = (lookup: { [key: string]: string }, propStyle: string) => {
-    return Object.values(lookup).includes(propStyle)
+    return Object.keys(lookup).includes(propStyle)
       ? lookup[propStyle as keyof typeof lookup]
       : propStyle;
   };
@@ -97,9 +97,10 @@ const Button: React.FC<ButtonProps> = ({
     fontWeightClass,
     textTransformClass,
   ];
+  console.log(generatedClasses);
   const composedClasses = cx(
     className,
-    ...(!buttonStyles ? generatedClasses : [])
+    ...(buttonStyles ? generatedClasses : [])
   );
 
   const button = (

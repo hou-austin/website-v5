@@ -3,7 +3,5 @@ type StrapiSharedImage = {
   width: number;
   height: number;
   alt?: string;
-  image: {
-    url: string;
-  };
+  image: StrapiGenericImage;
 };

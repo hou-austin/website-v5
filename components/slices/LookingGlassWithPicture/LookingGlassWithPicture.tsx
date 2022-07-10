@@ -1,7 +1,7 @@
 import React from "react";
 import cx from "classnames";
-import Image from "next/future/image";
 import LookingGlass from "../LookingGlass";
+import StrapiImage from "../../shared/StrapiImage";
 
 const IMAGE_POSITION = {
   left: [
@@ -29,6 +29,8 @@ const LookingGlassWithPicture: React.FC<StrapiSliceLookingGlassWithPicture> = ({
   const imagePositionClasses = IMAGE_POSITION[imagePosition].join(" ");
   const lookingGlassPositionClasses = LOOKING_GLASS_POSITION[imagePosition];
 
+  console.log(JSON.stringify(image));
+
   return (
     <div
       className={cx(
@@ -37,13 +39,7 @@ const LookingGlassWithPicture: React.FC<StrapiSliceLookingGlassWithPicture> = ({
       )}
     >
       <div className={imagePositionClasses}>
-        <Image
-          src={image.url}
-          alt="showcase image"
-          width={800}
-          height={450}
-          className="shadow-xl"
-        />
+        <StrapiImage {...image} />
       </div>
       <div className={lookingGlassPositionClasses}>
         <LookingGlass {...lookingGlass} />

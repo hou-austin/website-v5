@@ -9,7 +9,7 @@ const Hero: React.FC<StrapiSliceHero> = ({ title, description }) => {
   return (
     <div className={cx("max-w-7xl mx-auto px-4")}>
       <div className={cx("font-bold text-5xl break-words")}>{title}</div>
-      {description && descriptionElement};
+      {description && descriptionElement}
     </div>
   );
 };
