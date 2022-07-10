@@ -3,7 +3,7 @@ import CollectionManager from "../CollectionManger";
 import SliceManager from "../SliceManager";
 
 type Props = {
-  staticStrapiData: StrapiPages;
+  staticStrapiData: StrapiSingles;
 };
 
 const Page: React.FC<Props> = ({ staticStrapiData }) => {

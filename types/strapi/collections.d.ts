@@ -1,3 +1,6 @@
+type StrapiCollections = { data: StrapiCollectionsData[] };
+type StrapiCollectionsData = StrapiCollectionsHeroSection;
+
 type StrapiCollectionsHeroSection = {
   attributes: {
     __typename: "HeroSection";

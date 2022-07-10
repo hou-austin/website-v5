@@ -279,7 +279,7 @@ const hobbySection = (
 );
 
 type Props = NextPageWithLayout & {
-  page: StrapiPages;
+  page: StrapiSingles;
 };
 
 const Home = ({ page }: Props) => {
@@ -348,7 +348,7 @@ export async function getStaticProps() {
   const { data } = await client.query({ query: GetHomePageDocument });
 
   return {
-    props: { page: data.homePage as StrapiPages },
+    props: { page: data.homePage as StrapiSingles },
   };
 }
 

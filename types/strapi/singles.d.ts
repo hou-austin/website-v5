@@ -1,4 +1,4 @@
-type StrapiPages = {
+type StrapiSingles = {
   data: {
     attributes: {
       __typename: string;
