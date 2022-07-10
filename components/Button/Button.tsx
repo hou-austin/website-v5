@@ -97,7 +97,6 @@ const Button: React.FC<ButtonProps> = ({
     fontWeightClass,
     textTransformClass,
   ];
-  console.log(generatedClasses);
   const composedClasses = cx(
     className,
     ...(buttonStyles ? generatedClasses : [])

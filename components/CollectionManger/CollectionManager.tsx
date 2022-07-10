@@ -31,7 +31,9 @@ const CollectionManager: React.FC<Props> = ({ collection }) => {
           }
         >
       >;
-      collectionElements.push(<Collection {...collectionItem[1]} key={i} />);
+      collectionElements.push(
+        <Collection {...collectionItem[1]} key={`${__typename}-${i}`} />
+      );
       i++;
     }
 

@@ -29,8 +29,6 @@ const LookingGlassWithPicture: React.FC<StrapiSliceLookingGlassWithPicture> = ({
   const imagePositionClasses = IMAGE_POSITION[imagePosition].join(" ");
   const lookingGlassPositionClasses = LOOKING_GLASS_POSITION[imagePosition];
 
-  console.log(JSON.stringify(image));
-
   return (
     <div
       className={cx(

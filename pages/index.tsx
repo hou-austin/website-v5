@@ -282,7 +282,7 @@ type Props = NextPageWithLayout & {
   page: StrapiPages;
 };
 
-const Home: NextPageWithLayout = ({ page }: Props) => {
+const Home = ({ page }: Props) => {
   return (
     <>
       <div className={cx("max-w-7xl mx-auto px-4")}>
