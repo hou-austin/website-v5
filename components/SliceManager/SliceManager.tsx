@@ -25,7 +25,11 @@ const SliceManager: React.FC<Props> = ({ slices }) => {
         Extract<StrapiSlices, { __typename: typeof slice.__typename }>
       >;
 
-      return <Slice key={index} {...slice} />;
+      if (!Slice) {
+        return null;
+      } else {
+        return <Slice key={index} {...slice} />;
+      }
     });
   };
 

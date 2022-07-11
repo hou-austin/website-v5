@@ -29,7 +29,12 @@ const CollectionManager: React.FC<Props> = ({ collection }) => {
           }
         >
       >;
-      return <Collection key={index} {...collectionItem[1]} />;
+
+      if (!Collection) {
+        return null;
+      } else {
+        return <Collection key={index} {...collectionItem[1]} />;
+      }
     });
   };
 
