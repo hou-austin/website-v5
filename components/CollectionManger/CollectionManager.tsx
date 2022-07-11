@@ -17,9 +17,7 @@ const CollectionManager: React.FC<Props> = ({ collection }) => {
   const { data } = collection;
 
   const propagateCollections = () => {
-    const collectionElements = [];
-    let i = 0;
-    for (const collectionItem of Object.entries(data)) {
+    return Object.entries(data).map((collectionItem, index) => {
       const { attributes: collectionItemContent } = collectionItem[1];
 
       const { __typename } = collectionItemContent;
@@ -31,13 +29,8 @@ const CollectionManager: React.FC<Props> = ({ collection }) => {
           }
         >
       >;
-      collectionElements.push(
-        <Collection {...collectionItem[1]} key={`${__typename}-${i}`} />
-      );
-      i++;
-    }
-
-    return collectionElements;
+      return <Collection key={index} {...collectionItem[1]} />;
+    });
   };
 
   return <>{propagateCollections()}</>;

@@ -15,20 +15,14 @@ const Page: React.FC<Props> = ({ staticStrapiData }) => {
     const { __typename, ...pageContent } = attributes;
     if (!pageContent) return;
 
-    const pageContentElements = [];
-
-    for (const pageItem of Object.entries(pageContent)) {
-      const pageItemContent = pageItem[1];
+    return Object.entries(pageContent).map((pageContentItem, index) => {
+      const pageItemContent = pageContentItem[1];
       if (Array.isArray(pageItemContent)) {
-        pageContentElements.push(<SliceManager slices={pageItemContent} />);
+        return <SliceManager slices={pageItemContent} key={index} />;
       } else {
-        pageContentElements.push(
-          <CollectionManager collection={pageItemContent} />
-        );
+        return <CollectionManager collection={pageItemContent} key={index} />;
       }
-    }
-
-    return pageContentElements;
+    });
   };
 
   return <>{propagatePageContent()}</>;

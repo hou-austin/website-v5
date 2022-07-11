@@ -9,7 +9,7 @@ const HeroSection: React.FC<StrapiCollectionsHeroSection> = ({
   attributes: { hero, slices, holoImage },
 }) => {
   return (
-    <>
+    <div>
       <div className={"relative z-10 mt-8"}>
         <Hero {...hero} />
       </div>
@@ -35,7 +35,7 @@ const HeroSection: React.FC<StrapiCollectionsHeroSection> = ({
           <SliceManager slices={slices} />
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
