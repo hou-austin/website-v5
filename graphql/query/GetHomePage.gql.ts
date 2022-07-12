@@ -7,6 +7,7 @@ export const GET_HOME_PAGE = gql`
         attributes {
           __typename
           hero_sections {
+            __typename
             data {
               attributes {
                 __typename

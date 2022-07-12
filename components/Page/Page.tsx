@@ -23,8 +23,6 @@ const Page: React.FC<Props> = ({ staticStrapiData }) => {
         return;
       }
 
-      console.log(pageItemContent);
-
       if (Array.isArray(pageItemContent)) {
         return <SliceManager slices={pageItemContent} key={index} />;
       } else if (!!pageItemContent) {
