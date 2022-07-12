@@ -3,7 +3,6 @@ import Image from "next/future/image";
 import cx from "classnames";
 import LookingGlassContainer from "../LookingGlassContainer";
 import FooterImage from "../../public/images/light_streak_180_fade_crop.png";
-import LookingGlassDescriptionContent from "../LookingGlassContainer/LookingGlassDescriptionContent";
 import { getAccentColor } from "../../utils/styles/color";
 
 const Footer: React.FC = () => {
@@ -19,45 +18,31 @@ const Footer: React.FC = () => {
 
       <div className={cx("max-w-7xl mx-auto px-4 mb-4")}>
         <LookingGlassContainer>
-          <LookingGlassDescriptionContent
-          // pillNodes={[
-          //   { children: "React/Next.JS", color: "skyTransparentLg" },
-          //   { children: "TailwindCSS", color: "skyTransparentLg" },
-          //   { children: "Photoshop", color: "skyTransparentLg" },
-          //   { children: "Node", color: "redTransparentLg" },
-          //   { children: "TypeScript", color: "greenTransparentLg" },
-          //   { children: "Javascript", color: "greenTransparentLg" },
-          //   { children: "HTML" },
-          //   { children: "CSS" },
-          //   { children: "Made with ❤️ by Austin Hou - 2022" },
-          // ]}
-          >
-            <div className="grid grid-cols-footer">
-              <div
-                className={cx(
-                  "border-r pr-12",
-                  getAccentColor({
-                    color: "autoS400O10",
-                    types: ["border"],
-                  })
-                )}
-              >
-                <div className={cx("font-medium")}>Contact Me</div>
-                <ul className={cx("text-sm font-light mt-2.5")}>
-                  <li>
-                    <a
-                      href="mailto:austin@austinhou.com"
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      austin@austinhou.com
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <div></div>
+          <div className="grid grid-cols-footer">
+            <div
+              className={cx(
+                "border-r pr-12",
+                getAccentColor({
+                  color: "autoS400O10",
+                  types: ["border"],
+                })
+              )}
+            >
+              <div className={cx("font-medium")}>Contact Me</div>
+              <ul className={cx("text-sm font-light mt-2.5")}>
+                <li>
+                  <a
+                    href="mailto:austin@austinhou.com"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    austin@austinhou.com
+                  </a>
+                </li>
+              </ul>
             </div>
-          </LookingGlassDescriptionContent>
+            <div></div>
+          </div>
         </LookingGlassContainer>
       </div>
     </footer>
