@@ -1,10 +1,16 @@
 import React from "react";
 import HeroSection from "../collections/HeroSection";
+import { HeroSection as HeroSectionSchema } from "../../types/generated/schema";
+
+type StrapiCollectionsDataIntersection = HeroSectionSchema & {
+  __typename: string;
+};
+
+type StrapiCollections = { data: StrapiCollectionsData[] };
+type StrapiCollectionsData = { attributes: StrapiCollectionsDataIntersection };
 
 const COLLECTIONS: {
-  [key in StrapiCollectionsData["attributes"]["__typename"]]: React.FC<
-    Extract<StrapiCollectionsData, { attributes: { __typename: key } }>
-  >;
+  [key in string]: React.FC<any>;
 } = {
   HeroSection: HeroSection,
 };

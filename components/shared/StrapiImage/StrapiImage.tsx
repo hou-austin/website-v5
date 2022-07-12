@@ -1,7 +1,8 @@
 import React from "react";
 import Image from "next/future/image";
+import { ComponentSharedImage } from "../../../types/generated/schema";
 
-type Props = StrapiSharedImage & {
+type Props = ComponentSharedImage & {
   className?: string;
 };
 
@@ -12,9 +13,11 @@ const StrapiImage: React.FC<Props> = ({
   image,
   className = "",
 }) => {
+  if (!image?.data?.attributes?.url || !alt) return null;
+
   return (
     <Image
-      src={image.data.attributes.url}
+      src={image?.data?.attributes?.url}
       width={width}
       height={height}
       alt={alt}

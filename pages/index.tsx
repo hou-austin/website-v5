@@ -9,10 +9,11 @@ import LookingGlassDescriptionContent from "../components/LookingGlassContainer/
 import PrimarySection from "../components/PrimarySection";
 import LookingGlassContainer from "../components/LookingGlassContainer";
 import Head from "next/head";
-import { GetHomePageDocument } from "../graphql/generated/schema";
+import { GetHomePageDocument } from "../types/generated/schema";
 import client from "../utils/apollo";
 import Page from "../components/Page";
 import cx from "classnames";
+import { StrapiSingles } from "../components/Page/Page";
 
 const fullStackDeveloperSection = (
   <PrimarySection
@@ -279,7 +280,7 @@ const hobbySection = (
 );
 
 type Props = NextPageWithLayout & {
-  page: StrapiSingles;
+  page: { data: StrapiSingles };
 };
 
 const Home = ({ page }: Props) => {

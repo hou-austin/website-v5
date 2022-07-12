@@ -1,7 +1,8 @@
 import React from "react";
 import Button from "../../Button";
+import { ComponentSharedButton } from "../../../types/generated/schema";
 
-const StrapiButton: React.FC<StrapiSharedButton> = ({
+const StrapiButton: React.FC<ComponentSharedButton> = ({
   label = "",
   color,
   icon,

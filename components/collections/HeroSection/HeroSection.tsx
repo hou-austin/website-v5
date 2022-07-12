@@ -3,9 +3,14 @@ import Hero from "../../slices/Hero";
 import StrapiImage from "../../shared/StrapiImage";
 import SliceManager from "../../SliceManager";
 import { getThemeColor } from "../../../utils/styles/color";
+import { HeroSection as HeroSectionSchema } from "../../../types/generated/schema";
 import cx from "classnames";
 
-const HeroSection: React.FC<StrapiCollectionsHeroSection> = ({
+type Props = {
+  attributes: HeroSectionSchema;
+};
+
+const HeroSection: React.FC<Props> = ({
   attributes: { hero, slices, holoImage },
 }) => {
   return (
@@ -32,7 +37,7 @@ const HeroSection: React.FC<StrapiCollectionsHeroSection> = ({
             "top-0 max-w-7xl px-4 mx-auto flex flex-col sm:gap-8 gap-4 z-10"
           }
         >
-          <SliceManager slices={slices} />
+          {slices && <SliceManager slices={slices} />}
         </div>
       </div>
     </div>

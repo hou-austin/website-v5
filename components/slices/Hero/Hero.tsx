@@ -1,7 +1,8 @@
 import React from "react";
 import cx from "classnames";
+import { ComponentSlicesHero } from "../../../types/generated/schema";
 
-const Hero: React.FC<StrapiSliceHero> = ({ title, description }) => {
+const Hero: React.FC<ComponentSlicesHero> = ({ title, description }) => {
   const descriptionElement = (
     <div className={cx("mt-5 text-lg break-words")}>{description}</div>
   );

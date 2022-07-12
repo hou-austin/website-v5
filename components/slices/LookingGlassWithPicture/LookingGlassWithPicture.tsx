@@ -2,6 +2,7 @@ import React from "react";
 import cx from "classnames";
 import LookingGlass from "../LookingGlass";
 import StrapiImage from "../../shared/StrapiImage";
+import { ComponentSlicesLookingGlassWithPicture } from "../../../types/generated/schema";
 
 const IMAGE_POSITION = {
   left: [
@@ -21,11 +22,9 @@ const LOOKING_GLASS_POSITION = {
   right: "sm:col-start-1 sm:col-span-8 sm:row-start-1 sm:top-0 -top-8 relative",
 };
 
-const LookingGlassWithPicture: React.FC<StrapiSliceLookingGlassWithPicture> = ({
-  lookingGlass,
-  image,
-  imagePosition,
-}) => {
+const LookingGlassWithPicture: React.FC<
+  ComponentSlicesLookingGlassWithPicture
+> = ({ lookingGlass, image, imagePosition }) => {
   const imagePositionClasses = IMAGE_POSITION[imagePosition].join(" ");
   const lookingGlassPositionClasses = LOOKING_GLASS_POSITION[imagePosition];
 
@@ -40,7 +39,7 @@ const LookingGlassWithPicture: React.FC<StrapiSliceLookingGlassWithPicture> = ({
         <StrapiImage {...image} className={"rounded-lg drop-shadow-2xl"} />
       </div>
       <div className={cx("flex items-center", lookingGlassPositionClasses)}>
-        <LookingGlass {...lookingGlass} />
+        {lookingGlass && <LookingGlass {...lookingGlass} />}
       </div>
     </div>
   );
