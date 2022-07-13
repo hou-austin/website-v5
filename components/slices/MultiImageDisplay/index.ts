@@ -1,2 +1,2 @@
-import MultiImageDisplay from "./schema.ts";
+import MultiImageDisplay from "./MultiImageDisplay";
 export default MultiImageDisplay;
