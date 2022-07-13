@@ -4,8 +4,8 @@ import cx from "classnames";
 import { getAccentColor, GetAccentColorProps } from "../../utils/styles/color";
 
 const GAP_CLASSES = {
-  sm: "gap-2",
-  md: "gap-4",
+  sm: "gap-1",
+  md: "gap-1",
 };
 
 const PADDING_CLASSES = {
@@ -85,7 +85,6 @@ const Button: React.FC<ButtonProps> = ({
   const radiusClass = radiusStyle ? getClass(RADIUS_CLASSES, radiusStyle) : "";
   const fontSizeClass = getClass(FONT_SIZE_CLASSES, fontSize);
   const fontWeightClass = getClass(FONT_WEIGHTS_CLASSES, fontWeight);
-  const cursor = action ? "cursor-pointer" : "cursor-default";
 
   const generatedClasses = [
     defaultClass,
@@ -97,7 +96,6 @@ const Button: React.FC<ButtonProps> = ({
     fontSizeClass,
     fontWeightClass,
     textTransformClass,
-    cursor,
   ];
   const composedClasses = cx(
     className,
@@ -105,12 +103,12 @@ const Button: React.FC<ButtonProps> = ({
   );
 
   const button = (
-    <button
+    <div
       className={composedClasses}
       {...(action && typeof action !== "string" && { onClick: action })}
     >
       {children}
-    </button>
+    </div>
   );
 
   if (action && typeof action === "string") {

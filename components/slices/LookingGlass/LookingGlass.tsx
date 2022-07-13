@@ -12,7 +12,7 @@ const LookingGlass: React.FC<ComponentSlicesLookingGlass> = ({
   floatingLinks,
 }) => {
   const propagateButtons = () => {
-    if (!buttons) return;
+    if (buttons?.length === 0 || !buttons) return;
 
     const buttonsMap = buttons.map((button, index) => {
       if (button) return <StrapiButton {...button} key={index} />;

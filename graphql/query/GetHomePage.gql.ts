@@ -98,6 +98,21 @@ export const GET_HOME_PAGE = gql`
                       }
                     }
                   }
+                  ... on ComponentSharedButton {
+                    __typename
+                    label
+                    position
+                    color
+                    icon
+                    size
+                    link {
+                      __typename
+                      label
+                      color
+                      href
+                      target
+                    }
+                  }
                 }
                 holoImage {
                   __typename

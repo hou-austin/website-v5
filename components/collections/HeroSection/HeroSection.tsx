@@ -24,6 +24,13 @@ const HeroSection: React.FC<Props> = ({
           getThemeColor({ color: "auto", types: ["bg"] })
         )}
       >
+        <div
+          className={
+            "relative top-0 max-w-7xl px-4 mx-auto flex flex-col sm:gap-8 gap-4 z-10"
+          }
+        >
+          {slices && <SliceManager slices={slices} />}
+        </div>
         {holoImage && (
           <StrapiImage
             {...holoImage}
@@ -32,13 +39,6 @@ const HeroSection: React.FC<Props> = ({
             }
           />
         )}
-        <div
-          className={
-            "top-0 max-w-7xl px-4 mx-auto flex flex-col sm:gap-8 gap-4 z-10"
-          }
-        >
-          {slices && <SliceManager slices={slices} />}
-        </div>
       </div>
     </div>
   );

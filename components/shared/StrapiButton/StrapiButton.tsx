@@ -1,6 +1,8 @@
 import React from "react";
 import Button from "../../Button";
 import { ComponentSharedButton } from "../../../types/generated/schema";
+import Link from "next/link";
+import { HiChevronLeft, HiChevronRight } from "react-icons/hi";
 
 const StrapiButton: React.FC<ComponentSharedButton> = ({
   label = "",
@@ -8,8 +10,9 @@ const StrapiButton: React.FC<ComponentSharedButton> = ({
   icon,
   size,
   link,
+  position,
 }) => {
-  return (
+  const buttonComponent = (
     <Button
       colorStyle={{ color }}
       buttonStyles={{
@@ -20,12 +23,30 @@ const StrapiButton: React.FC<ComponentSharedButton> = ({
         fontSize: size,
         fontWeight: size,
       }}
-      action={link?.href}
-      {...(icon && { icon })}
     >
+      {icon === "previous" && <HiChevronLeft />}
       {label}
+      {icon === "next" && <HiChevronRight />}
     </Button>
   );
+
+  if (link) {
+    const { href, target } = link;
+    return (
+      <Link href={href}>
+        <a
+          target={`${target === "blank" ? "_blank" : ""}`}
+          {...(position === "center" && {
+            className: "mx-auto cursor-pointer",
+          })}
+        >
+          {buttonComponent}
+        </a>
+      </Link>
+    );
+  }
+
+  return <>{buttonComponent}</>;
 };
 
 export default StrapiButton;
