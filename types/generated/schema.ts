@@ -72,6 +72,7 @@ export type ComponentSharedImage = {
   height: Scalars['Int'];
   id: Scalars['ID'];
   image: UploadFileEntityResponse;
+  priority?: Maybe<Scalars['Boolean']>;
   width: Scalars['Int'];
 };
 
@@ -81,6 +82,7 @@ export type ComponentSharedImageFiltersInput = {
   height?: InputMaybe<IntFilterInput>;
   not?: InputMaybe<ComponentSharedImageFiltersInput>;
   or?: InputMaybe<Array<InputMaybe<ComponentSharedImageFiltersInput>>>;
+  priority?: InputMaybe<BooleanFilterInput>;
   width?: InputMaybe<IntFilterInput>;
 };
 
@@ -89,6 +91,7 @@ export type ComponentSharedImageInput = {
   height?: InputMaybe<Scalars['Int']>;
   id?: InputMaybe<Scalars['ID']>;
   image?: InputMaybe<Scalars['ID']>;
+  priority?: InputMaybe<Scalars['Boolean']>;
   width?: InputMaybe<Scalars['Int']>;
 };
 
@@ -1059,7 +1062,7 @@ export type UsersPermissionsUserRelationResponseCollection = {
 export type GetHomePageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetHomePageQuery = { __typename?: 'Query', homePage?: { __typename?: 'HomePageEntityResponse', data?: { __typename?: 'HomePageEntity', attributes?: { __typename: 'HomePage', hero_sections?: { __typename: 'HeroSectionRelationResponseCollection', data: Array<{ __typename?: 'HeroSectionEntity', attributes?: { __typename: 'HeroSection', hero: { __typename: 'ComponentSlicesHero', title: string, description?: string | null }, slices?: Array<{ __typename: 'ComponentSharedButton', label?: string | null, position?: Enum_Componentsharedbutton_Position | null, color: Enum_Componentsharedbutton_Color, icon?: Enum_Componentsharedbutton_Icon | null, size: Enum_Componentsharedbutton_Size, link?: { __typename: 'ComponentSharedLink', label: string, color: Enum_Componentsharedlink_Color, href: string, target?: Enum_Componentsharedlink_Target | null } | null } | { __typename: 'ComponentSlicesLookingGlass', title?: string | null, description?: string | null, buttons?: Array<{ __typename: 'ComponentSharedButton', size: Enum_Componentsharedbutton_Size, label?: string | null, color: Enum_Componentsharedbutton_Color, link?: { __typename?: 'ComponentSharedLink', href: string, label: string, target?: Enum_Componentsharedlink_Target | null } | null } | null> | null, floatingLinks?: Array<{ __typename: 'ComponentSharedLink', href: string, label: string, target?: Enum_Componentsharedlink_Target | null, color: Enum_Componentsharedlink_Color } | null> | null } | { __typename: 'ComponentSlicesLookingGlassWithPicture', imagePosition: Enum_Componentsliceslookingglasswithpicture_Imageposition, image: { __typename: 'ComponentSharedImage', width: number, height: number, alt?: string | null, image: { __typename: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null } | null } }, lookingGlass?: { __typename: 'ComponentSlicesLookingGlass', title?: string | null, description?: string | null, buttons?: Array<{ __typename: 'ComponentSharedButton', size: Enum_Componentsharedbutton_Size, label?: string | null, color: Enum_Componentsharedbutton_Color, link?: { __typename?: 'ComponentSharedLink', href: string, label: string, target?: Enum_Componentsharedlink_Target | null } | null } | null> | null, floatingLinks?: Array<{ __typename: 'ComponentSharedLink', href: string, label: string, target?: Enum_Componentsharedlink_Target | null, color: Enum_Componentsharedlink_Color } | null> | null } | null } | { __typename: 'ComponentSlicesMultiImageDisplay', images: Array<{ __typename: 'ComponentSharedImage', width: number, height: number, alt?: string | null, image: { __typename: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null } | null } } | null> } | { __typename?: 'Error' } | null> | null, holoImage?: { __typename: 'ComponentSharedImage', width: number, height: number, alt?: string | null, image: { __typename: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null } | null } } | null } | null }> } | null, test?: Array<{ __typename: 'ComponentSlicesHero', title: string } | { __typename: 'ComponentSlicesLookingGlass' } | { __typename: 'ComponentSlicesLookingGlassWithPicture' } | { __typename: 'ComponentSlicesMultiImageDisplay' } | { __typename: 'Error' } | null> | null } | null } | null } | null };
+export type GetHomePageQuery = { __typename?: 'Query', homePage?: { __typename?: 'HomePageEntityResponse', data?: { __typename?: 'HomePageEntity', attributes?: { __typename: 'HomePage', hero_sections?: { __typename: 'HeroSectionRelationResponseCollection', data: Array<{ __typename?: 'HeroSectionEntity', attributes?: { __typename: 'HeroSection', hero: { __typename: 'ComponentSlicesHero', title: string, description?: string | null }, slices?: Array<{ __typename: 'ComponentSharedButton', label?: string | null, position?: Enum_Componentsharedbutton_Position | null, color: Enum_Componentsharedbutton_Color, icon?: Enum_Componentsharedbutton_Icon | null, size: Enum_Componentsharedbutton_Size, link?: { __typename: 'ComponentSharedLink', label: string, color: Enum_Componentsharedlink_Color, href: string, target?: Enum_Componentsharedlink_Target | null } | null } | { __typename: 'ComponentSlicesLookingGlass', title?: string | null, description?: string | null, buttons?: Array<{ __typename: 'ComponentSharedButton', size: Enum_Componentsharedbutton_Size, label?: string | null, color: Enum_Componentsharedbutton_Color, link?: { __typename?: 'ComponentSharedLink', href: string, label: string, target?: Enum_Componentsharedlink_Target | null } | null } | null> | null, floatingLinks?: Array<{ __typename: 'ComponentSharedLink', href: string, label: string, target?: Enum_Componentsharedlink_Target | null, color: Enum_Componentsharedlink_Color } | null> | null } | { __typename: 'ComponentSlicesLookingGlassWithPicture', imagePosition: Enum_Componentsliceslookingglasswithpicture_Imageposition, image: { __typename: 'ComponentSharedImage', width: number, height: number, alt?: string | null, image: { __typename: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null } | null } }, lookingGlass?: { __typename: 'ComponentSlicesLookingGlass', title?: string | null, description?: string | null, buttons?: Array<{ __typename: 'ComponentSharedButton', size: Enum_Componentsharedbutton_Size, label?: string | null, color: Enum_Componentsharedbutton_Color, link?: { __typename?: 'ComponentSharedLink', href: string, label: string, target?: Enum_Componentsharedlink_Target | null } | null } | null> | null, floatingLinks?: Array<{ __typename: 'ComponentSharedLink', href: string, label: string, target?: Enum_Componentsharedlink_Target | null, color: Enum_Componentsharedlink_Color } | null> | null } | null } | { __typename: 'ComponentSlicesMultiImageDisplay', images: Array<{ __typename: 'ComponentSharedImage', width: number, height: number, alt?: string | null, image: { __typename: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null } | null } } | null> } | { __typename?: 'Error' } | null> | null, holoImage?: { __typename: 'ComponentSharedImage', width: number, height: number, alt?: string | null, priority?: boolean | null, image: { __typename: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null } | null } } | null } | null }> } | null, test?: Array<{ __typename: 'ComponentSlicesHero', title: string } | { __typename: 'ComponentSlicesLookingGlass' } | { __typename: 'ComponentSlicesLookingGlassWithPicture' } | { __typename: 'ComponentSlicesMultiImageDisplay' } | { __typename: 'Error' } | null> | null } | null } | null } | null };
 
 
 export const GetHomePageDocument = gql`
@@ -1181,6 +1184,7 @@ export const GetHomePageDocument = gql`
                 width
                 height
                 alt
+                priority
                 image {
                   __typename
                   data {

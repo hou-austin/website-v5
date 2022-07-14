@@ -12,6 +12,7 @@ const StrapiImage: React.FC<Props> = ({
   alt = "",
   image,
   className = "",
+  priority = false,
 }) => {
   if (!image?.data?.attributes?.url) return null;
 
@@ -20,8 +21,9 @@ const StrapiImage: React.FC<Props> = ({
       src={image?.data?.attributes?.url}
       width={width}
       height={height}
-      alt={alt as string}
+      alt={alt || ""}
       className={className}
+      {...(priority && { priority })}
     />
   );
 };

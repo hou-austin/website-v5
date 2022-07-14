@@ -16,6 +16,13 @@ type Props = NextPageWithLayout & {
 const Home = ({ page }: Props) => {
   return (
     <>
+      <Head>
+        <title>Home</title>
+        <meta
+          name="description"
+          content="Full stack software engineer, UI/UX designer, artist, and full time hobbyist."
+        />
+      </Head>
       <div className={cx("max-w-7xl mx-auto px-4")}>
         <div className={cx("top-52 z-10 absolute")}>
           <div

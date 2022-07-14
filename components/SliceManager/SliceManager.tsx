@@ -2,6 +2,7 @@ import React from "react";
 import Hero from "../slices/Hero";
 import LookingGlass from "../slices/LookingGlass";
 import LookingGlassWithPicture from "../slices/LookingGlassWithPicture";
+import MultiImageDisplay from "../slices/MultiImageDisplay";
 import StrapiButton from "../shared/StrapiButton";
 import { HeroSectionSlicesDynamicZone } from "../../types/generated/schema";
 import { Maybe } from "@graphql-tools/utils";
@@ -14,6 +15,7 @@ const SLICES: { [key in string]: React.FC<any> } = {
   ComponentSlicesHero: Hero,
   ComponentSlicesLookingGlass: LookingGlass,
   ComponentSlicesLookingGlassWithPicture: LookingGlassWithPicture,
+  ComponentSlicesMultiImageDisplay: MultiImageDisplay,
   ComponentSharedButton: StrapiButton,
 };
 
