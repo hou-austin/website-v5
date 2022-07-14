@@ -14,7 +14,7 @@ const MultiImageDisplay: React.FC<ComponentSlicesMultiImageDisplay> = ({
           <div key={index}>
             <StrapiImage
               {...image}
-              className="rounded-lg drop-shadow-2x max-h-60 w-auto "
+              className="rounded-lg drop-shadow-2x max-h-60 w-auto"
             />
           </div>
         );
