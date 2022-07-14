@@ -9,23 +9,21 @@ const MultiImageDisplay: React.FC<ComponentSlicesMultiImageDisplay> = ({
   const propagateImages = () => {
     if (!images) return;
     return images.map((image, index) => {
-      if (image)
+      if (image) {
         return (
-          <StrapiImage
-            {...image}
-            className={"rounded-lg drop-shadow-2x1"}
-            key={index}
-          />
+          <div key={index}>
+            <StrapiImage
+              {...image}
+              className="rounded-lg drop-shadow-2x max-h-60 w-auto"
+            />
+          </div>
         );
+      }
     });
   };
   const imageElements = propagateImages();
 
-  return (
-    <div className={cx("grid grid-cols-3 gap-2 max-w-7xl")}>
-      {imageElements}
-    </div>
-  );
+  return <div className={cx("flex gap-8 mx-auto")}>{imageElements}</div>;
 };
 
 export default MultiImageDisplay;
