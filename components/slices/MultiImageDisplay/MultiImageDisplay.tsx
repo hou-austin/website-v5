@@ -23,7 +23,11 @@ const MultiImageDisplay: React.FC<ComponentSlicesMultiImageDisplay> = ({
   };
   const imageElements = propagateImages();
 
-  return <div className={cx("flex gap-8 mx-auto")}>{imageElements}</div>;
+  return (
+    <div className={cx("flex gap-8 mx-auto flex-col sm:flex-row")}>
+      {imageElements}
+    </div>
+  );
 };
 
 export default MultiImageDisplay;
