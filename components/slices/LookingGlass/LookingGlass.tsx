@@ -66,9 +66,12 @@ const LookingGlass: React.FC<ComponentSlicesLookingGlass> = ({
 
   return (
     <div
-      className={cx("w-full grid grid-cols-1 safari-transform-fix", {
-        "mb-8": !!floatingLinks,
-      })}
+      className={cx(
+        "w-full grid grid-cols-1 grid-rows-1 safari-transform-fix",
+        {
+          "mb-8": !!floatingLinks,
+        }
+      )}
     >
       <div
         className={cx(
@@ -81,7 +84,11 @@ const LookingGlass: React.FC<ComponentSlicesLookingGlass> = ({
         {buttonElements}
       </div>
       {floatingLinks && (
-        <div className={cx("top-0 h-full row-start-1 col-start-1")}>
+        <div
+          className={cx(
+            "top-0 h-full row-start-1 col-start-1 row-start-1 row-end-1"
+          )}
+        >
           <div className={cx("flex gap-2 h-full")}>{floatingLinkElements}</div>
         </div>
       )}
