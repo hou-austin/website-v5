@@ -67,7 +67,7 @@ const LookingGlass: React.FC<ComponentSlicesLookingGlass> = ({
   return (
     <div
       className={cx("w-full grid grid-cols-1 safari-transform-fix", {
-        "my-4": !!floatingLinks,
+        "mb-8": !!floatingLinks,
       })}
     >
       <div

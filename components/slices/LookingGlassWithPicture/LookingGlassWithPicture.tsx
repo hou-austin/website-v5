@@ -18,24 +18,31 @@ const IMAGE_POSITION = {
 };
 
 const LOOKING_GLASS_POSITION = {
-  left: "sm:col-start-4 sm:col-span-13 sm:row-start-1 sm:top-0 -top-8 relative",
-  right: "sm:col-start-1 sm:col-span-8 sm:row-start-1 sm:top-0 -top-8 relative",
+  left: "sm:col-start-4 sm:col-span-13 sm:row-start-1 sm:top-0 relative",
+  right: "sm:col-start-1 sm:col-span-8 sm:row-start-1 sm:top-0 relative",
 };
 
 const LookingGlassWithPicture: React.FC<
   ComponentSlicesLookingGlassWithPicture
 > = ({ lookingGlass, image, imagePosition }) => {
+  const defaultImagePositionClasses = "relative sm:top-0 top-8";
   const imagePositionClasses = IMAGE_POSITION[imagePosition].join(" ");
   const lookingGlassPositionClasses = LOOKING_GLASS_POSITION[imagePosition];
 
   return (
     <div
       className={cx(
-        "sm:grid sm:gap-8 sm:grid-cols-12",
-        "flex flex-col relative"
+        "sm:grid sm:gap-8 sm:grid-cols-12 sm:mt-0 -mt-8",
+        "flex flex-col relative gap-0"
       )}
     >
-      <div className={cx("flex items-center", imagePositionClasses)}>
+      <div
+        className={cx(
+          "flex items-center",
+          imagePositionClasses,
+          defaultImagePositionClasses
+        )}
+      >
         <StrapiImage {...image} className={"rounded-lg drop-shadow-2xl"} />
       </div>
       <div className={cx("flex items-center", lookingGlassPositionClasses)}>
