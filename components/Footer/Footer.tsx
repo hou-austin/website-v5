@@ -13,7 +13,7 @@ const Footer: React.FC = () => {
         alt=""
         width={1920}
         height={1080}
-        className="absolute -bottom-4 max-w-7xl left-0 right-0 mx-auto"
+        className="absolute -bottom-8 max-w-7xl left-0 right-0 mx-auto"
       />
 
       <div className={cx("max-w-7xl mx-auto px-4 mb-4")}>
