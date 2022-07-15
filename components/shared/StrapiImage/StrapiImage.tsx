@@ -1,5 +1,5 @@
 import React from "react";
-import Image from "next/image";
+import Image from "next/future/image";
 import { ComponentSharedImage } from "../../../types/generated/schema";
 
 type Props = ComponentSharedImage & {
@@ -17,15 +17,14 @@ const StrapiImage: React.FC<Props> = ({
   if (!image?.data?.attributes?.url) return null;
 
   return (
-    <div className={className}>
-      <Image
-        src={image?.data?.attributes?.url}
-        width={width}
-        height={height}
-        alt={alt || ""}
-        {...(priority && { priority })}
-      />
-    </div>
+    <Image
+      src={image?.data?.attributes?.url}
+      width={width}
+      height={height}
+      alt={alt || ""}
+      className={className}
+      {...(priority && { priority })}
+    />
   );
 };
 

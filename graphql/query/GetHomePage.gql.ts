@@ -47,6 +47,8 @@ export const GET_HOME_PAGE = gql`
                       width
                       height
                       alt
+                      priority
+                      allowExpand
                       image {
                         __typename
                         data {
@@ -64,6 +66,8 @@ export const GET_HOME_PAGE = gql`
                       width
                       height
                       alt
+                      priority
+                      allowExpand
                       image {
                         __typename
                         data {
