@@ -106,7 +106,7 @@ const LookingGlass: React.FC<ComponentSlicesLookingGlass> = ({
       {dropdownSlices?.data?.attributes?.slices && (
         <div
           className={cx(
-            "overflow-y-auto overflow-x-hidden border shadow-inner -mt-8 rounded-lg relative",
+            "overflow-y-auto overflow-x-hidden border shadow-inner -mt-12 rounded-lg relative",
             "max-h-[80rem] duration-500 transition-[max-height]",
             getThemeColor({
               color: "autoZincS900O50S200O50",
@@ -122,10 +122,10 @@ const LookingGlass: React.FC<ComponentSlicesLookingGlass> = ({
             className={cx(
               "p-4",
               {
-                "pt-20": !floatingLinks || floatingLinks.length > 0,
+                "pt-24": !floatingLinks || floatingLinks.length > 0,
               },
               {
-                "pt-12": !(!floatingLinks || floatingLinks.length > 0),
+                "pt-16": !(!floatingLinks || floatingLinks.length > 0),
               }
             )}
           >

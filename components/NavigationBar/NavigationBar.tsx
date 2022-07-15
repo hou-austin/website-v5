@@ -33,7 +33,7 @@ const NavigationBar: React.FC = () => {
     >
       <nav
         className={cx(
-          "flex items-center justify-between max-w-7xl mx-auto py-3 px-4 border-slate-900"
+          "flex flex-row items-center justify-between max-w-7xl mx-auto py-3 px-4 border-slate-900 overflow-hidden"
         )}
       >
         <ul>
@@ -43,7 +43,12 @@ const NavigationBar: React.FC = () => {
             </Link>
           </li>
         </ul>
-        <ul>
+        <ul className="flex flex-row gap-8">
+          <li>
+            <Link href="/gallery" passHref={true}>
+              <a>Gallery</a>
+            </Link>
+          </li>
           <li>
             <Link href="https://www.github.com/PhoenixFieryn" passHref={true}>
               <a target="_blank">Github</a>

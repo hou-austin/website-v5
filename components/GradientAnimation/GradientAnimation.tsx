@@ -1,10 +1,21 @@
-import React from "react";
-import Script from "next/script";
+import React, { useEffect } from "react";
 
 const GradientAnimation: React.FC = () => {
+  useEffect(() => {
+    const script = document.createElement("script");
+
+    script.src = "/scripts/gradient-animation.js";
+    script.defer = true;
+
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
   return (
     <div>
-      <Script src={"./scripts/gradient-animation.js"} defer />
       <canvas id="gradient-canvas" className="w-full h-80 relative"></canvas>
     </div>
   );
