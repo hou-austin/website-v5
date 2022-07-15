@@ -5,7 +5,7 @@ const GradientAnimation: React.FC = () => {
     const script = document.createElement("script");
 
     script.src = "/scripts/gradient-animation.js";
-    script.defer = true;
+    script.async = true;
 
     document.body.appendChild(script);
 
