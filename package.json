@@ -12,13 +12,15 @@
     "build": "next build",
     "start": "next start",
     "up": "next build && next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "inspect": "cross-env NODE_OPTIONS='--inspect=0.0.0.0:9229' next start"
   },
   "dependencies": {
     "@apollo/client": "^3.6.9",
     "classnames": "^2.3.1",
+    "cross-env": "^7.0.3",
     "graphql": "^16.5.0",
-    "next": "^12.2.0",
+    "next": "^12.2.2",
     "next-themes": "^0.2.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -35,6 +37,7 @@
     "@types/node": "18.0.0",
     "@types/react": "18.0.14",
     "@types/react-dom": "18.0.5",
+    "@types/sharp": "^0.30.4",
     "@typescript-eslint/eslint-plugin": "^5.30.0",
     "apollo": "^2.34.0",
     "autoprefixer": "^10.4.7",
