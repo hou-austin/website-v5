@@ -7,7 +7,7 @@ import { getAccentColor } from "../../utils/styles/color";
 
 const Footer: React.FC = () => {
   return (
-    <footer className={cx("relative w-full mt-12", "sm:mt-40")}>
+    <footer className={cx("clear-both relative w-full pt-12", "sm:mt-40")}>
       <Image
         src={FooterImage}
         alt=""
@@ -16,7 +16,7 @@ const Footer: React.FC = () => {
         className="absolute -bottom-8 max-w-7xl left-0 right-0 mx-auto"
       />
 
-      <div className={cx("max-w-7xl mx-auto px-4 mb-4")}>
+      <div className={cx("b-0 w-full max-w-7xl mx-auto px-4 mb-4")}>
         <LookingGlassContainer>
           <div className="grid grid-cols-footer">
             <div

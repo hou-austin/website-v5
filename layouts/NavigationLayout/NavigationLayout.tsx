@@ -10,12 +10,15 @@ type Props = {
 
 const NavigationLayout: React.FC<Props> = ({ children }) => {
   return (
-    <div className={cx("text-black", "dark:text-white")}>
+    <div
+      className={cx(
+        "overflow-hidden min-h-screen flex flex-col text-black",
+        "dark:text-white"
+      )}
+    >
       <NavigationBar />
-      <div className="overflow-hidden">
-        {children}
-        <Footer />
-      </div>
+      <div className="flex-1">{children}</div>
+      <Footer />
     </div>
   );
 };

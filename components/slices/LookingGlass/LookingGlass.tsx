@@ -114,7 +114,7 @@ const LookingGlass: React.FC<ComponentSlicesLookingGlass> = ({
             }),
             getAccentColor({ color: "autoS400O10", types: ["border"] }),
             {
-              "max-h-[1rem]": !isDropDownOpen,
+              "max-h-0": !isDropDownOpen,
             }
           )}
         >
