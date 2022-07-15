@@ -43,7 +43,7 @@ const LookingGlassWithPicture: React.FC<
           defaultImagePositionClasses
         )}
       >
-        <StrapiImage {...image} className={"rounded-lg drop-shadow-2xl"} />
+        <StrapiImage {...image} className={"rounded-image drop-shadow-2xl"} />
       </div>
       <div className={cx("flex items-center", lookingGlassPositionClasses)}>
         {lookingGlass && <LookingGlass {...lookingGlass} />}
