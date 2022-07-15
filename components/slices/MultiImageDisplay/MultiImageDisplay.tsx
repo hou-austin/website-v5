@@ -14,7 +14,7 @@ const MultiImageDisplay: React.FC<ComponentSlicesMultiImageDisplay> = ({
           <div key={index}>
             <StrapiImage
               {...image}
-              className="rounded-lg drop-shadow-2x max-h-60 w-auto"
+              className="rounded-lg drop-shadow-2x w-auto"
             />
           </div>
         );
@@ -24,7 +24,20 @@ const MultiImageDisplay: React.FC<ComponentSlicesMultiImageDisplay> = ({
   const imageElements = propagateImages();
 
   return (
-    <div className={cx("flex gap-8 mx-auto flex-col sm:flex-row")}>
+    <div
+      className={cx(
+        "grid gap-8 mx-auto sm:flex-row",
+        {
+          "grid-cols-1": images.length === 1,
+        },
+        {
+          "md:grid-cols-2 sm:grid-cols-1": images.length === 2,
+        },
+        {
+          "lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1": images.length >= 3,
+        }
+      )}
+    >
       {imageElements}
     </div>
   );

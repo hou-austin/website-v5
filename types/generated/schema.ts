@@ -17,6 +17,7 @@ export type Scalars = {
   HeroSectionSlicesDynamicZoneInput: any;
   HomePageTestDynamicZoneInput: any;
   JSON: any;
+  SliceSlicesDynamicZoneInput: any;
   Upload: any;
 };
 
@@ -68,6 +69,7 @@ export type ComponentSharedButtonFiltersInput = {
 
 export type ComponentSharedImage = {
   __typename?: 'ComponentSharedImage';
+  allowExpand?: Maybe<Scalars['Boolean']>;
   alt?: Maybe<Scalars['String']>;
   height: Scalars['Int'];
   id: Scalars['ID'];
@@ -77,6 +79,7 @@ export type ComponentSharedImage = {
 };
 
 export type ComponentSharedImageFiltersInput = {
+  allowExpand?: InputMaybe<BooleanFilterInput>;
   alt?: InputMaybe<StringFilterInput>;
   and?: InputMaybe<Array<InputMaybe<ComponentSharedImageFiltersInput>>>;
   height?: InputMaybe<IntFilterInput>;
@@ -87,6 +90,7 @@ export type ComponentSharedImageFiltersInput = {
 };
 
 export type ComponentSharedImageInput = {
+  allowExpand?: InputMaybe<Scalars['Boolean']>;
   alt?: InputMaybe<Scalars['String']>;
   height?: InputMaybe<Scalars['Int']>;
   id?: InputMaybe<Scalars['ID']>;
@@ -138,7 +142,9 @@ export type ComponentSlicesHeroInput = {
 export type ComponentSlicesLookingGlass = {
   __typename?: 'ComponentSlicesLookingGlass';
   buttons?: Maybe<Array<Maybe<ComponentSharedButton>>>;
+  collapsible?: Maybe<Scalars['Boolean']>;
   description?: Maybe<Scalars['String']>;
+  dropdownSlices?: Maybe<SliceEntityResponse>;
   floatingLinks?: Maybe<Array<Maybe<ComponentSharedLink>>>;
   id: Scalars['ID'];
   title?: Maybe<Scalars['String']>;
@@ -168,6 +174,7 @@ export type ComponentSlicesLookingGlassWithPicture = {
 
 export type ComponentSlicesMultiImageDisplay = {
   __typename?: 'ComponentSlicesMultiImageDisplay';
+  allowExpand?: Maybe<Scalars['Boolean']>;
   id: Scalars['ID'];
   images: Array<Maybe<ComponentSharedImage>>;
 };
@@ -280,7 +287,39 @@ export type FloatFilterInput = {
   startsWith?: InputMaybe<Scalars['Float']>;
 };
 
-export type GenericMorph = ComponentSharedButton | ComponentSharedImage | ComponentSharedLink | ComponentSlicesHero | ComponentSlicesLookingGlass | ComponentSlicesLookingGlassWithPicture | ComponentSlicesMultiImageDisplay | HeroSection | HomePage | I18NLocale | UploadFile | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser;
+export type GalleryPage = {
+  __typename?: 'GalleryPage';
+  createdAt?: Maybe<Scalars['DateTime']>;
+  hero_sections?: Maybe<HeroSectionRelationResponseCollection>;
+  publishedAt?: Maybe<Scalars['DateTime']>;
+  updatedAt?: Maybe<Scalars['DateTime']>;
+};
+
+
+export type GalleryPageHero_SectionsArgs = {
+  filters?: InputMaybe<HeroSectionFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  publicationState?: InputMaybe<PublicationState>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type GalleryPageEntity = {
+  __typename?: 'GalleryPageEntity';
+  attributes?: Maybe<GalleryPage>;
+  id?: Maybe<Scalars['ID']>;
+};
+
+export type GalleryPageEntityResponse = {
+  __typename?: 'GalleryPageEntityResponse';
+  data?: Maybe<GalleryPageEntity>;
+};
+
+export type GalleryPageInput = {
+  hero_sections?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
+  publishedAt?: InputMaybe<Scalars['DateTime']>;
+};
+
+export type GenericMorph = ComponentSharedButton | ComponentSharedImage | ComponentSharedLink | ComponentSlicesHero | ComponentSlicesLookingGlass | ComponentSlicesLookingGlassWithPicture | ComponentSlicesMultiImageDisplay | GalleryPage | HeroSection | HomePage | I18NLocale | Slice | UploadFile | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser;
 
 export type HeroSection = {
   __typename?: 'HeroSection';
@@ -479,13 +518,16 @@ export type JsonFilterInput = {
 export type Mutation = {
   __typename?: 'Mutation';
   createHeroSection?: Maybe<HeroSectionEntityResponse>;
+  createSlice?: Maybe<SliceEntityResponse>;
   createUploadFile?: Maybe<UploadFileEntityResponse>;
   /** Create a new role */
   createUsersPermissionsRole?: Maybe<UsersPermissionsCreateRolePayload>;
   /** Create a new user */
   createUsersPermissionsUser: UsersPermissionsUserEntityResponse;
+  deleteGalleryPage?: Maybe<GalleryPageEntityResponse>;
   deleteHeroSection?: Maybe<HeroSectionEntityResponse>;
   deleteHomePage?: Maybe<HomePageEntityResponse>;
+  deleteSlice?: Maybe<SliceEntityResponse>;
   deleteUploadFile?: Maybe<UploadFileEntityResponse>;
   /** Delete an existing role */
   deleteUsersPermissionsRole?: Maybe<UsersPermissionsDeleteRolePayload>;
@@ -503,8 +545,10 @@ export type Mutation = {
   /** Reset user password. Confirm with a code (resetToken from forgotPassword) */
   resetPassword?: Maybe<UsersPermissionsLoginPayload>;
   updateFileInfo: UploadFileEntityResponse;
+  updateGalleryPage?: Maybe<GalleryPageEntityResponse>;
   updateHeroSection?: Maybe<HeroSectionEntityResponse>;
   updateHomePage?: Maybe<HomePageEntityResponse>;
+  updateSlice?: Maybe<SliceEntityResponse>;
   updateUploadFile?: Maybe<UploadFileEntityResponse>;
   /** Update an existing role */
   updateUsersPermissionsRole?: Maybe<UsersPermissionsUpdateRolePayload>;
@@ -516,6 +560,11 @@ export type Mutation = {
 
 export type MutationCreateHeroSectionArgs = {
   data: HeroSectionInput;
+};
+
+
+export type MutationCreateSliceArgs = {
+  data: SliceInput;
 };
 
 
@@ -535,6 +584,11 @@ export type MutationCreateUsersPermissionsUserArgs = {
 
 
 export type MutationDeleteHeroSectionArgs = {
+  id: Scalars['ID'];
+};
+
+
+export type MutationDeleteSliceArgs = {
   id: Scalars['ID'];
 };
 
@@ -600,6 +654,11 @@ export type MutationUpdateFileInfoArgs = {
 };
 
 
+export type MutationUpdateGalleryPageArgs = {
+  data: GalleryPageInput;
+};
+
+
 export type MutationUpdateHeroSectionArgs = {
   data: HeroSectionInput;
   id: Scalars['ID'];
@@ -608,6 +667,12 @@ export type MutationUpdateHeroSectionArgs = {
 
 export type MutationUpdateHomePageArgs = {
   data: HomePageInput;
+};
+
+
+export type MutationUpdateSliceArgs = {
+  data: SliceInput;
+  id: Scalars['ID'];
 };
 
 
@@ -659,18 +724,26 @@ export enum PublicationState {
 
 export type Query = {
   __typename?: 'Query';
+  galleryPage?: Maybe<GalleryPageEntityResponse>;
   heroSection?: Maybe<HeroSectionEntityResponse>;
   heroSections?: Maybe<HeroSectionEntityResponseCollection>;
   homePage?: Maybe<HomePageEntityResponse>;
   i18NLocale?: Maybe<I18NLocaleEntityResponse>;
   i18NLocales?: Maybe<I18NLocaleEntityResponseCollection>;
   me?: Maybe<UsersPermissionsMe>;
+  slice?: Maybe<SliceEntityResponse>;
+  slices?: Maybe<SliceEntityResponseCollection>;
   uploadFile?: Maybe<UploadFileEntityResponse>;
   uploadFiles?: Maybe<UploadFileEntityResponseCollection>;
   usersPermissionsRole?: Maybe<UsersPermissionsRoleEntityResponse>;
   usersPermissionsRoles?: Maybe<UsersPermissionsRoleEntityResponseCollection>;
   usersPermissionsUser?: Maybe<UsersPermissionsUserEntityResponse>;
   usersPermissionsUsers?: Maybe<UsersPermissionsUserEntityResponseCollection>;
+};
+
+
+export type QueryGalleryPageArgs = {
+  publicationState?: InputMaybe<PublicationState>;
 };
 
 
@@ -700,6 +773,19 @@ export type QueryI18NLocaleArgs = {
 export type QueryI18NLocalesArgs = {
   filters?: InputMaybe<I18NLocaleFiltersInput>;
   pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+
+export type QuerySliceArgs = {
+  id?: InputMaybe<Scalars['ID']>;
+};
+
+
+export type QuerySlicesArgs = {
+  filters?: InputMaybe<SliceFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  publicationState?: InputMaybe<PublicationState>;
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
 };
 
@@ -743,6 +829,48 @@ export type ResponseCollectionMeta = {
   __typename?: 'ResponseCollectionMeta';
   pagination: Pagination;
 };
+
+export type Slice = {
+  __typename?: 'Slice';
+  createdAt?: Maybe<Scalars['DateTime']>;
+  publishedAt?: Maybe<Scalars['DateTime']>;
+  slices?: Maybe<Array<Maybe<SliceSlicesDynamicZone>>>;
+  updatedAt?: Maybe<Scalars['DateTime']>;
+};
+
+export type SliceEntity = {
+  __typename?: 'SliceEntity';
+  attributes?: Maybe<Slice>;
+  id?: Maybe<Scalars['ID']>;
+};
+
+export type SliceEntityResponse = {
+  __typename?: 'SliceEntityResponse';
+  data?: Maybe<SliceEntity>;
+};
+
+export type SliceEntityResponseCollection = {
+  __typename?: 'SliceEntityResponseCollection';
+  data: Array<SliceEntity>;
+  meta: ResponseCollectionMeta;
+};
+
+export type SliceFiltersInput = {
+  and?: InputMaybe<Array<InputMaybe<SliceFiltersInput>>>;
+  createdAt?: InputMaybe<DateTimeFilterInput>;
+  id?: InputMaybe<IdFilterInput>;
+  not?: InputMaybe<SliceFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<SliceFiltersInput>>>;
+  publishedAt?: InputMaybe<DateTimeFilterInput>;
+  updatedAt?: InputMaybe<DateTimeFilterInput>;
+};
+
+export type SliceInput = {
+  publishedAt?: InputMaybe<Scalars['DateTime']>;
+  slices?: InputMaybe<Array<Scalars['SliceSlicesDynamicZoneInput']>>;
+};
+
+export type SliceSlicesDynamicZone = ComponentSharedButton | ComponentSlicesHero | ComponentSlicesLookingGlass | ComponentSlicesLookingGlassWithPicture | ComponentSlicesMultiImageDisplay | Error;
 
 export type StringFilterInput = {
   and?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
@@ -1059,12 +1187,264 @@ export type UsersPermissionsUserRelationResponseCollection = {
   data: Array<UsersPermissionsUserEntity>;
 };
 
+export type GetGalleryPageQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetGalleryPageQuery = { __typename?: 'Query', galleryPage?: { __typename?: 'GalleryPageEntityResponse', data?: { __typename?: 'GalleryPageEntity', attributes?: { __typename: 'GalleryPage', hero_sections?: { __typename: 'HeroSectionRelationResponseCollection', data: Array<{ __typename?: 'HeroSectionEntity', attributes?: { __typename: 'HeroSection', hero: { __typename: 'ComponentSlicesHero', title: string, description?: string | null }, slices?: Array<{ __typename: 'ComponentSharedButton', label?: string | null, position?: Enum_Componentsharedbutton_Position | null, color: Enum_Componentsharedbutton_Color, icon?: Enum_Componentsharedbutton_Icon | null, size: Enum_Componentsharedbutton_Size, link?: { __typename: 'ComponentSharedLink', label: string, color: Enum_Componentsharedlink_Color, href: string, target?: Enum_Componentsharedlink_Target | null } | null } | { __typename: 'ComponentSlicesLookingGlass', title?: string | null, description?: string | null, collapsible?: boolean | null, buttons?: Array<{ __typename: 'ComponentSharedButton', size: Enum_Componentsharedbutton_Size, label?: string | null, color: Enum_Componentsharedbutton_Color, link?: { __typename?: 'ComponentSharedLink', href: string, label: string, target?: Enum_Componentsharedlink_Target | null } | null } | null> | null, floatingLinks?: Array<{ __typename: 'ComponentSharedLink', href: string, label: string, target?: Enum_Componentsharedlink_Target | null, color: Enum_Componentsharedlink_Color } | null> | null, dropdownSlices?: { __typename: 'SliceEntityResponse', data?: { __typename?: 'SliceEntity', attributes?: { __typename?: 'Slice', slices?: Array<{ __typename: 'ComponentSharedButton', label?: string | null, position?: Enum_Componentsharedbutton_Position | null, color: Enum_Componentsharedbutton_Color, icon?: Enum_Componentsharedbutton_Icon | null, size: Enum_Componentsharedbutton_Size, link?: { __typename: 'ComponentSharedLink', label: string, color: Enum_Componentsharedlink_Color, href: string, target?: Enum_Componentsharedlink_Target | null } | null } | { __typename: 'ComponentSlicesHero' } | { __typename: 'ComponentSlicesLookingGlass' } | { __typename: 'ComponentSlicesLookingGlassWithPicture', imagePosition: Enum_Componentsliceslookingglasswithpicture_Imageposition, image: { __typename: 'ComponentSharedImage', width: number, height: number, alt?: string | null, image: { __typename: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null } | null } }, lookingGlass?: { __typename: 'ComponentSlicesLookingGlass', title?: string | null, description?: string | null, buttons?: Array<{ __typename: 'ComponentSharedButton', size: Enum_Componentsharedbutton_Size, label?: string | null, color: Enum_Componentsharedbutton_Color, link?: { __typename?: 'ComponentSharedLink', href: string, label: string, target?: Enum_Componentsharedlink_Target | null } | null } | null> | null, floatingLinks?: Array<{ __typename: 'ComponentSharedLink', href: string, label: string, target?: Enum_Componentsharedlink_Target | null, color: Enum_Componentsharedlink_Color } | null> | null } | null } | { __typename: 'ComponentSlicesMultiImageDisplay', images: Array<{ __typename: 'ComponentSharedImage', width: number, height: number, alt?: string | null, image: { __typename: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null } | null } } | null> } | { __typename: 'Error' } | null> | null } | null } | null } | null } | { __typename: 'ComponentSlicesLookingGlassWithPicture', imagePosition: Enum_Componentsliceslookingglasswithpicture_Imageposition, image: { __typename: 'ComponentSharedImage', width: number, height: number, alt?: string | null, image: { __typename: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null } | null } }, lookingGlass?: { __typename: 'ComponentSlicesLookingGlass', title?: string | null, description?: string | null, buttons?: Array<{ __typename: 'ComponentSharedButton', size: Enum_Componentsharedbutton_Size, label?: string | null, color: Enum_Componentsharedbutton_Color, link?: { __typename?: 'ComponentSharedLink', href: string, label: string, target?: Enum_Componentsharedlink_Target | null } | null } | null> | null, floatingLinks?: Array<{ __typename: 'ComponentSharedLink', href: string, label: string, target?: Enum_Componentsharedlink_Target | null, color: Enum_Componentsharedlink_Color } | null> | null } | null } | { __typename: 'ComponentSlicesMultiImageDisplay', images: Array<{ __typename: 'ComponentSharedImage', width: number, height: number, alt?: string | null, image: { __typename: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null } | null } } | null> } | { __typename?: 'Error' } | null> | null, holoImage?: { __typename: 'ComponentSharedImage', width: number, height: number, alt?: string | null, image: { __typename: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null } | null } } | null } | null }> } | null } | null } | null } | null };
+
 export type GetHomePageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type GetHomePageQuery = { __typename?: 'Query', homePage?: { __typename?: 'HomePageEntityResponse', data?: { __typename?: 'HomePageEntity', attributes?: { __typename: 'HomePage', hero_sections?: { __typename: 'HeroSectionRelationResponseCollection', data: Array<{ __typename?: 'HeroSectionEntity', attributes?: { __typename: 'HeroSection', hero: { __typename: 'ComponentSlicesHero', title: string, description?: string | null }, slices?: Array<{ __typename: 'ComponentSharedButton', label?: string | null, position?: Enum_Componentsharedbutton_Position | null, color: Enum_Componentsharedbutton_Color, icon?: Enum_Componentsharedbutton_Icon | null, size: Enum_Componentsharedbutton_Size, link?: { __typename: 'ComponentSharedLink', label: string, color: Enum_Componentsharedlink_Color, href: string, target?: Enum_Componentsharedlink_Target | null } | null } | { __typename: 'ComponentSlicesLookingGlass', title?: string | null, description?: string | null, buttons?: Array<{ __typename: 'ComponentSharedButton', size: Enum_Componentsharedbutton_Size, label?: string | null, color: Enum_Componentsharedbutton_Color, link?: { __typename?: 'ComponentSharedLink', href: string, label: string, target?: Enum_Componentsharedlink_Target | null } | null } | null> | null, floatingLinks?: Array<{ __typename: 'ComponentSharedLink', href: string, label: string, target?: Enum_Componentsharedlink_Target | null, color: Enum_Componentsharedlink_Color } | null> | null } | { __typename: 'ComponentSlicesLookingGlassWithPicture', imagePosition: Enum_Componentsliceslookingglasswithpicture_Imageposition, image: { __typename: 'ComponentSharedImage', width: number, height: number, alt?: string | null, image: { __typename: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null } | null } }, lookingGlass?: { __typename: 'ComponentSlicesLookingGlass', title?: string | null, description?: string | null, buttons?: Array<{ __typename: 'ComponentSharedButton', size: Enum_Componentsharedbutton_Size, label?: string | null, color: Enum_Componentsharedbutton_Color, link?: { __typename?: 'ComponentSharedLink', href: string, label: string, target?: Enum_Componentsharedlink_Target | null } | null } | null> | null, floatingLinks?: Array<{ __typename: 'ComponentSharedLink', href: string, label: string, target?: Enum_Componentsharedlink_Target | null, color: Enum_Componentsharedlink_Color } | null> | null } | null } | { __typename: 'ComponentSlicesMultiImageDisplay', images: Array<{ __typename: 'ComponentSharedImage', width: number, height: number, alt?: string | null, image: { __typename: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null } | null } } | null> } | { __typename?: 'Error' } | null> | null, holoImage?: { __typename: 'ComponentSharedImage', width: number, height: number, alt?: string | null, priority?: boolean | null, image: { __typename: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null } | null } } | null } | null }> } | null, test?: Array<{ __typename: 'ComponentSlicesHero', title: string } | { __typename: 'ComponentSlicesLookingGlass' } | { __typename: 'ComponentSlicesLookingGlassWithPicture' } | { __typename: 'ComponentSlicesMultiImageDisplay' } | { __typename: 'Error' } | null> | null } | null } | null } | null };
 
 
+export const GetGalleryPageDocument = gql`
+    query GetGalleryPage {
+  galleryPage {
+    data {
+      attributes {
+        __typename
+        hero_sections {
+          __typename
+          data {
+            attributes {
+              __typename
+              hero {
+                __typename
+                title
+                description
+              }
+              slices {
+                ... on ComponentSlicesLookingGlass {
+                  __typename
+                  title
+                  description
+                  buttons {
+                    __typename
+                    size
+                    label
+                    color
+                    link {
+                      href
+                      label
+                      target
+                    }
+                  }
+                  floatingLinks {
+                    __typename
+                    href
+                    label
+                    target
+                    color
+                  }
+                  collapsible
+                  dropdownSlices {
+                    __typename
+                    data {
+                      attributes {
+                        slices {
+                          __typename
+                          ... on ComponentSlicesMultiImageDisplay {
+                            __typename
+                            images {
+                              __typename
+                              width
+                              height
+                              alt
+                              image {
+                                __typename
+                                data {
+                                  attributes {
+                                    url
+                                  }
+                                }
+                              }
+                            }
+                          }
+                          ... on ComponentSlicesLookingGlassWithPicture {
+                            __typename
+                            image {
+                              __typename
+                              width
+                              height
+                              alt
+                              image {
+                                __typename
+                                data {
+                                  attributes {
+                                    url
+                                  }
+                                }
+                              }
+                            }
+                            imagePosition
+                            lookingGlass {
+                              __typename
+                              title
+                              description
+                              buttons {
+                                __typename
+                                size
+                                label
+                                color
+                                link {
+                                  href
+                                  label
+                                  target
+                                }
+                              }
+                              floatingLinks {
+                                __typename
+                                href
+                                label
+                                target
+                                color
+                              }
+                            }
+                          }
+                          ... on ComponentSharedButton {
+                            __typename
+                            label
+                            position
+                            color
+                            icon
+                            size
+                            link {
+                              __typename
+                              label
+                              color
+                              href
+                              target
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+                ... on ComponentSlicesMultiImageDisplay {
+                  __typename
+                  images {
+                    __typename
+                    width
+                    height
+                    alt
+                    image {
+                      __typename
+                      data {
+                        attributes {
+                          url
+                        }
+                      }
+                    }
+                  }
+                }
+                ... on ComponentSlicesLookingGlassWithPicture {
+                  __typename
+                  image {
+                    __typename
+                    width
+                    height
+                    alt
+                    image {
+                      __typename
+                      data {
+                        attributes {
+                          url
+                        }
+                      }
+                    }
+                  }
+                  imagePosition
+                  lookingGlass {
+                    __typename
+                    title
+                    description
+                    buttons {
+                      __typename
+                      size
+                      label
+                      color
+                      link {
+                        href
+                        label
+                        target
+                      }
+                    }
+                    floatingLinks {
+                      __typename
+                      href
+                      label
+                      target
+                      color
+                    }
+                  }
+                }
+                ... on ComponentSharedButton {
+                  __typename
+                  label
+                  position
+                  color
+                  icon
+                  size
+                  link {
+                    __typename
+                    label
+                    color
+                    href
+                    target
+                  }
+                }
+              }
+              holoImage {
+                __typename
+                width
+                height
+                alt
+                image {
+                  __typename
+                  data {
+                    attributes {
+                      url
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+    `;
+
+/**
+ * __useGetGalleryPageQuery__
+ *
+ * To run a query within a React component, call `useGetGalleryPageQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetGalleryPageQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetGalleryPageQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useGetGalleryPageQuery(baseOptions?: Apollo.QueryHookOptions<GetGalleryPageQuery, GetGalleryPageQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetGalleryPageQuery, GetGalleryPageQueryVariables>(GetGalleryPageDocument, options);
+      }
+export function useGetGalleryPageLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetGalleryPageQuery, GetGalleryPageQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetGalleryPageQuery, GetGalleryPageQueryVariables>(GetGalleryPageDocument, options);
+        }
+export type GetGalleryPageQueryHookResult = ReturnType<typeof useGetGalleryPageQuery>;
+export type GetGalleryPageLazyQueryHookResult = ReturnType<typeof useGetGalleryPageLazyQuery>;
+export type GetGalleryPageQueryResult = Apollo.QueryResult<GetGalleryPageQuery, GetGalleryPageQueryVariables>;
 export const GetHomePageDocument = gql`
     query GetHomePage {
   homePage {

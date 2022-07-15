@@ -15,4 +15,7 @@ type ThemeColorStyles =
   | "autoTransparent"
   | "white"
   | "black"
-  | "auto";
+  | "auto"
+  | "zincS900O50"
+  | "zincS200O50"
+  | "autoZincS900O50S200O50";

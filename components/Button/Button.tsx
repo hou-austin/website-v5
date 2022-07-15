@@ -11,6 +11,8 @@ const GAP_CLASSES = {
 const PADDING_CLASSES = {
   sm: "px-3 py-1",
   md: "px-4 py-2",
+  smEqual: "p-1",
+  mdEqual: "p-2",
 };
 
 const BORDER_CLASSES = {
@@ -38,7 +40,7 @@ type Sizes = "sm" | "md";
 
 type ButtonOptionalStyles = {
   gapStyle?: Sizes;
-  paddingStyle?: Sizes;
+  paddingStyle?: Sizes | "mdEqual" | "smEqual";
   borderStyle?: Sizes;
   radiusStyle: Sizes | "full";
   fontSize?: Sizes;
@@ -77,7 +79,7 @@ const Button: React.FC<ButtonProps> = ({
       : propStyle;
   };
 
-  const defaultClass = "flex items-center justify-center w-fit";
+  const defaultClass = "flex items-center justify-center w-fit h-fit";
   const gapClass = getClass(GAP_CLASSES, gapStyle);
   const colorClass = getAccentColor(colorStyle);
   const paddingClass = getClass(PADDING_CLASSES, paddingStyle);

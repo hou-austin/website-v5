@@ -71,6 +71,21 @@ const THEME_COLORS: {
     border: `border-zinc-400/20 dark:border-zinc-50/20`,
     text: `text-black dark:text-white`,
   },
+  zincS900O50: {
+    bg: `bg-zinc-900/50`,
+    border: `border-zinc-900/50`,
+    text: `text-zinc-900`,
+  },
+  zincS200O50: {
+    bg: `bg-zinc-200/50`,
+    border: `border-zinc-200/50`,
+    text: `text-zinc-200`,
+  },
+  autoZincS900O50S200O50: {
+    bg: `dark:bg-zinc-900/50 bg-zinc-200/50`,
+    border: `dark:border-zinc-900/50 border-zinc-200/50`,
+    text: `dark:text-zinc-900 dark:text-zinc-200`,
+  },
 };
 
 export type GetAccentColorProps = {
