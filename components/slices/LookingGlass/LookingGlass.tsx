@@ -5,7 +5,7 @@ import StrapiButton from "../../shared/StrapiButton";
 import StrapiLink from "../../shared/StrapiLink";
 import { ComponentSlicesLookingGlass } from "../../../types/generated/schema";
 import Slice from "../../collections/Slice";
-import { HiChevronDown, HiChevronLeft } from "react-icons/hi";
+import { HiChevronDown } from "react-icons/hi";
 import Button from "../../Button";
 
 const LookingGlass: React.FC<ComponentSlicesLookingGlass> = ({

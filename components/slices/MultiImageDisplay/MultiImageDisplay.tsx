@@ -26,7 +26,7 @@ const MultiImageDisplay: React.FC<ComponentSlicesMultiImageDisplay> = ({
   return (
     <div
       className={cx(
-        "grid gap-8 mx-auto sm:flex-row",
+        "grid gap-4 sm:gap-8 mx-auto sm:flex-row",
         {
           "grid-cols-1": images.length === 1,
         },
