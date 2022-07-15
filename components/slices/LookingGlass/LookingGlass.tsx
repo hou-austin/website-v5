@@ -70,7 +70,7 @@ const LookingGlass: React.FC<ComponentSlicesLookingGlass> = ({
       action={toggleDropdown}
       buttonStyles={{
         radiusStyle: "full",
-        borderStyle: "md",
+        borderStyle: "sm",
         fontSize: "md",
         paddingStyle: "smEqual",
       }}
