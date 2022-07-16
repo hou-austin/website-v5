@@ -6,6 +6,7 @@ import cx from "classnames";
 
 type Props = ComponentSharedImage & {
   className?: string;
+  modalClassName?: string;
 };
 
 const StrapiImage: React.FC<Props> = ({
@@ -13,11 +14,13 @@ const StrapiImage: React.FC<Props> = ({
   height,
   alt = "",
   image,
-  className = "",
   priority = false,
-  allowExpand = true,
+  allowExpand = false,
+  className = "",
+  modalClassName = "",
 }) => {
   const [modalVisibility, setModalVisibility] = useState(false);
+  const [isModalContentLoaded, setIsModalContentLoaded] = useState(false);
 
   const toggleModalVisibility = () => {
     if (allowExpand) {
@@ -39,15 +42,18 @@ const StrapiImage: React.FC<Props> = ({
           alt={alt || ""}
           className={className}
           {...(priority && { priority })}
-          {...(allowExpand && { unoptimized: true })}
         />
       </div>
       {modalVisibility && (
-        <Modal handleToggleModal={toggleModalVisibility}>
+        <Modal
+          handleToggleModal={toggleModalVisibility}
+          isModalContentLoaded={isModalContentLoaded}
+        >
           <Image
             src={image?.data?.attributes?.url}
             alt={alt || ""}
-            className={className}
+            onLoadingComplete={() => setIsModalContentLoaded(true)}
+            className={modalClassName}
             {...(priority && { priority })}
             {...(allowExpand && { unoptimized: true })}
           />
