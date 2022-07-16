@@ -11,6 +11,7 @@ const MultiImageDisplay: React.FC<ComponentSlicesMultiImageDisplay> = ({
     if (!images) return;
     return images.map((image, index) => {
       if (image) {
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         const { allowExpand: imageAllowExpand, ...imageRest } = image;
         return (
           <div key={index}>

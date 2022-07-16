@@ -4,9 +4,9 @@ import { getAccentColor, getThemeColor } from "../../../utils/styles/color";
 import StrapiButton from "../../shared/StrapiButton";
 import StrapiLink from "../../shared/StrapiLink";
 import { ComponentSlicesLookingGlass } from "../../../types/generated/schema";
-import Slice from "../../collections/Slice";
 import { HiChevronDown } from "react-icons/hi";
 import Button from "../../Button";
+import SliceManager from "../../SliceManager";
 
 const LookingGlass: React.FC<ComponentSlicesLookingGlass> = ({
   title,
@@ -129,7 +129,7 @@ const LookingGlass: React.FC<ComponentSlicesLookingGlass> = ({
               }
             )}
           >
-            <Slice slices={dropdownSlices.data.attributes.slices} />
+            <SliceManager slices={dropdownSlices.data.attributes.slices} />
           </div>
         </div>
       )}
