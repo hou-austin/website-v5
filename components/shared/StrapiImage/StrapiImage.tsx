@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useState } from "react";
 import Image from "next/future/image";
 import { ComponentSharedImage } from "../../../types/generated/schema";
 import Modal from "../../Modal/Modal";
