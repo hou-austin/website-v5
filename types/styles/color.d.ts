@@ -7,7 +7,8 @@ type AccentColorStyles =
   | "redS400O10"
   | "purpleS400O10"
   | "greenS400O10"
-  | "autoS400O10";
+  | "autoS400O10"
+  | "whiteS400O40";
 
 type ThemeColorStyles =
   | "whiteTransparent"
