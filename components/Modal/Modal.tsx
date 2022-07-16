@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { createPortal } from "react-dom";
 import Button from "../Button";
 import { HiX } from "react-icons/hi";
