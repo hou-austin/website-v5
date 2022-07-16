@@ -15,7 +15,7 @@ const HeroSection: React.FC<Props> = ({
 }) => {
   return (
     <div>
-      <div className={"relative z-10 mt-8"}>
+      <div className={"mt-8"}>
         <Hero {...hero} />
       </div>
       <div
