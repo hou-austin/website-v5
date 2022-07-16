@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import Image from "next/future/image";
 import { ComponentSharedImage } from "../../../types/generated/schema";
 import Modal from "../../Modal/Modal";
@@ -21,6 +21,14 @@ const StrapiImage: React.FC<Props> = ({
 }) => {
   const [modalVisibility, setModalVisibility] = useState(false);
   const [isModalContentLoaded, setIsModalContentLoaded] = useState(false);
+
+  const maxWidth = 1280;
+  let unoptimizedWidth = width;
+  let unoptimizedHeight = height;
+  while (unoptimizedWidth < maxWidth) {
+    unoptimizedWidth *= 2;
+    unoptimizedHeight *= 2;
+  }
 
   const toggleModalVisibility = () => {
     if (allowExpand) {
@@ -52,7 +60,11 @@ const StrapiImage: React.FC<Props> = ({
           <Image
             src={image?.data?.attributes?.url}
             alt={alt || ""}
-            onLoadingComplete={() => setIsModalContentLoaded(true)}
+            width={unoptimizedWidth}
+            height={unoptimizedHeight}
+            onLoadingComplete={() => {
+              setIsModalContentLoaded(true);
+            }}
             className={modalClassName}
             {...(priority && { priority })}
             {...(allowExpand && { unoptimized: true })}

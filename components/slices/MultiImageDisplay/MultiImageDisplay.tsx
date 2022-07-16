@@ -5,16 +5,19 @@ import cx from "classnames";
 
 const MultiImageDisplay: React.FC<ComponentSlicesMultiImageDisplay> = ({
   images,
+  allowExpand,
 }) => {
   const propagateImages = () => {
     if (!images) return;
     return images.map((image, index) => {
       if (image) {
+        const { allowExpand: imageAllowExpand, ...imageRest } = image;
         return (
           <div key={index}>
             <StrapiImage
-              {...image}
-              modalClassName="rounded-lg drop-shadow-2x w-auto"
+              {...imageRest}
+              {...(allowExpand && { allowExpand: true })}
+              modalClassName="rounded-lg drop-shadow-2x"
               className="rounded-lg drop-shadow-2x"
             />
           </div>

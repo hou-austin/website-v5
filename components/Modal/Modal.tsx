@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { createPortal } from "react-dom";
 import Button from "../Button";
 import { HiX } from "react-icons/hi";
@@ -61,7 +61,7 @@ const Modal: React.FC<Props> = ({
         <div
           className={cx(
             "cursor-default max-h-full overflow-y-auto rounded-lg",
-            { "opacity-0 h-0": !isModalContentLoaded }
+            { "fixed bottom-[100vh]": !isModalContentLoaded }
           )}
           onClick={(e) => e.stopPropagation()}
         >

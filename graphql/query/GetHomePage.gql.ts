@@ -42,6 +42,7 @@ export const GET_HOME_PAGE = gql`
                   }
                   ... on ComponentSlicesMultiImageDisplay {
                     __typename
+                    allowExpand
                     images {
                       __typename
                       width

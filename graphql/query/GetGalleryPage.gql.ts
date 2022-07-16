@@ -48,11 +48,13 @@ export const GetGalleryPage = gql`
                             __typename
                             ... on ComponentSlicesMultiImageDisplay {
                               __typename
+                              allowExpand
                               images {
                                 __typename
                                 width
                                 height
                                 alt
+                                allowExpand
                                 image {
                                   __typename
                                   data {
