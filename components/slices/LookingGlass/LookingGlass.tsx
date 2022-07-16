@@ -120,6 +120,7 @@ const LookingGlass: React.FC<ComponentSlicesLookingGlass> = ({
         >
           <div
             className={cx(
+              "flex flex-col gap-4 sm:gap-8",
               "p-4",
               {
                 "pt-24": !floatingLinks || floatingLinks.length > 0,
