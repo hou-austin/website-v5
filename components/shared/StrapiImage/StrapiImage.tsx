@@ -20,9 +20,10 @@ const StrapiImage: React.FC<Props> = ({
   allowExpand = false,
   className = "",
   modalClassName = "",
-  showLoading = false,
+  showLoading = true,
 }) => {
   const [isImageLoaded, setIsImageLoaded] = useState(false);
+  const [allowLoadBar, setAllowLoadBar] = useState(false);
 
   const [modalVisibility, setModalVisibility] = useState(false);
   const [isModalContentLoaded, setIsModalContentLoaded] = useState(false);
@@ -47,6 +48,10 @@ const StrapiImage: React.FC<Props> = ({
 
   const cdnUrl = `https://cdn.austinhou.com/image/${width}/${imageFileName}`;
 
+  setTimeout(() => {
+    setAllowLoadBar(true);
+  }, 250);
+
   const imageElement = (
     <Image
       src={cdnUrl}
@@ -70,7 +75,7 @@ const StrapiImage: React.FC<Props> = ({
           "cursor-pointer": allowExpand,
         })}
       >
-        {showLoading && !isImageLoaded && (
+        {showLoading && allowLoadBar && !isImageLoaded && (
           <div className="mx-auto absolute flex justify-items-center items-center w-full h-full">
             <BarLoader
               color="#ffffff"
