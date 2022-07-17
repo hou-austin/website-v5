@@ -9,7 +9,13 @@ const Footer: React.FC = () => {
   return (
     <footer className={cx("clear-both relative w-full pt-12", "sm:mt-40")}>
       <div className="absolute -bottom-8 max-w-7xl left-0 right-0 mx-auto">
-        <Image src={FooterImage} alt="" width={1920} height={1080} />
+        <Image
+          src={FooterImage}
+          alt=""
+          width={1920}
+          height={1080}
+          unoptimized={true}
+        />
       </div>
 
       <div className={cx("b-0 w-full max-w-7xl mx-auto px-4 mb-4")}>

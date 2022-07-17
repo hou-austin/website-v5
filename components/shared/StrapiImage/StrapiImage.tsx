@@ -3,10 +3,12 @@ import Image from "next/future/image";
 import { ComponentSharedImage } from "../../../types/generated/schema";
 import Modal from "../../Modal/Modal";
 import cx from "classnames";
+import { BarLoader } from "react-spinners";
 
 type Props = ComponentSharedImage & {
   className?: string;
   modalClassName?: string;
+  showLoading?: boolean;
 };
 
 const StrapiImage: React.FC<Props> = ({
@@ -18,7 +20,10 @@ const StrapiImage: React.FC<Props> = ({
   allowExpand = false,
   className = "",
   modalClassName = "",
+  showLoading = false,
 }) => {
+  const [isImageLoaded, setIsImageLoaded] = useState(false);
+
   const [modalVisibility, setModalVisibility] = useState(false);
   const [isModalContentLoaded, setIsModalContentLoaded] = useState(false);
 
@@ -37,20 +42,47 @@ const StrapiImage: React.FC<Props> = ({
   };
   if (!image?.data?.attributes?.url) return null;
 
+  const url = image?.data?.attributes?.url;
+  const imageFileName = url.split("/").pop();
+
+  const cdnUrl = `https://cdn.austinhou.com/image/${width}/${imageFileName}`;
+
+  const imageElement = (
+    <Image
+      src={cdnUrl}
+      width={width}
+      height={height}
+      alt={alt || ""}
+      className={className}
+      {...(priority && { priority })}
+      unoptimized={true}
+      onLoadingComplete={() => {
+        setIsImageLoaded(true);
+      }}
+    />
+  );
+
   return (
     <>
       <div
         onClick={toggleModalVisibility}
-        className={cx({ "cursor-pointer": allowExpand })}
+        className={cx("relative", {
+          "cursor-pointer": allowExpand,
+        })}
       >
-        <Image
-          src={image?.data?.attributes?.url}
-          width={width}
-          height={height}
-          alt={alt || ""}
-          className={className}
-          {...(priority && { priority })}
-        />
+        {showLoading && !isImageLoaded && (
+          <div className="mx-auto absolute flex justify-items-center items-center w-full h-full">
+            <BarLoader
+              color="#ffffff"
+              cssOverride={{
+                margin: "auto",
+                backgroundColor: "rgba(0,0,0,0.5)",
+                borderRadius: "9999px",
+              }}
+            />
+          </div>
+        )}
+        {imageElement}
       </div>
       {modalVisibility && (
         <Modal
@@ -58,7 +90,7 @@ const StrapiImage: React.FC<Props> = ({
           isModalContentLoaded={isModalContentLoaded}
         >
           <Image
-            src={image?.data?.attributes?.url}
+            src={url}
             alt={alt || ""}
             width={unoptimizedWidth}
             height={unoptimizedHeight}
@@ -67,7 +99,7 @@ const StrapiImage: React.FC<Props> = ({
             }}
             className={modalClassName}
             {...(priority && { priority })}
-            {...(allowExpand && { unoptimized: true })}
+            unoptimized={true}
           />
         </Modal>
       )}

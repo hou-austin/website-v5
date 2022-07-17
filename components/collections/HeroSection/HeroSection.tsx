@@ -31,13 +31,15 @@ const HeroSection: React.FC<Props> = ({
         >
           {slices && <SliceManager slices={slices} />}
         </div>
+
         {holoImage && (
-          <StrapiImage
-            {...holoImage}
+          <div
             className={
               "absolute top-0 max-w-7xl left-0 right-0 mx-auto overflow-hidden"
             }
-          />
+          >
+            <StrapiImage {...holoImage} showLoading={false} />
+          </div>
         )}
       </div>
     </div>
