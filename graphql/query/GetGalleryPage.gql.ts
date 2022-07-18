@@ -205,7 +205,6 @@ export const GetGalleryPage = gql`
                   width
                   height
                   alt
-                  priority
                   image {
                     __typename
                     data {

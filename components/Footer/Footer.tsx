@@ -1,21 +1,30 @@
 import React from "react";
-import Image from "next/image";
 import cx from "classnames";
 import LookingGlassContainer from "../LookingGlassContainer";
-import FooterImage from "../../public/images/light_streak_180_fade_crop.png";
 import { getAccentColor } from "../../utils/styles/color";
+
+const footerImage = "light_streak_180_fade_crop";
 
 const Footer: React.FC = () => {
   return (
     <footer className={cx("clear-both relative w-full pt-12", "sm:mt-40")}>
       <div className="absolute -bottom-8 max-w-7xl left-0 right-0 mx-auto">
-        <Image
-          src={FooterImage}
-          alt=""
-          width={1920}
-          height={1080}
-          unoptimized={true}
-        />
+        <picture>
+          <source
+            srcSet={`https://cdn.austinhou.com/image/1280/png/${footerImage}.webp`}
+            type="image/webp"
+          />
+          <source
+            srcSet={`https://cdn.austinhou.com/image/1280/png/${footerImage}.avif`}
+            type="image/avif"
+          />
+          <img
+            src={`https://cdn.austinhou.com/image/1280/source/${footerImage}.png`}
+            alt=""
+            width={1280}
+            height={720}
+          />
+        </picture>
       </div>
 
       <div className={cx("b-0 w-full max-w-7xl mx-auto px-4 mb-4")}>

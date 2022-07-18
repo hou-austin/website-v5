@@ -1,9 +1,10 @@
-import React, { useState } from "react";
-import Image from "next/future/image";
+import React, { useEffect, useRef, useState } from "react";
 import { ComponentSharedImage } from "../../../types/generated/schema";
 import Modal from "../../Modal/Modal";
 import cx from "classnames";
 import { BarLoader } from "react-spinners";
+
+const CDN_ENDPOINT = process.env.NEXT_PUBLIC_CDN_ENDPOINT;
 
 type Props = ComponentSharedImage & {
   className?: string;
@@ -16,7 +17,6 @@ const StrapiImage: React.FC<Props> = ({
   height,
   alt = "",
   image,
-  priority = false,
   allowExpand = false,
   className = "",
   modalClassName = "",
@@ -27,6 +27,13 @@ const StrapiImage: React.FC<Props> = ({
 
   const [modalVisibility, setModalVisibility] = useState(false);
   const [isModalContentLoaded, setIsModalContentLoaded] = useState(false);
+
+  const imageRef = useRef<HTMLImageElement>(null);
+  const handleLoad = () => setIsImageLoaded(true);
+
+  useEffect(() => {
+    if (imageRef.current && imageRef.current.complete) setIsImageLoaded(true);
+  }, []);
 
   const maxWidth = 1280;
   let unoptimizedWidth = width;
@@ -45,27 +52,19 @@ const StrapiImage: React.FC<Props> = ({
 
   const url = image?.data?.attributes?.url;
   const imageFileName = url.split("/").pop();
-
-  const cdnUrl = `https://cdn.austinhou.com/image/${width}/${imageFileName}`;
+  const imageUrlComponents = imageFileName?.split(".");
+  const originalImageExtension = imageUrlComponents?.pop();
+  const avifUrl = `${CDN_ENDPOINT}image/${width}/${originalImageExtension}/${imageUrlComponents?.join(
+    "."
+  )}.avif`;
+  const webpUrl = `${CDN_ENDPOINT}image/${width}/${originalImageExtension}/${imageUrlComponents?.join(
+    "."
+  )}.webp`;
+  const cdnUrl = `${CDN_ENDPOINT}image/${width}/source/${imageFileName}`;
 
   setTimeout(() => {
     setAllowLoadBar(true);
   }, 250);
-
-  const imageElement = (
-    <Image
-      src={cdnUrl}
-      width={width}
-      height={height}
-      alt={alt || ""}
-      className={className}
-      {...(priority && { priority })}
-      unoptimized={true}
-      onLoadingComplete={() => {
-        setIsImageLoaded(true);
-      }}
-    />
-  );
 
   return (
     <>
@@ -87,25 +86,37 @@ const StrapiImage: React.FC<Props> = ({
             />
           </div>
         )}
-        {imageElement}
+        <picture>
+          <source srcSet={webpUrl} type="image/webp" />
+          <source srcSet={avifUrl} type="image/avif" />
+          <img
+            ref={imageRef}
+            src={cdnUrl}
+            alt={alt || ""}
+            width={width}
+            height={height}
+            onLoad={handleLoad}
+            className={className}
+          />
+        </picture>
       </div>
       {modalVisibility && (
         <Modal
           handleToggleModal={toggleModalVisibility}
           isModalContentLoaded={isModalContentLoaded}
         >
-          <Image
-            src={url}
-            alt={alt || ""}
-            width={unoptimizedWidth}
-            height={unoptimizedHeight}
-            onLoadingComplete={() => {
-              setIsModalContentLoaded(true);
-            }}
-            className={modalClassName}
-            {...(priority && { priority })}
-            unoptimized={true}
-          />
+          <picture>
+            <img
+              src={url}
+              alt={alt || ""}
+              width={unoptimizedWidth}
+              height={unoptimizedHeight}
+              onLoad={() => {
+                setIsModalContentLoaded(true);
+              }}
+              className={modalClassName}
+            />
+          </picture>
         </Modal>
       )}
     </>
