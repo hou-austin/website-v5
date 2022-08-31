@@ -110,7 +110,7 @@ const StrapiImage: React.FC<Props> = ({
           <div
             className={cx(
               "absolute bottom-1 right-1 p-1 rounded-md backdrop-blur-sm duration-200",
-              isHovered ? "opacity-100" : "opacity-0",
+              isHovered ? "opacity-100" : "sm:opacity-0",
               getThemeColor({
                 color: "autoTransparent",
                 types: ["bg", "text"],
