@@ -65,6 +65,7 @@ const StrapiImage: React.FC<Props> = ({
     "."
   )}.webp`;
   const cdnUrl = `${CDN_ENDPOINT}image/${width}/source/${imageFileName}`;
+  const sourceImageUrl = `${CDN_ENDPOINT}image/0/source/${imageFileName}`;
 
   setTimeout(() => {
     setAllowLoadBar(true);
@@ -94,12 +95,12 @@ const StrapiImage: React.FC<Props> = ({
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
-          <source srcSet={webpUrl} type="image/webp" />
           <source srcSet={avifUrl} type="image/avif" />
+          <source srcSet={webpUrl} type="image/webp" />
           <img
             ref={imageRef}
-            src={cdnUrl}
             alt={alt || ""}
+            src={cdnUrl}
             width={width}
             height={height}
             onLoad={handleLoad}
@@ -128,7 +129,7 @@ const StrapiImage: React.FC<Props> = ({
         >
           <picture>
             <img
-              src={url}
+              src={sourceImageUrl}
               alt={alt || ""}
               width={unoptimizedWidth}
               height={unoptimizedHeight}
