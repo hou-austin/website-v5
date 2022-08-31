@@ -3,6 +3,8 @@ import { ComponentSharedImage } from "../../../types/generated/schema";
 import Modal from "../../Modal/Modal";
 import cx from "classnames";
 import { BarLoader } from "react-spinners";
+import { HiOutlineArrowsExpand } from "react-icons/hi";
+import { getThemeColor } from "../../../utils/styles/color";
 
 const CDN_ENDPOINT = process.env.NEXT_PUBLIC_CDN_ENDPOINT;
 
@@ -27,6 +29,8 @@ const StrapiImage: React.FC<Props> = ({
 
   const [modalVisibility, setModalVisibility] = useState(false);
   const [isModalContentLoaded, setIsModalContentLoaded] = useState(false);
+
+  const [isHovered, setIsHovered] = useState(false);
 
   const imageRef = useRef<HTMLImageElement>(null);
   const handleLoad = () => setIsImageLoaded(true);
@@ -86,7 +90,10 @@ const StrapiImage: React.FC<Props> = ({
             />
           </div>
         )}
-        <picture>
+        <picture
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
           <source srcSet={webpUrl} type="image/webp" />
           <source srcSet={avifUrl} type="image/avif" />
           <img
@@ -99,6 +106,20 @@ const StrapiImage: React.FC<Props> = ({
             className={className}
           />
         </picture>
+        {allowExpand && isImageLoaded && (
+          <div
+            className={cx(
+              "absolute bottom-1 right-1 p-1 rounded-md backdrop-blur-sm duration-200",
+              isHovered ? "opacity-100" : "opacity-0",
+              getThemeColor({
+                color: "autoTransparent",
+                types: ["bg", "text"],
+              })
+            )}
+          >
+            <HiOutlineArrowsExpand />
+          </div>
+        )}
       </div>
       {modalVisibility && (
         <Modal
