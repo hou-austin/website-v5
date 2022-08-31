@@ -21,9 +21,8 @@ const NavigationBar: React.FC = () => {
   return (
     <div
       className={cx(
-        "w-full top-0 border-b duration-500 backdrop-blur-md z-50",
+        "w-full top-0 border-b duration-500 backdrop-blur-md z-40",
         { fixed: true },
-        { sticky: false },
         getAccentColor({ color: "autoS400O10", types: ["border"] }),
         { "glass-nav-white-bg-1": scrollPosition === 0 },
         { "glass-nav-dark-bg-1": scrollPosition === 0 },

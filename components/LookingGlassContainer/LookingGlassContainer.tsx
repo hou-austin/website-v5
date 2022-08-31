@@ -58,7 +58,7 @@ const LookingGlassContainer: React.FC<Props> = ({
     >
       <div
         className={cx(
-          "px-4 p-4 border rounded-lg col-start-1 row-start-1 flex flex-col shadow-xl backdrop-blur-lg relative z-10",
+          "px-4 p-4 border rounded-lg col-start-1 row-start-1 flex flex-col shadow-xl backdrop-blur-lg",
           getThemeColor({ color: "autoTransparent" })
         )}
       >

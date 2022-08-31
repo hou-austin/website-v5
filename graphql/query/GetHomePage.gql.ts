@@ -42,11 +42,13 @@ export const GET_HOME_PAGE = gql`
                   }
                   ... on ComponentSlicesMultiImageDisplay {
                     __typename
+                    allowExpand
                     images {
                       __typename
                       width
                       height
                       alt
+                      allowExpand
                       image {
                         __typename
                         data {
@@ -64,6 +66,7 @@ export const GET_HOME_PAGE = gql`
                       width
                       height
                       alt
+                      allowExpand
                       image {
                         __typename
                         data {
@@ -119,7 +122,6 @@ export const GET_HOME_PAGE = gql`
                   width
                   height
                   alt
-                  priority
                   image {
                     __typename
                     data {

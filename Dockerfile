@@ -5,5 +5,5 @@ COPY ./ ./
 RUN apk add htop
 RUN apk add tmux
 RUN yarn install
-CMD yarn build
+RUN yarn build
 CMD yarn start

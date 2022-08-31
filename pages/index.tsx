@@ -24,7 +24,7 @@ const Home = ({ page }: Props) => {
         />
       </Head>
       <div className={cx("max-w-7xl mx-auto px-4")}>
-        <div className={cx("top-52 z-10 absolute")}>
+        <div className={cx("top-52 absolute")}>
           <div
             className={cx(
               "text-bold",

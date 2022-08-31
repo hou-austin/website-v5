@@ -36,6 +36,11 @@ const ACCENT_COLORS: {
     border: `border-zinc-400/10 dark:border-zinc-400/10`,
     text: `text-zinc-800 dark:text-zinc-200`,
   },
+  whiteS400O40: {
+    bg: `bg-white/40`,
+    border: `border-white/40`,
+    text: `text-white`,
+  },
 };
 
 const THEME_COLORS: {
