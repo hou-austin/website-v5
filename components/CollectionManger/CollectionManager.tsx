@@ -10,6 +10,7 @@ type StrapiCollections = { data: StrapiCollectionsData[] };
 type StrapiCollectionsData = { attributes: StrapiCollectionsDataIntersection };
 
 const COLLECTIONS: {
+  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
   [key in string]: React.FC<any>;
 } = {
   HeroSection: HeroSection,

@@ -3,6 +3,8 @@ import { ComponentSharedImage } from "../../../types/generated/schema";
 import Modal from "../../Modal/Modal";
 import cx from "classnames";
 import { BarLoader } from "react-spinners";
+import { HiOutlineArrowsExpand } from "react-icons/hi";
+import { getThemeColor } from "../../../utils/styles/color";
 
 const CDN_ENDPOINT = process.env.NEXT_PUBLIC_CDN_ENDPOINT;
 
@@ -27,6 +29,8 @@ const StrapiImage: React.FC<Props> = ({
 
   const [modalVisibility, setModalVisibility] = useState(false);
   const [isModalContentLoaded, setIsModalContentLoaded] = useState(false);
+
+  const [isHovered, setIsHovered] = useState(false);
 
   const imageRef = useRef<HTMLImageElement>(null);
   const handleLoad = () => setIsImageLoaded(true);
@@ -61,6 +65,7 @@ const StrapiImage: React.FC<Props> = ({
     "."
   )}.webp`;
   const cdnUrl = `${CDN_ENDPOINT}image/${width}/source/${imageFileName}`;
+  const sourceImageUrl = `${CDN_ENDPOINT}image/0/source/${imageFileName}`;
 
   setTimeout(() => {
     setAllowLoadBar(true);
@@ -86,19 +91,36 @@ const StrapiImage: React.FC<Props> = ({
             />
           </div>
         )}
-        <picture>
-          <source srcSet={webpUrl} type="image/webp" />
+        <picture
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
           <source srcSet={avifUrl} type="image/avif" />
+          <source srcSet={webpUrl} type="image/webp" />
           <img
             ref={imageRef}
-            src={cdnUrl}
             alt={alt || ""}
+            src={cdnUrl}
             width={width}
             height={height}
             onLoad={handleLoad}
             className={className}
           />
         </picture>
+        {allowExpand && isImageLoaded && (
+          <div
+            className={cx(
+              "absolute bottom-1 right-1 p-1 rounded-md backdrop-blur-sm duration-200",
+              isHovered ? "opacity-100" : "sm:opacity-0",
+              getThemeColor({
+                color: "autoTransparent",
+                types: ["bg", "text"],
+              })
+            )}
+          >
+            <HiOutlineArrowsExpand />
+          </div>
+        )}
       </div>
       {modalVisibility && (
         <Modal
@@ -107,7 +129,7 @@ const StrapiImage: React.FC<Props> = ({
         >
           <picture>
             <img
-              src={url}
+              src={sourceImageUrl}
               alt={alt || ""}
               width={unoptimizedWidth}
               height={unoptimizedHeight}

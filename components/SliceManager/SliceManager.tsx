@@ -14,6 +14,7 @@ type StrapiSlices = HeroSectionSlicesDynamicZone | SliceSlicesDynamicZone;
 
 type StrapiSlicesArray = Maybe<StrapiSlices>[];
 
+/* eslint-disable-next-line @typescript-eslint/no-explicit-any */
 const SLICES: { [key in string]: React.FC<any> } = {
   ComponentSlicesHero: Hero,
   ComponentSlicesLookingGlass: LookingGlass,
