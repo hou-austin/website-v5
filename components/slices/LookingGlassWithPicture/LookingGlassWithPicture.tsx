@@ -3,7 +3,6 @@ import cx from "classnames";
 import LookingGlass from "../LookingGlass";
 import StrapiImage from "../../shared/StrapiImage";
 import { ComponentSlicesLookingGlassWithPicture } from "../../../types/generated/schema";
-import { getThemeColor } from "../../../utils/styles/color";
 
 const IMAGE_POSITION = {
   left: [
