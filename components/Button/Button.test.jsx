@@ -11,9 +11,26 @@ test("loads and displays text", () => {
   expect(screen.getByTestId("button")).toBeDefined();
 });
 
-describe("User click", () => {
-  test("should have a link if href is provided", () => {
-    render(<Button action={"/test"}>Click me</Button>);
+describe("Action", () => {
+  test("should not have a link if empty", () => {
+    render(<Button>{BUTTON_TEXT}</Button>);
+
+    let success = true;
+
+    try {
+      screen.getByTestId("button-link-wrapper");
+      success = false;
+    } catch (error) {
+      expect(error).toBeDefined();
+    }
+
+    if (!success) {
+      throw new Error("Button link wrapper was found");
+    }
+  });
+
+  test("should have a link if it's a string", () => {
+    render(<Button action={"/test"}>{BUTTON_TEXT}</Button>);
 
     const buttonLinkWrapper = screen.getByTestId("button-link-wrapper");
     expect(buttonLinkWrapper).toBeDefined();
