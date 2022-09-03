@@ -1,8 +1,7 @@
 import { act, render, screen, waitFor } from "@testing-library/react";
 import "@testing-library/jest-dom";
 
-import StrapiImage from "./";
-import { Props } from "./StrapiImage";
+import StrapiImage, { Props } from "./StrapiImage";
 
 const mockStrapiImageData: Props = {
   width: 500,

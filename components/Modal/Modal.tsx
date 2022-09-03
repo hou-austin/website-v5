@@ -5,7 +5,7 @@ import { HiX } from "react-icons/hi";
 import cx from "classnames";
 import { BarLoader } from "react-spinners";
 
-type Props = {
+export type Props = {
   handleToggleModal: () => void;
   isModalContentLoaded?: boolean;
   children: React.ReactElement;
@@ -65,6 +65,7 @@ const Modal: React.FC<Props> = ({
             { "fixed bottom-[100vh]": !isModalContentLoaded }
           )}
           onClick={(e) => e.stopPropagation()}
+          data-testid="modalContentArea"
         >
           {children}
         </div>

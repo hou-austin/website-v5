@@ -18,7 +18,7 @@ describe("Action property", () => {
     let success = true;
 
     try {
-      screen.getByTestId("button-link-wrapper");
+      screen.getByTestId("buttonLinkWrapper");
       success = false;
     } catch (error) {
       expect(error).toBeDefined();
@@ -32,7 +32,7 @@ describe("Action property", () => {
   test("if is a string should have a link", () => {
     render(<Button action={"/test"}>{BUTTON_TEXT}</Button>);
 
-    const buttonLinkWrapper = screen.getByTestId("button-link-wrapper");
+    const buttonLinkWrapper = screen.getByTestId("buttonLinkWrapper");
     expect(buttonLinkWrapper).toBeDefined();
     expect(buttonLinkWrapper).toHaveAttribute("href", "/test");
   });

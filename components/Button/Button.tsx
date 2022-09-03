@@ -117,7 +117,7 @@ const Button: React.FC<ButtonProps> = ({
   if (action && typeof action === "string") {
     return (
       <Link href={action}>
-        <a data-testid="button-link-wrapper">{button}</a>
+        <a data-testid="buttonLinkWrapper">{button}</a>
       </Link>
     );
   } else {
