@@ -36,4 +36,16 @@ describe("Action", () => {
     expect(buttonLinkWrapper).toBeDefined();
     expect(buttonLinkWrapper).toHaveAttribute("href", "/test");
   });
+
+  test("should make counter go up after click", () => {
+    let counter = 0;
+    const count = () => {
+      counter += 1;
+    };
+    render(<Button action={count}>{BUTTON_TEXT}</Button>);
+
+    const button = screen.getByTestId("button");
+    button.click();
+    expect(counter).toBe(1);
+  });
 });
