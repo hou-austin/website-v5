@@ -3,19 +3,19 @@ import { NextPageWithLayout } from "./_app";
 import Page, { StrapiSingles } from "../components/Page/Page";
 import NavigationLayout from "../layouts/NavigationLayout";
 import client from "../utils/apollo";
-import { GetGalleryPageDocument } from "../types/generated/schema";
+import { GetSpeakersPageDocument } from "../types/generated/schema";
 import Head from "next/head";
 
 type Props = NextPageWithLayout & {
   page: { data: StrapiSingles };
 };
 
-const Gallery = ({ page }: Props) => {
+const Speakers = ({ page }: Props) => {
   return (
     <>
       <Head>
-        <title>Gallery</title>
-        <meta name="description" content="My gallery of art." />
+        <title>Speakers</title>
+        <meta name="description" content="My speaker projects." />
       </Head>
       <div className={"mt-32"}>
         <Page staticStrapiData={page} />
@@ -24,7 +24,7 @@ const Gallery = ({ page }: Props) => {
   );
 };
 
-Gallery.getLayout = function getLayout(page: React.ReactElement) {
+Speakers.getLayout = function getLayout(page: React.ReactElement) {
   return (
     <div>
       <NavigationLayout>{page}</NavigationLayout>
@@ -33,11 +33,11 @@ Gallery.getLayout = function getLayout(page: React.ReactElement) {
 };
 
 export async function getStaticProps() {
-  const { data } = await client.query({ query: GetGalleryPageDocument });
+  const { data } = await client.query({ query: GetSpeakersPageDocument });
 
   return {
-    props: { page: data.galleryPage as StrapiSingles },
+    props: { page: data.speakersPage as StrapiSingles },
   };
 }
 
-export default Gallery;
+export default Speakers;
