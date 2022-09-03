@@ -106,6 +106,7 @@ const Button: React.FC<ButtonProps> = ({
 
   const button = (
     <div
+      data-testid="button"
       className={composedClasses}
       {...(action && typeof action !== "string" && { onClick: action })}
     >
@@ -116,7 +117,7 @@ const Button: React.FC<ButtonProps> = ({
   if (action && typeof action === "string") {
     return (
       <Link href={action}>
-        <a>{button}</a>
+        <a data-testid="buttonLinkWrapper">{button}</a>
       </Link>
     );
   } else {
