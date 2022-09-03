@@ -11,8 +11,8 @@ test("loads and displays text", () => {
   expect(screen.getByTestId("button")).toBeDefined();
 });
 
-describe("Action", () => {
-  test("should not have a link if empty", () => {
+describe("Action property", () => {
+  test("if empty should not have a link", () => {
     render(<Button>{BUTTON_TEXT}</Button>);
 
     let success = true;
@@ -29,7 +29,7 @@ describe("Action", () => {
     }
   });
 
-  test("should have a link if it's a string", () => {
+  test("if is a string should have a link", () => {
     render(<Button action={"/test"}>{BUTTON_TEXT}</Button>);
 
     const buttonLinkWrapper = screen.getByTestId("button-link-wrapper");
