@@ -8,7 +8,7 @@ import { getThemeColor } from "../../../utils/styles/color";
 
 const CDN_ENDPOINT = process.env.NEXT_PUBLIC_CDN_ENDPOINT;
 
-type Props = ComponentSharedImage & {
+export type Props = ComponentSharedImage & {
   className?: string;
   modalClassName?: string;
   showLoading?: boolean;
@@ -78,6 +78,7 @@ const StrapiImage: React.FC<Props> = ({
         className={cx("relative", {
           "cursor-pointer": allowExpand,
         })}
+        data-testid="strapiImageWrapper"
       >
         {showLoading && allowLoadBar && !isImageLoaded && (
           <div className="mx-auto absolute flex justify-items-center items-center w-full h-full">

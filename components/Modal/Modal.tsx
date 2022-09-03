@@ -31,6 +31,7 @@ const Modal: React.FC<Props> = ({
     <div
       className="flex items-center justify-center fixed w-full h-full top-0 left-0 right-0 bottom-0 bg-black/80 z-50 overflow-hidden"
       onClick={handleToggleModal}
+      data-testid="modal"
     >
       <div className="overflow-hidden grid grid-cols-1 grid-rows-[1fr_auto] max-h-full mx-auto max-w-7xl py-4 px-4">
         {isModalContentLoaded ? (
