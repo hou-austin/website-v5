@@ -1,14 +1,13 @@
 services:
-  app:
-    build: .
-    ports:
-      - "3000:3000"
-      - "5858:5858"
-      - "9229:9229"
-      - "7000:7000"
-    env_file: .env
-    volumes:
-      - appVolume:/user/src/app
+    app:
+        build: .
+        ports:
+            - '3000:3000'
+            - '5858:5858'
+            - '9229:9229'
+        env_file: .env
+        volumes:
+            - appVolume:/user/src/app
 
 volumes:
-  appVolume:
+    appVolume:
